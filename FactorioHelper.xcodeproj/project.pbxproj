@@ -13,6 +13,18 @@
 		FADC483025004AC700FDB962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADC482E25004AC700FDB962 /* Main.storyboard */; };
 		FADC483225004AC900FDB962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC483125004AC900FDB962 /* Assets.xcassets */; };
 		FADC483525004AC900FDB962 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADC483325004AC900FDB962 /* LaunchScreen.storyboard */; };
+		FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC483E25004B2900FDB962 /* inserterJSONED.json */; };
+		FADC484B25004B2A00FDB962 /* turretJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC483F25004B2900FDB962 /* turretJSONED.json */; };
+		FADC484C25004B2A00FDB962 /* demo-recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484025004B2A00FDB962 /* demo-recipeJSONED.json */; };
+		FADC484D25004B2A00FDB962 /* equipmentJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484125004B2A00FDB962 /* equipmentJSONED.json */; };
+		FADC484E25004B2A00FDB962 /* ammoJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484225004B2A00FDB962 /* ammoJSONED.json */; };
+		FADC484F25004B2A00FDB962 /* moduleJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484325004B2A00FDB962 /* moduleJSONED.json */; };
+		FADC485025004B2A00FDB962 /* demo-furnace-recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484425004B2A00FDB962 /* demo-furnace-recipeJSONED.json */; };
+		FADC485125004B2A00FDB962 /* circuit-networkJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484525004B2A00FDB962 /* circuit-networkJSONED.json */; };
+		FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484625004B2A00FDB962 /* fluid-recipeJSONED.json */; };
+		FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484725004B2A00FDB962 /* capsuleJSONED.json */; };
+		FADC485425004B2A00FDB962 /* demo-turretJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484825004B2A00FDB962 /* demo-turretJSONED.json */; };
+		FADC485525004B2A00FDB962 /* recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484925004B2A00FDB962 /* recipeJSONED.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +36,18 @@
 		FADC483125004AC900FDB962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADC483425004AC900FDB962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADC483625004AC900FDB962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADC483E25004B2900FDB962 /* inserterJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = inserterJSONED.json; sourceTree = "<group>"; };
+		FADC483F25004B2900FDB962 /* turretJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = turretJSONED.json; sourceTree = "<group>"; };
+		FADC484025004B2A00FDB962 /* demo-recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-recipeJSONED.json"; sourceTree = "<group>"; };
+		FADC484125004B2A00FDB962 /* equipmentJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = equipmentJSONED.json; sourceTree = "<group>"; };
+		FADC484225004B2A00FDB962 /* ammoJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ammoJSONED.json; sourceTree = "<group>"; };
+		FADC484325004B2A00FDB962 /* moduleJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moduleJSONED.json; sourceTree = "<group>"; };
+		FADC484425004B2A00FDB962 /* demo-furnace-recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-furnace-recipeJSONED.json"; sourceTree = "<group>"; };
+		FADC484525004B2A00FDB962 /* circuit-networkJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "circuit-networkJSONED.json"; sourceTree = "<group>"; };
+		FADC484625004B2A00FDB962 /* fluid-recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "fluid-recipeJSONED.json"; sourceTree = "<group>"; };
+		FADC484725004B2A00FDB962 /* capsuleJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capsuleJSONED.json; sourceTree = "<group>"; };
+		FADC484825004B2A00FDB962 /* demo-turretJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-turretJSONED.json"; sourceTree = "<group>"; };
+		FADC484925004B2A00FDB962 /* recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recipeJSONED.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,7 @@
 		FADC482725004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXGroup;
 			children = (
+				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
 				FADC482A25004AC700FDB962 /* SceneDelegate.swift */,
 				FADC482C25004AC700FDB962 /* ViewController.swift */,
@@ -65,6 +90,33 @@
 				FADC483625004AC900FDB962 /* Info.plist */,
 			);
 			path = FactorioHelper;
+			sourceTree = "<group>";
+		};
+		FADC483C25004B0800FDB962 /* RecipesSources */ = {
+			isa = PBXGroup;
+			children = (
+				FADC483D25004B1500FDB962 /* Recipes */,
+			);
+			path = RecipesSources;
+			sourceTree = "<group>";
+		};
+		FADC483D25004B1500FDB962 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				FADC484225004B2A00FDB962 /* ammoJSONED.json */,
+				FADC484725004B2A00FDB962 /* capsuleJSONED.json */,
+				FADC484525004B2A00FDB962 /* circuit-networkJSONED.json */,
+				FADC484425004B2A00FDB962 /* demo-furnace-recipeJSONED.json */,
+				FADC484025004B2A00FDB962 /* demo-recipeJSONED.json */,
+				FADC484825004B2A00FDB962 /* demo-turretJSONED.json */,
+				FADC484125004B2A00FDB962 /* equipmentJSONED.json */,
+				FADC484625004B2A00FDB962 /* fluid-recipeJSONED.json */,
+				FADC483E25004B2900FDB962 /* inserterJSONED.json */,
+				FADC484325004B2A00FDB962 /* moduleJSONED.json */,
+				FADC484925004B2A00FDB962 /* recipeJSONED.json */,
+				FADC483F25004B2900FDB962 /* turretJSONED.json */,
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +177,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADC485125004B2A00FDB962 /* circuit-networkJSONED.json in Resources */,
+				FADC485525004B2A00FDB962 /* recipeJSONED.json in Resources */,
+				FADC485425004B2A00FDB962 /* demo-turretJSONED.json in Resources */,
 				FADC483525004AC900FDB962 /* LaunchScreen.storyboard in Resources */,
+				FADC484B25004B2A00FDB962 /* turretJSONED.json in Resources */,
+				FADC485025004B2A00FDB962 /* demo-furnace-recipeJSONED.json in Resources */,
+				FADC484D25004B2A00FDB962 /* equipmentJSONED.json in Resources */,
 				FADC483225004AC900FDB962 /* Assets.xcassets in Resources */,
+				FADC484E25004B2A00FDB962 /* ammoJSONED.json in Resources */,
+				FADC484C25004B2A00FDB962 /* demo-recipeJSONED.json in Resources */,
+				FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */,
+				FADC484F25004B2A00FDB962 /* moduleJSONED.json in Resources */,
+				FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */,
 				FADC483025004AC700FDB962 /* Main.storyboard in Resources */,
+				FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,1 @@
+[{"enabled":false,"type":"recipe","name":"stack-inserter","ingredients":[["iron-gear-wheel",15],["electronic-circuit",15],["advanced-circuit",1],["fast-inserter",1]],"result":"stack-inserter"},{"enabled":false,"type":"recipe","name":"stack-filter-inserter","ingredients":[["stack-inserter",1],["electronic-circuit",5]],"result":"stack-filter-inserter"}]
