@@ -25,6 +25,8 @@
 		FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484725004B2A00FDB962 /* capsuleJSONED.json */; };
 		FADC485425004B2A00FDB962 /* demo-turretJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484825004B2A00FDB962 /* demo-turretJSONED.json */; };
 		FADC485525004B2A00FDB962 /* recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484925004B2A00FDB962 /* recipeJSONED.json */; };
+		FADC485825004CFD00FDB962 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485725004CFD00FDB962 /* Recipe.swift */; };
+		FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485925004D2500FDB962 /* RecipeParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FADC484725004B2A00FDB962 /* capsuleJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capsuleJSONED.json; sourceTree = "<group>"; };
 		FADC484825004B2A00FDB962 /* demo-turretJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-turretJSONED.json"; sourceTree = "<group>"; };
 		FADC484925004B2A00FDB962 /* recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recipeJSONED.json; sourceTree = "<group>"; };
+		FADC485725004CFD00FDB962 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		FADC485925004D2500FDB962 /* RecipeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		FADC482725004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXGroup;
 			children = (
+				FADC485625004CEE00FDB962 /* Model */,
 				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
 				FADC482A25004AC700FDB962 /* SceneDelegate.swift */,
@@ -88,6 +93,7 @@
 				FADC483125004AC900FDB962 /* Assets.xcassets */,
 				FADC483325004AC900FDB962 /* LaunchScreen.storyboard */,
 				FADC483625004AC900FDB962 /* Info.plist */,
+				FADC485925004D2500FDB962 /* RecipeParser.swift */,
 			);
 			path = FactorioHelper;
 			sourceTree = "<group>";
@@ -117,6 +123,14 @@
 				FADC483F25004B2900FDB962 /* turretJSONED.json */,
 			);
 			path = Recipes;
+			sourceTree = "<group>";
+		};
+		FADC485625004CEE00FDB962 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FADC485725004CFD00FDB962 /* Recipe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +219,8 @@
 				FADC482D25004AC700FDB962 /* ViewController.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
+				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
+				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
