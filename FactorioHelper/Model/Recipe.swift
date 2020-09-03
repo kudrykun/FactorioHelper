@@ -61,7 +61,9 @@ struct Color: Codable {
 }
 
 struct Result: Codable {
-    var name: String
-    var probability: Double
-    var amount: Int
+    var name: String?
+    var probability: Double?
+    var amount: Int?
+    var type: String?
+    var fluidbox_index: Int?
 }

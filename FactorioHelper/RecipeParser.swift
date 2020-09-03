@@ -43,18 +43,18 @@ class RecipeParser {
         let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
         let energyRequired = dict["energyRequired"] as? Double
         let result = dict["result"] as? String
-        let normal: DifficultyRecipe? = nil
-        let expensive: DifficultyRecipe? = nil
+        let normal: DifficultyRecipe? = parseDifficultyRecipe(from: dict["normal"] as? [String : Any])
+        let expensive: DifficultyRecipe? = parseDifficultyRecipe(from: dict["expensive"] as? [String : Any])
         let resultCount = dict["resultCount"] as? Int
         let requester_paste_multiplier = dict["requester_paste_multiplier"] as? Double
-        let crafting_machine_tint: CraftingMachineTint? = nil
+        let crafting_machine_tint: CraftingMachineTint? = parseCraftingMachineTint(from: dict["crafting_machine_tint"] as? [String : Any])
         let hidden = dict["hidden"] as? Bool
         let icon = dict["icon"] as? String
         let icon_size = dict["icon_size"] as? String
         let icon_mipmaps = dict["icon_mipmaps"] as? String
         let subgroup = dict["subgroup"] as? String
         let order = dict["order"] as? String
-        let results: [Result]? = nil
+        let results: [Result]? = parseResults(from: dict["results"] as? [Any] ?? [])
 
         let recipe = Recipe(type: type, name: name, enabled: enabled, category: category, ingredients: ingredients, energyRequired: energyRequired, result: result, normal: normal, expensive: expensive, resultCount: resultCount, requester_paste_multiplier: requester_paste_multiplier, crafting_machine_tint: crafting_machine_tint, hidden: hidden, icon: icon, icon_size: icon_size, icon_mipmaps: icon_mipmaps, subgroup: subgroup, order: order, results: results)
 
@@ -78,5 +78,49 @@ class RecipeParser {
             }
         }
         return ingredients
+    }
+
+    func parseDifficultyRecipe(from dict: [String : Any]?) -> DifficultyRecipe? {
+        guard let dict = dict else { return nil }
+        let enabled = dict["enabled"] as? Bool
+        let energyRequired = dict["energyRequired"] as? Double
+        let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
+        let result = dict["result"] as? String
+
+        return DifficultyRecipe(enabled: enabled, energyRequired: energyRequired, ingredients: ingredients, result: result)
+    }
+
+    func parseColor(from dict: [String : Any]?) -> Color? {
+        guard let dict = dict else { return nil }
+        let r = dict["r"] as! Double
+        let g = dict["g"] as! Double
+        let b = dict["b"] as! Double
+        let a = dict["a"] as! Double
+        return Color(r: r, g: g, b: b, a: a)
+    }
+
+    func parseCraftingMachineTint(from dict: [String : Any]?) -> CraftingMachineTint? {
+        guard let dict = dict else { return nil }
+        guard let primary = parseColor(from: dict["primary"] as? [String : Any]) else { return nil }
+        guard let secondary = parseColor(from: dict["secondary"] as? [String : Any]) else { return nil }
+        guard let tertiary = parseColor(from: dict["tertiary"] as? [String : Any]) else { return nil }
+        guard let quaternary = parseColor(from: dict["quaternary"] as? [String : Any]) else { return nil }
+        return CraftingMachineTint(primary: primary, secondary: secondary, tertiary: tertiary, quaternary: quaternary)
+    }
+
+    func parseResults(from array: [Any]) -> [Result]? {
+
+        var results = [Result]()
+        for resultJson in array {
+            if let data = resultJson as? [String : Any] {
+                let name = data["name"] as? String
+                let probability = data["probability"] as? Double
+                let amount = data["amount"] as? Int
+                let type = data["type"] as? String
+                let fluidbox_index = data["fluidbox_index"] as? Int
+                results.append(Result(name: name, probability: probability, amount: amount, type: type, fluidbox_index: fluidbox_index))
+            }
+        }
+        return results
     }
 }
