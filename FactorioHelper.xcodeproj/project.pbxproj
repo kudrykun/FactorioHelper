@@ -27,6 +27,7 @@
 		FADC485525004B2A00FDB962 /* recipeJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC484925004B2A00FDB962 /* recipeJSONED.json */; };
 		FADC485825004CFD00FDB962 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485725004CFD00FDB962 /* Recipe.swift */; };
 		FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485925004D2500FDB962 /* RecipeParser.swift */; };
+		FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FADC484925004B2A00FDB962 /* recipeJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = recipeJSONED.json; sourceTree = "<group>"; };
 		FADC485725004CFD00FDB962 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		FADC485925004D2500FDB962 /* RecipeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParser.swift; sourceTree = "<group>"; };
+		FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SourceIcons.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				FADC483D25004B1500FDB962 /* Recipes */,
+				FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */,
 			);
 			path = RecipesSources;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */,
 				FADC484F25004B2A00FDB962 /* moduleJSONED.json in Resources */,
 				FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */,
+				FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */,
 				FADC483025004AC700FDB962 /* Main.storyboard in Resources */,
 				FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */,
 			);
