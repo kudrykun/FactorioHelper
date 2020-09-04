@@ -28,6 +28,7 @@
 		FADC485825004CFD00FDB962 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485725004CFD00FDB962 /* Recipe.swift */; };
 		FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485925004D2500FDB962 /* RecipeParser.swift */; };
 		FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */; };
+		FADC485F2502B92C00FDB962 /* IconsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		FADC485725004CFD00FDB962 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		FADC485925004D2500FDB962 /* RecipeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParser.swift; sourceTree = "<group>"; };
 		FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SourceIcons.xcassets; sourceTree = "<group>"; };
+		FADC485E2502B92C00FDB962 /* IconsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		FADC482725004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXGroup;
 			children = (
+				FADC485D2502B8F700FDB962 /* Helpers */,
 				FADC485625004CEE00FDB962 /* Model */,
 				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
@@ -95,7 +98,6 @@
 				FADC483125004AC900FDB962 /* Assets.xcassets */,
 				FADC483325004AC900FDB962 /* LaunchScreen.storyboard */,
 				FADC483625004AC900FDB962 /* Info.plist */,
-				FADC485925004D2500FDB962 /* RecipeParser.swift */,
 			);
 			path = FactorioHelper;
 			sourceTree = "<group>";
@@ -134,6 +136,15 @@
 				FADC485725004CFD00FDB962 /* Recipe.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FADC485D2502B8F700FDB962 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FADC485925004D2500FDB962 /* RecipeParser.swift */,
+				FADC485E2502B92C00FDB962 /* IconsProvider.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADC482D25004AC700FDB962 /* ViewController.swift in Sources */,
+				FADC485F2502B92C00FDB962 /* IconsProvider.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
