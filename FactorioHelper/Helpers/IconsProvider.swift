@@ -9,7 +9,8 @@
 import UIKit
 
 class IconProvider {
-    static func getImage(for recipeName: String) -> UIImage?{
+    static func
+        getImage(for recipeName: String) -> UIImage?{
         guard let sourceImage = UIImage(named: recipeName) else {
             print("There is no image for \"\(recipeName)\"")
             return nil

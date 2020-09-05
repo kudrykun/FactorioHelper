@@ -1,25 +1,20 @@
 //
-//  SimpleRecipeTableViewCell.swift
+//  IngredientTableViewCell.swift
 //  FactorioHelper
 //
-//  Created by Sergey Vasilenko on 04.09.2020.
+//  Created by Sergey Vasilenko on 05.09.2020.
 //  Copyright © 2020 kudrykun. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-struct SimpleRecipeCellModel {
-    var image: UIImage
-    var title: String
-}
+class IngredientTableViewCell: UITableViewCell {
 
-class SimpleRecipeTableViewCell: UITableViewCell {
-
-    var model: SimpleRecipeCellModel? {
+    var model: Ingredient? {
         didSet {
-            iconImageView.image = model?.image
-            titleLabel.text = model?.title
+            iconImageView.image = IconProvider.getImage(for: model?.name ?? "")
+            titleLabel.text = model?.name
+            amountLabel.text = "x\(model?.amount ?? 0)"
         }
     }
 
@@ -37,6 +32,11 @@ class SimpleRecipeTableViewCell: UITableViewCell {
         return label
     }()
 
+    private let amountLabel: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+
     required init?(coder: NSCoder) {
         fatalError("init?(coder:) has not been implemented")
     }
@@ -45,6 +45,7 @@ class SimpleRecipeTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(iconImageView)
         addSubview(titleLabel)
+        addSubview(amountLabel)
         setupConstraints()
     }
 
@@ -55,11 +56,18 @@ class SimpleRecipeTableViewCell: UITableViewCell {
             make.left.equalToSuperview().offset(15)
         }
 
+        amountLabel.snp.makeConstraints { make in
+            make.left.equalTo(iconImageView.snp.right).offset(5)
+            make.centerY.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+
         titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(iconImageView.snp.right).offset(15)
+            make.left.equalTo(amountLabel.snp.right).offset(15)
             make.right.equalToSuperview()
             make.height.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
+
 }

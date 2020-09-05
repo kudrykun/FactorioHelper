@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = 100
+        tableView.rowHeight = 50
         return tableView
     }()
 
@@ -21,18 +21,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initRecipes()
+        recipes = RecipesProvider.getRecipes()
         setupView()
-    }
-
-    private func initRecipes() {
-        let parser = RecipeParser()
-        recipes = parser.parseRecipes()
     }
 
     private func setupView() {
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(SimpleRecipeTableViewCell.self, forCellReuseIdentifier: "SimpleRecipeTableViewCell")
 
         tableView.snp.makeConstraints { make in
@@ -51,6 +47,14 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleRecipeTableViewCell", for: indexPath) as? SimpleRecipeTableViewCell else { return UITableViewCell() }
         cell.model = SimpleRecipeCellModelGenerator.generateModel(from: recipes[indexPath.row])
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = RecipeViewController()
+        vc.model = recipes[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
