@@ -18,7 +18,7 @@ struct Recipe: Codable {
     var result: String? = nil
     var normal: DifficultyRecipe? = nil
     var expensive: DifficultyRecipe? = nil
-    var resultCount: Int? = nil //что это
+    var resultCount: Int? = nil
     var requester_paste_multiplier: Double? = nil //что это
     var crafting_machine_tint: CraftingMachineTint? = nil
     var hidden: Bool? = nil

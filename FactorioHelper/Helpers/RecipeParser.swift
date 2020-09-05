@@ -41,7 +41,7 @@ class RecipeParser {
         let enabled = dict["enabled"] as? Bool
         let category = dict["category"] as? String
         let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
-        let energyRequired = dict["energyRequired"] as? Double
+        let energyRequired = dict["energy_required"] as? Double
         let result = dict["result"] as? String
         let normal: DifficultyRecipe? = parseDifficultyRecipe(from: dict["normal"] as? [String : Any])
         let expensive: DifficultyRecipe? = parseDifficultyRecipe(from: dict["expensive"] as? [String : Any])
@@ -62,6 +62,7 @@ class RecipeParser {
     }
 
     func parseIngedients(from array: [Any]) -> [Ingredient]? {
+        guard !array.isEmpty else { return nil }
         var ingredients = [Ingredient]()
         for ingredientJson in array {
             if let arr = ingredientJson as? [Any] {
@@ -70,7 +71,7 @@ class RecipeParser {
                 let ingredient = Ingredient(name: name, amount: amount)
                 ingredients.append(ingredient)
             } else if let dict = ingredientJson as? [String : Any] {
-                guard let name = dict["type"] as? String else { continue }
+                guard let name = dict["name"] as? String else { continue }
                 guard let amount = dict["amount"] as? Int else { continue }
                 let type = dict["type"] as? String
                 let ingredient = Ingredient(name: name, amount: amount, type: type)
