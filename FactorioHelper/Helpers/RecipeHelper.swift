@@ -8,10 +8,10 @@
 
 import Foundation
 
-class RecipeParser {
-    let filenames = ["ammo", "capsule", "circuit-network", "demo-furnace-recipe", "demo-recipe", "demo-turret", "equipment", "fluid-recipe", "inserter", "module", "recipe", "turret"]
+class RecipeHelper {
+    static let filenames = ["ammo", "capsule", "circuit-network", "demo-furnace-recipe", "demo-recipe", "demo-turret", "equipment", "fluid-recipe", "inserter", "module", "recipe", "turret"]
 
-    func parseRecipes() -> [Recipe] {
+    static func parseRecipes() -> [Recipe] {
         var recipes = [Recipe]()
 
         for filename in filenames {
@@ -35,7 +35,7 @@ class RecipeParser {
         return recipes
     }
 
-    func parseRecipe(from dict: [String: Any]) -> Recipe? {
+    static func parseRecipe(from dict: [String: Any]) -> Recipe? {
         guard let type = dict["type"] as? String else { return nil }
         guard let name = dict["name"] as? String else { return nil }
         let enabled = dict["enabled"] as? Bool
@@ -61,7 +61,7 @@ class RecipeParser {
         return recipe
     }
 
-    func parseIngedients(from array: [Any]) -> [Ingredient]? {
+    static func parseIngedients(from array: [Any]) -> [Ingredient]? {
         guard !array.isEmpty else { return nil }
         var ingredients = [Ingredient]()
         for ingredientJson in array {
@@ -81,7 +81,7 @@ class RecipeParser {
         return ingredients
     }
 
-    func parseDifficultyRecipe(from dict: [String : Any]?) -> DifficultyRecipe? {
+    static func parseDifficultyRecipe(from dict: [String : Any]?) -> DifficultyRecipe? {
         guard let dict = dict else { return nil }
         let enabled = dict["enabled"] as? Bool
         let energyRequired = dict["energyRequired"] as? Double
@@ -91,7 +91,7 @@ class RecipeParser {
         return DifficultyRecipe(enabled: enabled, energyRequired: energyRequired, ingredients: ingredients, result: result)
     }
 
-    func parseColor(from dict: [String : Any]?) -> Color? {
+    static func parseColor(from dict: [String : Any]?) -> Color? {
         guard let dict = dict else { return nil }
         let r = dict["r"] as! Double
         let g = dict["g"] as! Double
@@ -100,7 +100,7 @@ class RecipeParser {
         return Color(r: r, g: g, b: b, a: a)
     }
 
-    func parseCraftingMachineTint(from dict: [String : Any]?) -> CraftingMachineTint? {
+    static func parseCraftingMachineTint(from dict: [String : Any]?) -> CraftingMachineTint? {
         guard let dict = dict else { return nil }
         guard let primary = parseColor(from: dict["primary"] as? [String : Any]) else { return nil }
         guard let secondary = parseColor(from: dict["secondary"] as? [String : Any]) else { return nil }
@@ -109,7 +109,7 @@ class RecipeParser {
         return CraftingMachineTint(primary: primary, secondary: secondary, tertiary: tertiary, quaternary: quaternary)
     }
 
-    func parseResults(from array: [Any]) -> [Result]? {
+    static func parseResults(from array: [Any]) -> [Result]? {
 
         var results = [Result]()
         for resultJson in array {
@@ -123,5 +123,23 @@ class RecipeParser {
             }
         }
         return results
+    }
+
+    static func getIngredients(for recipe: Recipe) -> [Ingredient] {
+        var ingredients = recipe.ingredients
+        if ingredients == nil {
+            ingredients = recipe.normal?.ingredients
+        }
+        return ingredients ?? []
+    }
+
+    static func getRecipeLineCount(for recipe: Recipe) -> Int {
+        var linesCount = 1
+        let ingredients = getIngredients(for: recipe)
+        for ingredient in ingredients {
+            guard let recipe = RecipesProvider.findRecipe(for: ingredient) else { continue }
+            linesCount += getRecipeLineCount(for: recipe)
+        }
+        return linesCount
     }
 }

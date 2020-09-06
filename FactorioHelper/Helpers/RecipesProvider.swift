@@ -8,13 +8,23 @@
 
 import Foundation
 
+//TODO: сомневаюсь в необходимости этого класса
 class RecipesProvider {
     private static var recipes: [Recipe] = []
 
     static func getRecipes() -> [Recipe] {
         if recipes.isEmpty {
-            recipes = RecipeParser().parseRecipes()
+            recipes = RecipeHelper.parseRecipes()
         }
         return recipes
+    }
+
+    static func findRecipe(for ingredient: Ingredient) -> Recipe? {
+        let recipes = RecipesProvider.getRecipes()
+        guard let searchedRecipeIndex = recipes.firstIndex(where: { recipe in
+            return recipe.name == ingredient.name
+        }) else { return nil }
+
+        return recipes[searchedRecipeIndex]
     }
 }
