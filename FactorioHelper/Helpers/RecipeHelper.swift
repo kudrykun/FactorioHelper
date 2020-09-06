@@ -137,7 +137,7 @@ class RecipeHelper {
         var linesCount = 1
         let ingredients = getIngredients(for: recipe)
         for ingredient in ingredients {
-            guard let recipe = RecipesProvider.findRecipe(for: ingredient) else { continue }
+            guard let recipe = RecipesProvider.findRecipe(with: ingredient.name) else { continue }
             linesCount += getRecipeLineCount(for: recipe)
         }
         return linesCount

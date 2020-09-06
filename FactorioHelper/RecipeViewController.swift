@@ -15,20 +15,20 @@ class RecipeViewController: UIViewController {
         didSet {
             titleLabel.text = model?.name
             iconImageView.image = IconProvider.getImage(for: model?.name ?? "")
-            if let ingredients = model?.ingredients {
-                self.ingredients = ingredients
-            } else if let ingredients = model?.normal?.ingredients {
-                self.ingredients = ingredients
-            }
+
             if let model = model {
-                ingredients = RecipeHelper.getIngredients(for: model)
+                let ingredients = RecipeHelper.getIngredients(for: model)
+                self.ingredients = ingredients.map {
+                    return IngredientCellModel(name: $0.name, amount: $0.amount, type: $0.type)
+                }
             }
+
             requiredTimeLabel.text = "\(model?.energyRequired ?? 0.5) s"
             resultCountLabel.text = "x\(model?.resultCount ?? 1)"
         }
     }
 
-    var ingredients = [Ingredient]()
+    var ingredients = [IngredientCellModel]()
 
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -56,7 +56,7 @@ class RecipeViewController: UIViewController {
 
     private let ingredientsTableView: UITableView = {
         let tableView = UITableView()
-        tableView.estimatedRowHeight = 50
+//        tableView.estimatedRowHeight = 50
         return tableView
     }()
 
@@ -121,20 +121,17 @@ class RecipeViewController: UIViewController {
             make.bottom.left.right.equalToSuperview()
         }
     }
-
-
 }
 
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = RecipesProvider.findRecipe(for: ingredients[indexPath.row]) else { return }
-        let vc = RecipeViewController()
-        vc.model = recipe
-        self.navigationController?.pushViewController(vc, animated: true)
+        ingredients[indexPath.row].isCollapsed = !ingredients[indexPath.row].isCollapsed
+        tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let model = RecipesProvider.findRecipe(for: ingredients[indexPath.row]) else { return 0 }
+        guard let model = RecipesProvider.findRecipe(with: ingredients[indexPath.row].name) else { return 0 }
+        guard !ingredients[indexPath.row].isCollapsed else { return 50 }
         return CGFloat(RecipeHelper.getRecipeLineCount(for: model) * 50)
     }
 
@@ -148,6 +145,9 @@ extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientTableViewCell", for: indexPath) as? IngredientTableViewCell else { return UITableViewCell() }
         cell.model = ingredients[indexPath.row]
+        cell.collapseAction = { [weak self] in
+            self?.ingredientsTableView.reloadData()
+        }
         return cell
     }
 }
