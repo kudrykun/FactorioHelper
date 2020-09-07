@@ -14,11 +14,11 @@ struct Recipe: Codable {
     var enabled: Bool? = false
     var category: String? = nil
     var ingredients: [Ingredient]? = nil
-    var energyRequired: Double? = nil
+    var energyRequired: Double
     var result: String? = nil
     var normal: DifficultyRecipe? = nil
     var expensive: DifficultyRecipe? = nil
-    var resultCount: Int? = nil
+    var resultCount: Int
     var requester_paste_multiplier: Double? = nil //что это
     var crafting_machine_tint: CraftingMachineTint? = nil
     var hidden: Bool? = nil

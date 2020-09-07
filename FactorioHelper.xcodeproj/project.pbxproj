@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D87B83827A67381FCCB74DE6 /* Pods_FactorioHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */; };
+		FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */; };
 		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
 		FAB213F125041F3700CB8377 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F025041F3700CB8377 /* IngredientTableViewCell.swift */; };
@@ -42,6 +43,7 @@
 		32B2E67B27890B2E58730BBB /* Pods-FactorioHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.release.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.release.xcconfig"; sourceTree = "<group>"; };
 		8060CE757BF2A10D4DBD4B34 /* Pods-FactorioHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.debug.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactorioHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCalculator.swift; sourceTree = "<group>"; };
 		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		FAB213F025041F3700CB8377 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				FADC485E2502B92C00FDB962 /* IconsProvider.swift */,
 				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
+				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				FADC482D25004AC700FDB962 /* ViewController.swift in Sources */,
 				FADC485F2502B92C00FDB962 /* IconsProvider.swift in Sources */,
 				FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */,
+				FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */,
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,

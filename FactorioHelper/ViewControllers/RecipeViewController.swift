@@ -83,10 +83,16 @@ class RecipeViewController: UIViewController {
         view.addSubview(resultTextLabel)
         resultTextLabel.snp.makeConstraints { make in
             make.top.equalTo(timeSelectionView.snp.bottom).offset(15)
-            make.bottom.equalToSuperview().inset(15)
+            make.bottom.lessThanOrEqualToSuperview().inset(15)
             make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().inset(15)
         }
+
+        guard let recipe = model else { return }
+        let productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: 1)
+        guard let item = productionItem else { return }
+
+        resultTextLabel.text = ProductionCalculator.getProductionDescriptionString(for: item)
     }
 
     private func setupHeaderView() {
@@ -106,6 +112,15 @@ class RecipeViewController: UIViewController {
             make.left.right.equalToSuperview()
             make.height.equalTo(50)
             make.top.equalTo(headerView.snp.bottom)
+        }
+
+        timeSelectionView.secondsTextFieldChanged = { [weak self] timeString in
+            guard let time = Double(timeString) else { return }
+            guard let recipe = self?.model else { return }
+            let productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: time)
+            guard let item = productionItem else { return }
+
+            self?.resultTextLabel.text = ProductionCalculator.getProductionDescriptionString(for: item)
         }
     }
 

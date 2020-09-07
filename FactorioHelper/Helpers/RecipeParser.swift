@@ -40,12 +40,15 @@ class RecipeParser {
         guard let name = dict["name"] as? String else { return nil }
         let enabled = dict["enabled"] as? Bool
         let category = dict["category"] as? String
-        let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
-        let energyRequired = dict["energy_required"] as? Double
+        var ingredients: [Ingredient]?
+        if category != "smelting" {
+            ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
+        }
+        let energyRequired = dict["energy_required"] as? Double ?? 0.5
         let result = dict["result"] as? String
         let normal: DifficultyRecipe? = parseDifficultyRecipe(from: dict["normal"] as? [String : Any])
         let expensive: DifficultyRecipe? = parseDifficultyRecipe(from: dict["expensive"] as? [String : Any])
-        let resultCount = dict["resultCount"] as? Int
+        let resultCount = dict["result_count"] as? Int ?? 1
         let requester_paste_multiplier = dict["requester_paste_multiplier"] as? Double
         let crafting_machine_tint: CraftingMachineTint? = parseCraftingMachineTint(from: dict["crafting_machine_tint"] as? [String : Any])
         let hidden = dict["hidden"] as? Bool
@@ -84,7 +87,7 @@ class RecipeParser {
     func parseDifficultyRecipe(from dict: [String : Any]?) -> DifficultyRecipe? {
         guard let dict = dict else { return nil }
         let enabled = dict["enabled"] as? Bool
-        let energyRequired = dict["energyRequired"] as? Double
+        let energyRequired = dict["energyRequired"] as? Double ?? 0.5
         let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
         let result = dict["result"] as? String
 

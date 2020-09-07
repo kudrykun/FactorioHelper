@@ -11,7 +11,7 @@ import SnapKit
 
 class TimeSelectionView: UIView {
 
-    var secondsTextFieldChanged: ((String?) -> Void)?
+    var secondsTextFieldChanged: ((String) -> Void)?
 
     private let secondsTextField: UITextField = {
         let textField = UITextField()
@@ -61,6 +61,11 @@ class TimeSelectionView: UIView {
 
 extension TimeSelectionView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        secondsTextFieldChanged?(textField.text)
+        secondsTextFieldChanged?(textField.text ?? "")
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        secondsTextFieldChanged?(textField.text ?? "")
+        return true
     }
 }

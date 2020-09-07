@@ -17,4 +17,23 @@ class RecipesProvider {
         }
         return recipes
     }
+
+    static func findRecipe(with name: String) -> Recipe? {
+        let recipes = RecipesProvider.getRecipes()
+        guard let searchedRecipeIndex = recipes.firstIndex(where: { recipe in
+            return recipe.name == name
+        }) else { return nil }
+
+        return recipes[searchedRecipeIndex]
+    }
+    
+    static func getIngredients(for recipe: Recipe) -> [Ingredient] {
+        var ingredients = recipe.ingredients
+        if ingredients == nil {
+            ingredients = recipe.normal?.ingredients
+        }
+        return ingredients ?? []
+    }
+
+
 }
