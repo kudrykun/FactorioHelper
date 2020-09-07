@@ -51,16 +51,22 @@ class RecipeViewController: UIViewController {
         return label
     }()
 
-    private let ingredientsTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.rowHeight = 50
-        return tableView
-    }()
-
     private let headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
+    }()
+
+    private let timeSelectionView: TimeSelectionView = {
+        let view = TimeSelectionView()
+        return view
+    }()
+
+    private let resultTextLabel: UILabel = {
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
     }()
 
     override func viewDidLoad() {
@@ -69,22 +75,41 @@ class RecipeViewController: UIViewController {
     }
 
     private func setupView() {
-        view.addSubview(headerView)
         view.backgroundColor = .white
+
+        setupHeaderView()
+        setupTimeSelectionView()
+
+        view.addSubview(resultTextLabel)
+        resultTextLabel.snp.makeConstraints { make in
+            make.top.equalTo(timeSelectionView.snp.bottom).offset(15)
+            make.bottom.equalToSuperview().inset(15)
+            make.left.equalToSuperview().offset(15)
+            make.right.equalToSuperview().inset(15)
+        }
+    }
+
+    private func setupHeaderView() {
+        view.addSubview(headerView)
         headerView.addSubview(iconImageView)
         headerView.addSubview(resultCountLabel)
         headerView.addSubview(titleLabel)
         headerView.addSubview(requiredTimeLabel)
-        view.addSubview(ingredientsTableView)
 
-        ingredientsTableView.delegate = self
-        ingredientsTableView.dataSource = self
-        ingredientsTableView.register(IngredientTableViewCell.self, forCellReuseIdentifier: "IngredientTableViewCell")
-
-        setupConstraints()
+        setupHeaderViewConstraints()
     }
 
-    private func setupConstraints() {
+    private func setupTimeSelectionView() {
+        view.addSubview(timeSelectionView)
+
+        timeSelectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(50)
+            make.top.equalTo(headerView.snp.bottom)
+        }
+    }
+
+    private func setupHeaderViewConstraints() {
         headerView.snp.makeConstraints { make in
             make.height.equalTo(100)
             make.left.right.equalToSuperview()
@@ -112,11 +137,6 @@ class RecipeViewController: UIViewController {
             make.left.equalTo(titleLabel.snp.right).offset(15)
             make.right.equalToSuperview().inset(15)
         }
-
-        ingredientsTableView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.bottom)
-            make.bottom.left.right.equalToSuperview()
-        }
     }
 
     private func findRecipe(for ingredient: Ingredient) -> Recipe? {
@@ -126,27 +146,5 @@ class RecipeViewController: UIViewController {
         }) else { return nil }
 
         return recipes[searchedRecipeIndex]
-    }
-}
-
-extension RecipeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = findRecipe(for: ingredients[indexPath.row]) else { return }
-        let vc = RecipeViewController()
-        vc.model = recipe
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-
-}
-
-extension RecipeViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredients.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientTableViewCell", for: indexPath) as? IngredientTableViewCell else { return UITableViewCell() }
-        cell.model = ingredients[indexPath.row]
-        return cell
     }
 }

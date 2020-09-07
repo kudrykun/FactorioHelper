@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D87B83827A67381FCCB74DE6 /* Pods_FactorioHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */; };
+		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
 		FAB213F125041F3700CB8377 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F025041F3700CB8377 /* IngredientTableViewCell.swift */; };
 		FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F22504242400CB8377 /* RecipesProvider.swift */; };
@@ -41,6 +42,7 @@
 		32B2E67B27890B2E58730BBB /* Pods-FactorioHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.release.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.release.xcconfig"; sourceTree = "<group>"; };
 		8060CE757BF2A10D4DBD4B34 /* Pods-FactorioHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.debug.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactorioHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		FAB213F025041F3700CB8377 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		FAB213F22504242400CB8377 /* RecipesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProvider.swift; sourceTree = "<group>"; };
@@ -101,6 +103,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA72C12C2506B434008DC59D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FADC482C25004AC700FDB962 /* ViewController.swift */,
+				FAB213EE2504106100CB8377 /* RecipeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		FADC481C25004AC700FDB962 = {
 			isa = PBXGroup;
 			children = (
@@ -122,18 +133,17 @@
 		FADC482725004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXGroup;
 			children = (
+				FA72C12C2506B434008DC59D /* ViewControllers */,
 				FADC48602502BCAC00FDB962 /* Views */,
 				FADC485D2502B8F700FDB962 /* Helpers */,
 				FADC485625004CEE00FDB962 /* Model */,
 				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
 				FADC482A25004AC700FDB962 /* SceneDelegate.swift */,
-				FADC482C25004AC700FDB962 /* ViewController.swift */,
 				FADC482E25004AC700FDB962 /* Main.storyboard */,
 				FADC483125004AC900FDB962 /* Assets.xcassets */,
 				FADC483325004AC900FDB962 /* LaunchScreen.storyboard */,
 				FADC483625004AC900FDB962 /* Info.plist */,
-				FAB213EE2504106100CB8377 /* RecipeViewController.swift */,
 			);
 			path = FactorioHelper;
 			sourceTree = "<group>";
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				FADC48612502BCB100FDB962 /* Cells */,
+				FA72C12D2506B487008DC59D /* TimeSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,6 +347,7 @@
 				FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */,
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
+				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
 				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
