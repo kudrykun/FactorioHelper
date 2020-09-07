@@ -20,9 +20,6 @@ class RecipeViewController: UIViewController {
             } else if let ingredients = model?.normal?.ingredients {
                 self.ingredients = ingredients
             }
-            if let model = model {
-                ingredients = RecipeHelper.getIngredients(for: model)
-            }
             requiredTimeLabel.text = "\(model?.energyRequired ?? 0.5) s"
             resultCountLabel.text = "x\(model?.resultCount ?? 1)"
         }
@@ -56,7 +53,7 @@ class RecipeViewController: UIViewController {
 
     private let ingredientsTableView: UITableView = {
         let tableView = UITableView()
-        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = 50
         return tableView
     }()
 
@@ -122,20 +119,22 @@ class RecipeViewController: UIViewController {
         }
     }
 
+    private func findRecipe(for ingredient: Ingredient) -> Recipe? {
+        let recipes = RecipesProvider.getRecipes()
+        guard let searchedRecipeIndex = recipes.firstIndex(where: { recipe in
+            return recipe.name == ingredient.name
+        }) else { return nil }
 
+        return recipes[searchedRecipeIndex]
+    }
 }
 
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = RecipesProvider.findRecipe(for: ingredients[indexPath.row]) else { return }
+        guard let recipe = findRecipe(for: ingredients[indexPath.row]) else { return }
         let vc = RecipeViewController()
         vc.model = recipe
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let model = RecipesProvider.findRecipe(for: ingredients[indexPath.row]) else { return 0 }
-        return CGFloat(RecipeHelper.getRecipeLineCount(for: model) * 50)
     }
 
 }
