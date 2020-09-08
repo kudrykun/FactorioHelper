@@ -35,6 +35,7 @@ class RecipeViewController: UIViewController {
 
     private let resultCountLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
         return label
     }()
 
@@ -42,12 +43,14 @@ class RecipeViewController: UIViewController {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = .zero
+        label.textColor = .black
         return label
     }()
 
     private let requiredTimeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
+        label.textColor = .black
         return label
     }()
 
@@ -66,6 +69,7 @@ class RecipeViewController: UIViewController {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
 

@@ -19,7 +19,7 @@ class SimpleRecipeTableViewCell: UITableViewCell {
     var model: SimpleRecipeCellModel? {
         didSet {
             iconImageView.image = model?.image
-            titleLabel.text = model?.title
+            titleLabel.text = NSLocalizedString(model?.title ?? "", comment: "Name of item")
         }
     }
 
