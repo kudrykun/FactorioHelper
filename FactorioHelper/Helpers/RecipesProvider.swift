@@ -15,6 +15,11 @@ class RecipesProvider {
         if recipes.isEmpty {
             recipes = RecipeParser().parseRecipes()
         }
+        recipes.sort { recipe1, recipe2 in
+            let recipe1Name = NSLocalizedString(recipe1.name, comment: "")
+            let recipe2Name = NSLocalizedString(recipe2.name, comment: "")
+            return recipe1Name < recipe2Name
+        }
         return recipes
     }
 
