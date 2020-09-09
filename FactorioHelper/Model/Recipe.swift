@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Recipe: Codable {
+struct Recipe {
     var type: String
     var name: String
     var enabled: Bool? = false
-    var category: String? = nil
+    var category: Category = .Default
     private var ingredients: [Ingredient]? = nil
     private var energyRequired: Double
     var result: String? = nil
     var normal: DifficultyRecipe? = nil
     var expensive: DifficultyRecipe? = nil
-    var resultCount: Int
+    private var resultCount: Int
     var requester_paste_multiplier: Double? = nil //что это
     var crafting_machine_tint: CraftingMachineTint? = nil
     var hidden: Bool? = nil
@@ -53,7 +53,20 @@ struct Recipe: Codable {
         return ingredients ?? []
     }
 
-    init(type: String, name: String, enabled: Bool?, category: String?, ingredients: [Ingredient]?, energyRequired: Double, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int, requester_paste_multiplier: Double?, crafting_machine_tint: CraftingMachineTint?, hidden: Bool?, icon: String?, icon_size: String?, icon_mipmaps: String?, subgroup: String?, order: String?, results: [Result]?) {
+    var baseProductionResultCount: Int {
+
+        //нужно будет убрать default совсем
+        switch category {
+        case .Chemistry:
+            //будет несколько элементов в results при обработке нефти
+            guard let results = results, !results.isEmpty else { return resultCount }
+            return results[0].amount ?? resultCount
+        default:
+            return resultCount
+        }
+    }
+
+    init(type: String, name: String, enabled: Bool?, category: Category, ingredients: [Ingredient]?, energyRequired: Double, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int, requester_paste_multiplier: Double?, crafting_machine_tint: CraftingMachineTint?, hidden: Bool?, icon: String?, icon_size: String?, icon_mipmaps: String?, subgroup: String?, order: String?, results: [Result]?) {
         self.type = type
         self.name = name
         self.enabled = enabled
@@ -77,8 +90,17 @@ struct Recipe: Codable {
 
 }
 
-
-
+enum Category {
+    case Default
+    case RocketBuilding //rocket-building
+    case OilProcessing //oil-processing
+    case AdvancedCrafting //advanced-crafting
+    case CraftingWithFluid //crafting-with-fluid
+    case Smelting //smelting
+    case Chemistry //chemistry
+    case Crafting //crafting
+    case Centrifuging //centrifuging
+}
 
 struct Ingredient: Codable {
     var name: String

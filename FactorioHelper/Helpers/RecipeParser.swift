@@ -32,6 +32,8 @@ class RecipeParser {
             }
         }
 
+        let categories = Set(recipes.compactMap{$0.category})
+
         return recipes
     }
 
@@ -39,10 +41,10 @@ class RecipeParser {
         guard let type = dict["type"] as? String else { return nil }
         guard let name = dict["name"] as? String else { return nil }
         let enabled = dict["enabled"] as? Bool
-        let category = dict["category"] as? String
+        let category = parseCategory(from: dict["category"] as? String)
         var ingredients: [Ingredient]?
-        if category != "smelting" {
-            ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
+        if category != .Smelting { //зачем
+            ingredients = parseIngredients(from: dict["ingredients"] as? [Any] ?? [])
         }
         let energyRequired = dict["energy_required"] as? Double ?? 0.5
         let result = dict["result"] as? String
@@ -64,7 +66,31 @@ class RecipeParser {
         return recipe
     }
 
-    func parseIngedients(from array: [Any]) -> [Ingredient]? {
+    func parseCategory(from string: String?) -> Category {
+        guard let category = string else { return .Default}
+        switch category {
+        case "rocket-building":
+            return .RocketBuilding
+        case "oil-processing":
+            return .OilProcessing
+        case "advanced-crafting":
+            return .AdvancedCrafting
+        case "crafting-with-fluid":
+            return .CraftingWithFluid
+        case "smelting":
+            return .Smelting
+        case "chemistry":
+            return .Chemistry
+        case "crafting":
+            return .Crafting
+        case "centrifuging":
+            return .Centrifuging
+        default:
+            return .Default
+        }
+    }
+
+    func parseIngredients(from array: [Any]) -> [Ingredient]? {
         guard !array.isEmpty else { return nil }
         var ingredients = [Ingredient]()
         for ingredientJson in array {
@@ -88,7 +114,7 @@ class RecipeParser {
         guard let dict = dict else { return nil }
         let enabled = dict["enabled"] as? Bool
         let energyRequired = dict["energy_required"] as? Double
-        let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
+        let ingredients = parseIngredients(from: dict["ingredients"] as? [Any] ?? [])
         let result = dict["result"] as? String
 
         return DifficultyRecipe(enabled: enabled, energyRequired: energyRequired, ingredients: ingredients, result: result)

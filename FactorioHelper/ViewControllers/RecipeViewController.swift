@@ -18,7 +18,7 @@ class RecipeViewController: UIViewController {
             iconImageView.image = IconProvider.getImage(for: recipe.name)
             self.ingredients = recipe.baseIngredients
             requiredTimeLabel.text = "\(recipe.baseProductionTime) s"
-            resultCountLabel.text = "x\(recipe.resultCount)"
+            resultCountLabel.text = "x\(recipe.baseProductionResultCount)"
         }
     }
 
