@@ -35,7 +35,7 @@ class RecipeViewController: UIViewController {
 
     private let resultCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .label
         return label
     }()
 
@@ -43,20 +43,19 @@ class RecipeViewController: UIViewController {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = .zero
-        label.textColor = .black
+        label.textColor = .label
         return label
     }()
 
     private let requiredTimeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = .black
+        label.textColor = .label
         return label
     }()
 
     private let headerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
         return view
     }()
 
@@ -69,7 +68,7 @@ class RecipeViewController: UIViewController {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = .label
         return label
     }()
 
@@ -79,7 +78,7 @@ class RecipeViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         setupHeaderView()
         setupTimeSelectionView()
