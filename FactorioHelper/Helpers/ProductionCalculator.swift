@@ -63,14 +63,14 @@ struct ProductionItem {
 
 class ProductionCalculator {
     static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> ProductionItem?{
-        let ingredients = RecipesProvider.getIngredients(for: recipe)
+        let ingredients = recipe.baseIngredients
         guard !ingredients.isEmpty else  {
             let item = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, ingredients: [])
             return item
         }
 
         let machineType = MachineType.Machine1
-        let baseProductionPerSecond = Double(recipe.resultCount) / recipe.energyRequired
+        let baseProductionPerSecond = Double(recipe.resultCount) / recipe.baseProductionTime
         let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
         let requiredMachinesCount = countPerSecond / productionByOneMachinePerSecond
         let roundedRequiredMachinesCount = Int(requiredMachinesCount.rounded(.up))

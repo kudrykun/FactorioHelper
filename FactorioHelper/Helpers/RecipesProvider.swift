@@ -31,22 +31,4 @@ class RecipesProvider {
 
         return recipes[searchedRecipeIndex]
     }
-    
-    static func getIngredients(for recipe: Recipe) -> [Ingredient] {
-        var ingredients = recipe.ingredients
-        if ingredients == nil {
-            ingredients = recipe.normal?.ingredients
-        }
-        return ingredients ?? []
-    }
-
-    static func getEnergyRequired(for recipe: Recipe) -> Double {
-        if let normal = recipe.normal?.energyRequired,
-            let expensive = recipe.expensive?.energyRequired {
-            let isExpensiveProduction = UserDefaults.standard.bool(forKey: "isExpensiveProduction")
-            return isExpensiveProduction ? expensive : normal
-        }
-        return recipe.energyRequired
-    }
-
 }

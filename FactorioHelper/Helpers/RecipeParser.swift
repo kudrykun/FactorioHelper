@@ -87,7 +87,7 @@ class RecipeParser {
     func parseDifficultyRecipe(from dict: [String : Any]?) -> DifficultyRecipe? {
         guard let dict = dict else { return nil }
         let enabled = dict["enabled"] as? Bool
-        let energyRequired = dict["energyRequired"] as? Double ?? 0.5
+        let energyRequired = dict["energy_required"] as? Double
         let ingredients = parseIngedients(from: dict["ingredients"] as? [Any] ?? [])
         let result = dict["result"] as? String
 

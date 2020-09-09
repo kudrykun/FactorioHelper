@@ -13,15 +13,12 @@ class RecipeViewController: UIViewController {
 
     var model: Recipe? {
         didSet {
-            titleLabel.text = model?.name
-            iconImageView.image = IconProvider.getImage(for: model?.name ?? "")
-            if let ingredients = model?.ingredients {
-                self.ingredients = ingredients
-            } else if let ingredients = model?.normal?.ingredients {
-                self.ingredients = ingredients
-            }
-            requiredTimeLabel.text = "\(model?.energyRequired ?? 0.5) s"
-            resultCountLabel.text = "x\(model?.resultCount ?? 1)"
+            guard let recipe = model else { return }
+            titleLabel.text = recipe.name
+            iconImageView.image = IconProvider.getImage(for: recipe.name)
+            self.ingredients = recipe.baseIngredients
+            requiredTimeLabel.text = "\(recipe.baseProductionTime) s"
+            resultCountLabel.text = "x\(recipe.resultCount)"
         }
     }
 
