@@ -74,7 +74,7 @@ class RecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupView()
+        setupView()
     }
 
     private func setupView() {
