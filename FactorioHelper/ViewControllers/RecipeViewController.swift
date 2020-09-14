@@ -23,6 +23,7 @@ class RecipeViewController: UIViewController {
     }
 
     var ingredients = [Ingredient]()
+    var productionItem: ProductionItem?
 
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -61,17 +62,18 @@ class RecipeViewController: UIViewController {
         return view
     }()
 
-    private let resultTextLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.textColor = .label
-        return label
+    private let productionTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableView.automaticDimension
+        return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        guard let recipe = model else { return }
+        productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: 1)
     }
 
     private func setupView() {
@@ -79,20 +81,7 @@ class RecipeViewController: UIViewController {
 
         setupHeaderView()
         setupTimeSelectionView()
-
-        view.addSubview(resultTextLabel)
-        resultTextLabel.snp.makeConstraints { make in
-            make.top.equalTo(timeSelectionView.snp.bottom).offset(15)
-            make.bottom.lessThanOrEqualToSuperview().inset(15)
-            make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().inset(15)
-        }
-
-        guard let recipe = model else { return }
-        let productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: 1)
-        guard let item = productionItem else { return }
-
-        resultTextLabel.text = ProductionCalculator.getProductionDescriptionString(for: item)
+        setupTableView()
     }
 
     private func setupHeaderView() {
@@ -117,11 +106,22 @@ class RecipeViewController: UIViewController {
         timeSelectionView.secondsTextFieldChanged = { [weak self] timeString in
             guard let time = Double(timeString) else { return }
             guard let recipe = self?.model else { return }
-            let productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: time)
-            guard let item = productionItem else { return }
-
-            self?.resultTextLabel.text = ProductionCalculator.getProductionDescriptionString(for: item)
+            self?.productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: time)
+            self?.productionTableView.reloadData()
         }
+    }
+
+    private func setupTableView() {
+        view.addSubview(productionTableView)
+        productionTableView.snp.makeConstraints { make in
+            make.top.equalTo(timeSelectionView.snp.bottom).offset(15)
+            make.left.right.bottom.equalToSuperview()
+        }
+        productionTableView.dataSource = self
+        productionTableView.delegate = self
+
+        productionTableView.register(ProductionItemCell.self, forCellReuseIdentifier: "ProductionItemCell")
+        productionTableView.rowHeight = 250
     }
 
     private func setupHeaderViewConstraints() {
@@ -134,7 +134,7 @@ class RecipeViewController: UIViewController {
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.width.height.equalTo(60)
-            make.left.equalToSuperview().offset(15)
+            make.left.greaterThanOrEqualToSuperview().offset(15)
         }
 
         resultCountLabel.snp.makeConstraints { make in
@@ -162,4 +162,26 @@ class RecipeViewController: UIViewController {
 
         return recipes[searchedRecipeIndex]
     }
+}
+
+extension RecipeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let productionItem = productionItem else { return 0 }
+        return ProductionItemCell.calculateHeight(for: productionItem.ingredients[indexPath.row])
+    }
+}
+
+extension RecipeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return productionItem?.ingredients.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let productionItem = productionItem else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
+        cell.model = productionItem.ingredients[indexPath.row]
+        return cell
+    }
+
+
 }

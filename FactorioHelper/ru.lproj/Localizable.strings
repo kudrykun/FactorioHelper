@@ -5,6 +5,9 @@
   Created by Sergey Vasilenko on 08.09.2020.
   Copyright © 2020 kudrykun. All rights reserved.
 */
+
+"items/sec" = "шт/сек";
+
 "automated-cleanup" = "Снесите 100 объектов строительными дронами.";
 "automated-construction" = "Постройте 100 объектов с помощью дронов.";
 "circuit-veteran-1" = "Произведите 1 тысячу улучшенных электросхем за час.";

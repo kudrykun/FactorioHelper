@@ -32,8 +32,6 @@ class RecipeParser {
             }
         }
 
-        let categories = Set(recipes.compactMap{$0.category})
-
         return recipes
     }
 
