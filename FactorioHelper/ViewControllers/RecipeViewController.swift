@@ -96,15 +96,6 @@ class RecipeViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
-
-    private func findRecipe(for ingredient: Ingredient) -> Recipe? {
-        let recipes = RecipesProvider.getRecipes()
-        guard let searchedRecipeIndex = recipes.firstIndex(where: { recipe in
-            return recipe.name == ingredient.name
-        }) else { return nil }
-
-        return recipes[searchedRecipeIndex]
-    }
 }
 
 extension RecipeViewController: UITableViewDelegate {
