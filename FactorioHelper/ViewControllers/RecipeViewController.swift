@@ -14,46 +14,16 @@ class RecipeViewController: UIViewController {
     var model: Recipe? {
         didSet {
             guard let recipe = model else { return }
-            titleLabel.text = recipe.name
-            iconImageView.image = IconProvider.getImage(for: recipe.name)
             self.ingredients = recipe.baseIngredients
-            requiredTimeLabel.text = "\(recipe.baseProductionTime) s"
-            resultCountLabel.text = "x\(recipe.baseProductionResultCount)"
+            self.headerView.model = recipe
         }
     }
 
     var ingredients = [Ingredient]()
     var productionItem: ProductionItem?
 
-    private let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-
-    private let resultCountLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        return label
-    }()
-
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = .zero
-        label.textColor = .label
-        return label
-    }()
-
-    private let requiredTimeLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.textColor = .label
-        return label
-    }()
-
-    private let headerView: UIView = {
-        let view = UIView()
+    private let headerView: RecipeDescriptionHeaderView = {
+        let view = RecipeDescriptionHeaderView()
         return view
     }()
 
@@ -86,11 +56,6 @@ class RecipeViewController: UIViewController {
 
     private func setupHeaderView() {
         view.addSubview(headerView)
-        headerView.addSubview(iconImageView)
-        headerView.addSubview(resultCountLabel)
-        headerView.addSubview(titleLabel)
-        headerView.addSubview(requiredTimeLabel)
-
         setupHeaderViewConstraints()
     }
 
@@ -129,28 +94,6 @@ class RecipeViewController: UIViewController {
             make.height.equalTo(100)
             make.left.right.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-        }
-
-        iconImageView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(60)
-            make.left.greaterThanOrEqualToSuperview().offset(15)
-        }
-
-        resultCountLabel.snp.makeConstraints { make in
-            make.left.equalTo(iconImageView.snp.right).offset(5)
-            make.centerY.height.equalToSuperview()
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(resultCountLabel.snp.right).offset(15)
-            make.centerY.height.equalToSuperview()
-        }
-
-        requiredTimeLabel.snp.makeConstraints { make in
-            make.centerY.height.equalToSuperview()
-            make.left.equalTo(titleLabel.snp.right).offset(15)
-            make.right.equalToSuperview().inset(15)
         }
     }
 
