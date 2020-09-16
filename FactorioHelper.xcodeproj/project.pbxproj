@@ -38,7 +38,7 @@
 		FADC485825004CFD00FDB962 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485725004CFD00FDB962 /* Recipe.swift */; };
 		FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485925004D2500FDB962 /* RecipeParser.swift */; };
 		FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */; };
-		FADC485F2502B92C00FDB962 /* IconsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsProvider.swift */; };
+		FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsCropper.swift */; };
 		FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */; };
 		FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,7 @@
 		FADC485725004CFD00FDB962 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		FADC485925004D2500FDB962 /* RecipeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParser.swift; sourceTree = "<group>"; };
 		FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SourceIcons.xcassets; sourceTree = "<group>"; };
-		FADC485E2502B92C00FDB962 /* IconsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProvider.swift; sourceTree = "<group>"; };
+		FADC485E2502B92C00FDB962 /* IconsCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCropper.swift; sourceTree = "<group>"; };
 		FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeCellModelGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				FADC485925004D2500FDB962 /* RecipeParser.swift */,
-				FADC485E2502B92C00FDB962 /* IconsProvider.swift */,
+				FADC485E2502B92C00FDB962 /* IconsCropper.swift */,
 				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
 				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
@@ -362,7 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADC482D25004AC700FDB962 /* ViewController.swift in Sources */,
-				FADC485F2502B92C00FDB962 /* IconsProvider.swift in Sources */,
+				FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */,
 				FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */,
 				FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */,
 				FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */,

@@ -75,7 +75,7 @@ class ProductionDescriptionView: UIView {
 
     func updateWithModel(with model: ProductionItem?) {
         guard let model = model else { return }
-        itemIcon.image = IconProvider.getImage(for: model.name)
+        itemIcon.image = RecipesProvider.findRecipe(with: model.name)?.croppedIcon
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"
 
         guard let machinesNeeded = model.machinesNeeded else { return }

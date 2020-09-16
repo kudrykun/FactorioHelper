@@ -98,7 +98,9 @@ enum MachineType {
     }
 
     var icon: UIImage {
-        return IconProvider.getImage(for: self) ?? UIImage()
+        guard let image = UIImage(named: name),
+            let croppedImage = IconsCropper.crop(image) else { return UIImage() }
+        return croppedImage
     }
 
     var name: String {

@@ -87,7 +87,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchText = searchText.lowercased()
         filteredRecipes = searchText.isEmpty ? recipes : recipes.filter {
-            let localizedName = NSLocalizedString($0.name, comment: "").lowercased()
+            let localizedName = $0.localizedName.lowercased()
             return localizedName.range(of: searchText) != nil
         }
         tableView.reloadData()

@@ -11,7 +11,7 @@ import Foundation
 class SimpleRecipeCellModelGenerator {
     static func generateModel(from recipe: Recipe) -> SimpleRecipeCellModel? {
         let title = recipe.name
-        guard let image = IconProvider.getImage(for: recipe.name) else { return nil }
+        guard let image = recipe.croppedIcon else { return nil }
         return SimpleRecipeCellModel(image: image, title: title)
     }
 }

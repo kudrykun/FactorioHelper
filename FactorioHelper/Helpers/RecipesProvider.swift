@@ -16,8 +16,8 @@ class RecipesProvider {
             recipes = RecipeParser().parseRecipes()
         }
         recipes.sort { recipe1, recipe2 in
-            let recipe1Name = NSLocalizedString(recipe1.name, comment: "")
-            let recipe2Name = NSLocalizedString(recipe2.name, comment: "")
+            let recipe1Name = recipe1.localizedName
+            let recipe2Name = recipe2.localizedName
             return recipe1Name < recipe2Name
         }
         return recipes

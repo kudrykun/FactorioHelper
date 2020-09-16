@@ -13,8 +13,8 @@ class RecipeDescriptionHeaderView: UIView {
     var model: Recipe? {
         didSet {
             guard let recipe = model else { return }
-            titleLabel.text = NSLocalizedString(recipe.name, comment: "")
-            iconImageView.image = IconProvider.getImage(for: recipe.name)
+            titleLabel.text = model?.localizedName
+            iconImageView.image = recipe.croppedIcon
             requiredTimeLabel.text = "\(recipe.baseProductionTime) s"
             resultCountLabel.text = "x\(recipe.baseProductionResultCount)"
         }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 kudrykun. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Recipe {
     var type: String
@@ -64,6 +64,16 @@ struct Recipe {
         default:
             return resultCount
         }
+    }
+
+    var localizedName: String {
+        NSLocalizedString(name, comment: "")
+    }
+
+    var croppedIcon: UIImage? {
+        guard let sourceImage = UIImage(named: name) else { return nil }
+        guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
+        return croppedImage
     }
 
     init(type: String, name: String, enabled: Bool?, category: Category, ingredients: [Ingredient]?, energyRequired: Double, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int, requester_paste_multiplier: Double?, crafting_machine_tint: CraftingMachineTint?, hidden: Bool?, icon: String?, icon_size: String?, icon_mipmaps: String?, subgroup: String?, order: String?, results: [Result]?) {

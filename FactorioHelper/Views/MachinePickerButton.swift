@@ -24,7 +24,7 @@ class MachinePickerButton: UIButton {
 
     var machine: MachineType = .Machine1 {
         didSet {
-            setImage(IconProvider.getImage(for: machine), for: .normal)
+            setImage(machine.icon, for: .normal)
         }
     }
 
@@ -61,7 +61,7 @@ class MachinePickerButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setImage(IconProvider.getImage(for: machine), for: .normal)
+        setImage(machine.icon, for: .normal)
         setupMachinePicker()
         addTarget(self, action: #selector(didTap), for: .touchUpInside)
     }
