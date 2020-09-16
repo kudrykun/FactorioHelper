@@ -54,6 +54,7 @@ class ProductionItemCell: UITableViewCell {
     private func setupView() {
         addSubview(productionDescriptionView)
         addSubview(productionTableView)
+        selectionStyle = .none
     }
 
     private func setupConstraints() {
