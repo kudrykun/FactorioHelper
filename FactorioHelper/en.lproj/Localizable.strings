@@ -6,6 +6,7 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
+"required-items" = "You need";
 "items/sec" = "items/sec";
 
 "copper-ore" = "__ENTITY__copper-ore__";

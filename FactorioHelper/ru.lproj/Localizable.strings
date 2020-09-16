@@ -6,6 +6,7 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
+"required-items" = "Требуется";
 "items/sec" = "шт/сек";
 
 "automated-cleanup" = "Снесите 100 объектов строительными дронами.";
