@@ -6,7 +6,7 @@
 //  Copyright © 2020 kudrykun. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //не парсится, нужна проверка после обновления версии игры
 enum MachineType {
@@ -96,6 +96,28 @@ enum MachineType {
         case .ElectricFurnace: return 186000
         }
     }
+
+    var icon: UIImage {
+        return IconProvider.getImage(for: self) ?? UIImage()
+    }
+
+    var name: String {
+        switch self {
+        case .Machine1: return "assembling-machine-1"
+        case .Machine2: return "assembling-machine-2"
+        case .Machine3: return "assembling-machine-3"
+        case .OilRefinery: return "oil-refinery"
+        case .ChemicalPlant: return "chemical-plant"
+        case .Centrifuge: return "centrifuge"
+        case .StoneFurnace: return "stone-furnace"
+        case .SteelFurnace: return "steel-furnace"
+        case .ElectricFurnace: return "electric-furnace"
+        }
+    }
+
+    var localizedName: String {
+        return NSLocalizedString(name, comment: "")
+    }
 }
 
 struct ProductionItem {
@@ -169,6 +191,29 @@ class ProductionCalculator {
         case .Smelting: return .StoneFurnace
         case .Chemistry: return .ChemicalPlant
         case .Centrifuging: return .Centrifuge
+        }
+    }
+
+    static func getPossibleMachineTypes(for recipe: Recipe) -> [MachineType] {
+        switch recipe.category {
+        case .Default, .Crafting, .RocketBuilding, .AdvancedCrafting, .CraftingWithFluid:
+            let ingredients = recipe.baseIngredients
+            var machines = [MachineType]()
+            if ingredients.count <= 2 && (ingredients.filter{ $0.type == "fluid" }).isEmpty {
+                machines.append(.Machine1)
+            }
+            if ingredients.count <= 4 {
+                machines.append(.Machine2)
+            }
+
+            if ingredients.count <= 6 {
+                machines.append(.Machine3)
+            }
+            return machines
+        case .OilProcessing: return [.OilRefinery]
+        case .Smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
+        case .Chemistry: return [.ChemicalPlant]
+        case .Centrifuging: return [.Centrifuge]
         }
     }
 }

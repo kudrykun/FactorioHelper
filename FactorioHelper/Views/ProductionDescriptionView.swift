@@ -23,10 +23,9 @@ class ProductionDescriptionView: UIView {
         return label
     }()
 
-    private let machineIcon: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private let machineIcon: MachinePickerButton = {
+        let machineButton = MachinePickerButton()
+        return machineButton
     }()
 
     private let machinesCountLabel: UILabel = {
@@ -78,8 +77,12 @@ class ProductionDescriptionView: UIView {
         guard let model = model else { return }
         itemIcon.image = IconProvider.getImage(for: model.name)
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"
-        machineIcon.image = IconProvider.getImage(for: model.machineType)
+
         guard let machinesNeeded = model.machinesNeeded else { return }
         machinesCountLabel.text = "x\(Int(machinesNeeded.rounded(.up)))"
+
+        guard let recipe = RecipesProvider.findRecipe(with: model.name) else { return }
+        machineIcon.machine = ProductionCalculator.getPossibleMachineTypes(for: recipe).first ?? .Machine1
+        machineIcon.machines = ProductionCalculator.getPossibleMachineTypes(for: recipe)
     }
 }

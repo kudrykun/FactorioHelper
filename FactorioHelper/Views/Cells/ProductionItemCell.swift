@@ -124,7 +124,7 @@ extension ProductionItemCell: UITableViewDataSource {
         guard let productionItem = model else { return UITableViewCell()}
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
         cell.model = productionItem.ingredients[indexPath.row]
-        cell.nestingLevel += 1
+        cell.nestingLevel = nestingLevel + 1
         return cell
     }
 }
