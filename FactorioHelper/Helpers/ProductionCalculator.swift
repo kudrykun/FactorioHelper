@@ -19,10 +19,10 @@ struct ProductionItem {
 class ProductionCalculator {
     static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> ProductionItem?{
         let ingredients = recipe.baseIngredients
-        guard !ingredients.isEmpty else  {
-            let item = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, ingredients: [])
-            return item
-        }
+//        guard !ingredients.isEmpty else  {
+//            let item = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, ingredients: [])
+//            return item
+//        }
 
         let machineType = getMachineType(for: recipe)
         let baseProductionPerSecond = Double(recipe.baseProductionResultCount) / recipe.baseProductionTime

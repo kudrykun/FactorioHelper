@@ -101,19 +101,19 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let productionItem = productionItem else { return 0 }
-        return ProductionItemCell.calculateHeight(for: productionItem.ingredients[indexPath.row])
+        return ProductionItemCell.calculateHeight(for: productionItem)
     }
 }
 
 extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productionItem?.ingredients.count ?? 0
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let productionItem = productionItem else { return UITableViewCell()}
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
-        cell.model = productionItem.ingredients[indexPath.row]
+        cell.model = productionItem
         return cell
     }
 

@@ -77,7 +77,9 @@ class MachinePickerButton: UIButton {
     }
 
     @objc func didTap() {
-        becomeFirstResponder()
+        if machines.count > 1 {
+            becomeFirstResponder()
+        }
     }
 
     @objc func didTapClose() {

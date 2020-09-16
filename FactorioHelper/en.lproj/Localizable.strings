@@ -7,7 +7,7 @@
 */
 
 "required-items" = "You need";
-"items/sec" = "items/sec";
+"items/sec" = "items/s";
 
 "copper-ore" = "__ENTITY__copper-ore__";
 "iron-ore" = "__ENTITY__iron-ore__";

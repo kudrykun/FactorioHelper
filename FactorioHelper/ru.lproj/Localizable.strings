@@ -7,7 +7,7 @@
 */
 
 "required-items" = "Требуется";
-"items/sec" = "шт/сек";
+"items/sec" = "шт/с";
 
 "automated-cleanup" = "Снесите 100 объектов строительными дронами.";
 "automated-construction" = "Постройте 100 объектов с помощью дронов.";
