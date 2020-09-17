@@ -10,6 +10,8 @@ import UIKit
 
 class ProductionDescriptionView: UIView {
 
+    var didSelectMachine: ((MachineType) -> Void)?
+
     private let itemIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -23,7 +25,7 @@ class ProductionDescriptionView: UIView {
         return label
     }()
 
-    private let machineIcon: MachinePickerButton = {
+    private let machinePicker: MachinePickerButton = {
         let machineButton = MachinePickerButton()
         return machineButton
     }()
@@ -43,9 +45,13 @@ class ProductionDescriptionView: UIView {
         super.init(frame: frame)
         addSubview(itemIcon)
         addSubview(itemsCountLabel)
-        addSubview(machineIcon)
+        addSubview(machinePicker)
         addSubview(machinesCountLabel)
         setupConstraints()
+
+        machinePicker.didSelectMachine = { machine in
+            self.didSelectMachine?(machine)
+        }
     }
 
     private func setupConstraints() {
@@ -60,21 +66,21 @@ class ProductionDescriptionView: UIView {
             make.top.bottom.equalToSuperview()
         }
 
-        machineIcon.snp.makeConstraints { make in
+        machinePicker.snp.makeConstraints { make in
             make.width.height.equalTo(32)
             make.centerY.equalToSuperview()
             make.left.greaterThanOrEqualTo(itemsCountLabel.snp.right).offset(30)
         }
 
         machinesCountLabel.snp.makeConstraints { make in
-            make.left.equalTo(machineIcon.snp.right).offset(5)
+            make.left.equalTo(machinePicker.snp.right).offset(5)
             make.right.equalToSuperview().offset(-15)
             make.top.bottom.equalToSuperview()
         }
     }
 
-    func updateWithModel(with model: ProductionItem?) {
-        guard let model = model else { return }
+    func updateWithModel(with model: TreeNode<ProductionItem>?) {
+        guard let model = model?.value else { return }
         itemIcon.image = RecipesProvider.findRecipe(with: model.name)?.croppedIcon
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"
 
@@ -82,7 +88,7 @@ class ProductionDescriptionView: UIView {
         machinesCountLabel.text = "x\(Int(machinesNeeded.rounded(.up)))"
 
         guard let recipe = RecipesProvider.findRecipe(with: model.name) else { return }
-        machineIcon.machine = ProductionCalculator.getPossibleMachineTypes(for: recipe).first ?? .Machine1
-        machineIcon.machines = ProductionCalculator.getPossibleMachineTypes(for: recipe)
+        machinePicker.machine = model.machineType
+        machinePicker.machines = ProductionCalculator.getPossibleMachineTypes(for: recipe)
     }
 }

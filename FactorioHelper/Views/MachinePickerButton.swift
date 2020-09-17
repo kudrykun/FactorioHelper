@@ -18,6 +18,8 @@ class MachinePickerButton: UIButton {
         }
     }
 
+    var didSelectMachine: ((MachineType) -> Void)?
+
     override var inputView: UIView? {
         machinePicker
     }
@@ -91,6 +93,7 @@ extension MachinePickerButton: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedMachine = machines[row]
         setImage(machines[row].icon, for: .normal)
+        didSelectMachine?(machines[row])
     }
 
 

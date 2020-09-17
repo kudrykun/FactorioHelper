@@ -11,13 +11,15 @@ import SnapKit
 
 class ProductionItemCell: UITableViewCell {
 
+    var didSelectMachine: (() -> Void)?
+
     var nestingLevel: Int = 0 {
         didSet {
             descriptionViewOffsetConstraint?.update(offset: 15 + 15 * nestingLevel)
             leftTableViewOffsetConstraint?.update(offset: 15 * nestingLevel)
         }
     }
-    var model: ProductionItem? {
+    var model: TreeNode<ProductionItem>? {
         didSet {
             updateCell(with: model)
         }
@@ -52,9 +54,14 @@ class ProductionItemCell: UITableViewCell {
     }
 
     private func setupView() {
-        addSubview(productionDescriptionView)
-        addSubview(productionTableView)
+        contentView.addSubview(productionDescriptionView)
+        contentView.addSubview(productionTableView)
         selectionStyle = .none
+
+        productionDescriptionView.didSelectMachine = { machine in
+            self.model?.value.machineType = machine
+            self.didSelectMachine?()
+        }
     }
 
     private func setupConstraints() {
@@ -80,10 +87,10 @@ class ProductionItemCell: UITableViewCell {
         productionTableView.rowHeight = 50
     }
 
-    private func updateCell(with model: ProductionItem?) {
+    private func updateCell(with model: TreeNode<ProductionItem>?) {
         guard let model = model else { return }
 
-        if model.ingredients.isEmpty {
+        if model.children.isEmpty {
             descriptionBottomConstraint?.deactivate()
             productionTableView.snp.removeConstraints()
             productionTableView.removeFromSuperview()
@@ -95,15 +102,13 @@ class ProductionItemCell: UITableViewCell {
         productionTableView.reloadData()
     }
 
-    static func calculateHeight(for model: ProductionItem?) -> CGFloat {
-        guard let model = model else { return 0 }
+    static func calculateHeight(for model: TreeNode<ProductionItem>) -> CGFloat {
         var basicHeight: CGFloat = 32 + 15 + 15
-        if !model.ingredients.isEmpty {
-            model.ingredients.forEach { ingredient in
+        if !model.children.isEmpty {
+            model.children.forEach { ingredient in
                 basicHeight += calculateHeight(for: ingredient)
             }
         }
-
         return basicHeight
     }
 }
@@ -111,21 +116,25 @@ class ProductionItemCell: UITableViewCell {
 extension ProductionItemCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let model = model else { return 0 }
-        return ProductionItemCell.calculateHeight(for: model.ingredients[indexPath.row])
+        return ProductionItemCell.calculateHeight(for: model.children[indexPath.row])
     }
 }
 
 extension ProductionItemCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = model?.ingredients.count else { return 0 }
+        guard let count = model?.children.count else { return 0 }
         return count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let productionItem = model else { return UITableViewCell()}
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
-        cell.model = productionItem.ingredients[indexPath.row]
+        cell.model = productionItem.children[indexPath.row]
         cell.nestingLevel = nestingLevel + 1
+
+        cell.didSelectMachine = {
+            self.didSelectMachine?()
+        }
         return cell
     }
 }

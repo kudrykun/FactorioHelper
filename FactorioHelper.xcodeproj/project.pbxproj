@@ -16,6 +16,7 @@
 		FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */; };
 		FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */; };
 		FA79C4D72512A8BB001BC796 /* MachineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D62512A8BB001BC796 /* MachineType.swift */; };
+		FA98527D2514039A00BED57D /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98527C2514039A00BED57D /* TreeNode.swift */; };
 		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
 		FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F22504242400CB8377 /* RecipesProvider.swift */; };
 		FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC482825004AC700FDB962 /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinePickerButton.swift; sourceTree = "<group>"; };
 		FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionHeaderView.swift; sourceTree = "<group>"; };
 		FA79C4D62512A8BB001BC796 /* MachineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineType.swift; sourceTree = "<group>"; };
+		FA98527C2514039A00BED57D /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		FAB213F22504242400CB8377 /* RecipesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProvider.swift; sourceTree = "<group>"; };
 		FADC482525004AC700FDB962 /* FactorioHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactorioHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 			children = (
 				FADC485725004CFD00FDB962 /* Recipe.swift */,
 				FA79C4D62512A8BB001BC796 /* MachineType.swift */,
+				FA98527C2514039A00BED57D /* TreeNode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
+				FA98527D2514039A00BED57D /* TreeNode.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,

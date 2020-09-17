@@ -20,7 +20,8 @@ class RecipeViewController: UIViewController {
     }
 
     var ingredients = [Ingredient]()
-    var productionItem: ProductionItem?
+    var productionItem: TreeNode<ProductionItem>?
+    var itemsPerSecond: Double = 1
 
     private let headerView: RecipeDescriptionHeaderView = {
         let view = RecipeDescriptionHeaderView()
@@ -36,6 +37,8 @@ class RecipeViewController: UIViewController {
         let tableView = UITableView()
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
+        tableView.isMultipleTouchEnabled = true
         return tableView
     }()
 
@@ -72,6 +75,7 @@ class RecipeViewController: UIViewController {
             guard let time = Double(timeString) else { return }
             guard let recipe = self?.model else { return }
             self?.productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: time)
+            self?.itemsPerSecond = time
             self?.productionTableView.reloadData()
         }
     }
@@ -114,6 +118,10 @@ extension RecipeViewController: UITableViewDataSource {
         guard let productionItem = productionItem else { return UITableViewCell()}
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
         cell.model = productionItem
+        cell.didSelectMachine = {
+            self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: productionItem, countPerSecond: self.itemsPerSecond)
+            self.productionTableView.reloadData()
+        }
         return cell
     }
 

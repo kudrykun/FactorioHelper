@@ -12,43 +12,73 @@ struct ProductionItem {
     var name: String
     var countPerSecond: Double
     var machinesNeeded: Double?
-    var ingredients: [ProductionItem]
-    var machineType: MachineType = .Machine1
+    var machineType: MachineType
+    var recipe: Recipe
 }
 
 class ProductionCalculator {
-    static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> ProductionItem?{
+    static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> TreeNode<ProductionItem>?{
         let ingredients = recipe.baseIngredients
-//        guard !ingredients.isEmpty else  {
-//            let item = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, ingredients: [])
-//            return item
-//        }
 
         let machineType = getMachineType(for: recipe)
         let baseProductionPerSecond = Double(recipe.baseProductionResultCount) / recipe.baseProductionTime
         let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
         let requiredMachinesCount = countPerSecond / productionByOneMachinePerSecond
         let roundedRequiredMachinesCount = Int(requiredMachinesCount.rounded(.up))
-        var ingredientsProduction = [ProductionItem]()
+
+
+        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: requiredMachinesCount, machineType: machineType, recipe: recipe)
+        let treeRoot = TreeNode<ProductionItem>(productionItem)
+
         for ingredient in ingredients {
             guard let recipe = RecipesProvider.findRecipe(with: ingredient.name) else { continue }
             let itemsPerSecondCount = Double(roundedRequiredMachinesCount) * Double(ingredient.amount)
             let ingredientProductionItem = getProductionItem(for: recipe, countPerSecond: itemsPerSecondCount)
             if let ingredientProductionItem = ingredientProductionItem {
-                ingredientsProduction.append(ingredientProductionItem)
+                let treeNode = ingredientProductionItem
+                treeRoot.addChild(treeNode)
             }
         }
 
-        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: requiredMachinesCount, ingredients: ingredientsProduction)
-        return productionItem
+        return treeRoot
     }
+
+    static func getRecalculatedProductionItem(item: TreeNode<ProductionItem>, countPerSecond: Double) -> TreeNode<ProductionItem> {
+        let ingredients = item.value.recipe.baseIngredients
+
+        let machineType = item.value.machineType
+        let baseProductionPerSecond = Double(item.value.recipe.baseProductionResultCount) / item.value.recipe.baseProductionTime
+        let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
+        let requiredMachinesCount = countPerSecond / productionByOneMachinePerSecond
+        let roundedRequiredMachinesCount = Int(requiredMachinesCount.rounded(.up))
+
+        item.value.countPerSecond = countPerSecond
+        item.value.machinesNeeded = requiredMachinesCount
+
+        for ingredient in ingredients {
+            guard let node = (item.children.first{$0.value.name == ingredient.name}) else { continue }
+            let itemsPerSecondCount = Double(roundedRequiredMachinesCount) * Double(ingredient.amount)
+            let ingredientProductionItem = getRecalculatedProductionItem(item: node, countPerSecond: itemsPerSecondCount)
+            for i in 0..<item.children.count {
+                if item.children[i].value.name == node.value.name {
+                    item.children[i] = ingredientProductionItem
+                }
+            }
+        }
+
+
+        return item
+    }
+
+
+
 
     static private func getTotalMachinesCount(for item: ProductionItem) -> Int {
         guard let machinesNeeded = item.machinesNeeded else { return 0 }
         var totalCount = Int(machinesNeeded.rounded(.up))
-        item.ingredients.forEach { item in
-            totalCount += getTotalMachinesCount(for: item)
-        }
+//        item.ingredients.forEach { item in
+//            totalCount += getTotalMachinesCount(for: item)
+//        }
         return totalCount
     }
 
