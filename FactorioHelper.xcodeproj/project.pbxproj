@@ -10,6 +10,29 @@
 		D87B83827A67381FCCB74DE6 /* Pods_FactorioHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */; };
 		FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */; };
 		FA1CA2FC25080FB100125B05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA1CA2FE25080FB100125B05 /* Localizable.strings */; };
+		FA20184A2516AD7F004D9124 /* capsule.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018372516AD7D004D9124 /* capsule.json */; };
+		FA20184B2516AD7F004D9124 /* demo-module.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018382516AD7D004D9124 /* demo-module.json */; };
+		FA20184C2516AD7F004D9124 /* demo-armor.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018392516AD7D004D9124 /* demo-armor.json */; };
+		FA20184D2516AD7F004D9124 /* ammo.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183A2516AD7D004D9124 /* ammo.json */; };
+		FA20184E2516AD7F004D9124 /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183B2516AD7D004D9124 /* item.json */; };
+		FA20184F2516AD7F004D9124 /* armor.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183C2516AD7D004D9124 /* armor.json */; };
+		FA2018502516AD7F004D9124 /* module2.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183D2516AD7D004D9124 /* module2.json */; };
+		FA2018512516AD7F004D9124 /* demo-gun.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183E2516AD7D004D9124 /* demo-gun.json */; };
+		FA2018522516AD7F004D9124 /* gun.json in Resources */ = {isa = PBXBuildFile; fileRef = FA20183F2516AD7E004D9124 /* gun.json */; };
+		FA2018532516AD7F004D9124 /* turret.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018402516AD7E004D9124 /* turret.json */; };
+		FA2018542516AD7F004D9124 /* equipment.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018412516AD7E004D9124 /* equipment.json */; };
+		FA2018552516AD7F004D9124 /* demo-ammo.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018422516AD7E004D9124 /* demo-ammo.json */; };
+		FA2018562516AD7F004D9124 /* demo-item.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018432516AD7E004D9124 /* demo-item.json */; };
+		FA2018572516AD7F004D9124 /* demo-item-groups.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018442516AD7E004D9124 /* demo-item-groups.json */; };
+		FA2018582516AD7F004D9124 /* circuit-network.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018452516AD7E004D9124 /* circuit-network.json */; };
+		FA2018592516AD7F004D9124 /* demo-turret.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018462516AD7E004D9124 /* demo-turret.json */; };
+		FA20185A2516AD7F004D9124 /* module1.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018472516AD7E004D9124 /* module1.json */; };
+		FA20185B2516AD7F004D9124 /* modulesLimitations.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018482516AD7F004D9124 /* modulesLimitations.json */; };
+		FA20185C2516AD7F004D9124 /* mining-tools.json in Resources */ = {isa = PBXBuildFile; fileRef = FA2018492516AD7F004D9124 /* mining-tools.json */; };
+		FA2018602516AFF3004D9124 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20185F2516AFF3004D9124 /* Group.swift */; };
+		FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018622516B05B004D9124 /* GroupsParser.swift */; };
+		FA2018662517F54E004D9124 /* ItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018652517F54E004D9124 /* ItemParser.swift */; };
+		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
 		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */; };
 		FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */; };
@@ -54,6 +77,29 @@
 		FA1CA2F925080ED300125B05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA1CA2FD25080FB100125B05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1CA2FF25080FB600125B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA2018372516AD7D004D9124 /* capsule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capsule.json; sourceTree = "<group>"; };
+		FA2018382516AD7D004D9124 /* demo-module.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-module.json"; sourceTree = "<group>"; };
+		FA2018392516AD7D004D9124 /* demo-armor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-armor.json"; sourceTree = "<group>"; };
+		FA20183A2516AD7D004D9124 /* ammo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ammo.json; sourceTree = "<group>"; };
+		FA20183B2516AD7D004D9124 /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item.json; sourceTree = "<group>"; };
+		FA20183C2516AD7D004D9124 /* armor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = armor.json; sourceTree = "<group>"; };
+		FA20183D2516AD7D004D9124 /* module2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = module2.json; sourceTree = "<group>"; };
+		FA20183E2516AD7D004D9124 /* demo-gun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-gun.json"; sourceTree = "<group>"; };
+		FA20183F2516AD7E004D9124 /* gun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gun.json; sourceTree = "<group>"; };
+		FA2018402516AD7E004D9124 /* turret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = turret.json; sourceTree = "<group>"; };
+		FA2018412516AD7E004D9124 /* equipment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = equipment.json; sourceTree = "<group>"; };
+		FA2018422516AD7E004D9124 /* demo-ammo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-ammo.json"; sourceTree = "<group>"; };
+		FA2018432516AD7E004D9124 /* demo-item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-item.json"; sourceTree = "<group>"; };
+		FA2018442516AD7E004D9124 /* demo-item-groups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-item-groups.json"; sourceTree = "<group>"; };
+		FA2018452516AD7E004D9124 /* circuit-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "circuit-network.json"; sourceTree = "<group>"; };
+		FA2018462516AD7E004D9124 /* demo-turret.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-turret.json"; sourceTree = "<group>"; };
+		FA2018472516AD7E004D9124 /* module1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = module1.json; sourceTree = "<group>"; };
+		FA2018482516AD7F004D9124 /* modulesLimitations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = modulesLimitations.json; sourceTree = "<group>"; };
+		FA2018492516AD7F004D9124 /* mining-tools.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mining-tools.json"; sourceTree = "<group>"; };
+		FA20185F2516AFF3004D9124 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FA2018622516B05B004D9124 /* GroupsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsParser.swift; sourceTree = "<group>"; };
+		FA2018652517F54E004D9124 /* ItemParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemParser.swift; sourceTree = "<group>"; };
+		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionItemCell.swift; sourceTree = "<group>"; };
 		FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDescriptionView.swift; sourceTree = "<group>"; };
@@ -120,6 +166,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA2018362516AD5B004D9124 /* Sorting */ = {
+			isa = PBXGroup;
+			children = (
+				FA20183A2516AD7D004D9124 /* ammo.json */,
+				FA20183C2516AD7D004D9124 /* armor.json */,
+				FA2018372516AD7D004D9124 /* capsule.json */,
+				FA2018452516AD7E004D9124 /* circuit-network.json */,
+				FA2018422516AD7E004D9124 /* demo-ammo.json */,
+				FA2018392516AD7D004D9124 /* demo-armor.json */,
+				FA20183E2516AD7D004D9124 /* demo-gun.json */,
+				FA2018442516AD7E004D9124 /* demo-item-groups.json */,
+				FA2018432516AD7E004D9124 /* demo-item.json */,
+				FA2018382516AD7D004D9124 /* demo-module.json */,
+				FA2018462516AD7E004D9124 /* demo-turret.json */,
+				FA2018412516AD7E004D9124 /* equipment.json */,
+				FA20183F2516AD7E004D9124 /* gun.json */,
+				FA20183B2516AD7D004D9124 /* item.json */,
+				FA2018492516AD7F004D9124 /* mining-tools.json */,
+				FA2018472516AD7E004D9124 /* module1.json */,
+				FA20183D2516AD7D004D9124 /* module2.json */,
+				FA2018482516AD7F004D9124 /* modulesLimitations.json */,
+				FA2018402516AD7E004D9124 /* turret.json */,
+			);
+			path = Sorting;
+			sourceTree = "<group>";
+		};
 		FA72C12C2506B434008DC59D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +225,7 @@
 				FA72C12C2506B434008DC59D /* ViewControllers */,
 				FADC48602502BCAC00FDB962 /* Views */,
 				FADC485D2502B8F700FDB962 /* Helpers */,
-				FADC485625004CEE00FDB962 /* Model */,
+				FADC485625004CEE00FDB962 /* Models */,
 				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
 				FADC482A25004AC700FDB962 /* SceneDelegate.swift */,
@@ -169,6 +241,7 @@
 		FADC483C25004B0800FDB962 /* RecipesSources */ = {
 			isa = PBXGroup;
 			children = (
+				FA2018362516AD5B004D9124 /* Sorting */,
 				FADC483D25004B1500FDB962 /* Recipes */,
 				FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */,
 			);
@@ -194,14 +267,16 @@
 			path = Recipes;
 			sourceTree = "<group>";
 		};
-		FADC485625004CEE00FDB962 /* Model */ = {
+		FADC485625004CEE00FDB962 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				FADC485725004CFD00FDB962 /* Recipe.swift */,
 				FA79C4D62512A8BB001BC796 /* MachineType.swift */,
 				FA98527C2514039A00BED57D /* TreeNode.swift */,
+				FA20185F2516AFF3004D9124 /* Group.swift */,
+				FA2018682517F577004D9124 /* Item.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FADC485D2502B8F700FDB962 /* Helpers */ = {
@@ -212,6 +287,8 @@
 				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
 				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
+				FA2018622516B05B004D9124 /* GroupsParser.swift */,
+				FA2018652517F54E004D9124 /* ItemParser.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -299,7 +376,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1CA2FC25080FB100125B05 /* Localizable.strings in Resources */,
+				FA20184A2516AD7F004D9124 /* capsule.json in Resources */,
+				FA20184E2516AD7F004D9124 /* item.json in Resources */,
 				FADC485125004B2A00FDB962 /* circuit-networkJSONED.json in Resources */,
+				FA2018522516AD7F004D9124 /* gun.json in Resources */,
+				FA2018502516AD7F004D9124 /* module2.json in Resources */,
+				FA2018582516AD7F004D9124 /* circuit-network.json in Resources */,
 				FADC485525004B2A00FDB962 /* recipeJSONED.json in Resources */,
 				FADC485425004B2A00FDB962 /* demo-turretJSONED.json in Resources */,
 				FADC483525004AC900FDB962 /* LaunchScreen.storyboard in Resources */,
@@ -308,13 +390,27 @@
 				FADC484D25004B2A00FDB962 /* equipmentJSONED.json in Resources */,
 				FADC483225004AC900FDB962 /* Assets.xcassets in Resources */,
 				FADC484E25004B2A00FDB962 /* ammoJSONED.json in Resources */,
+				FA20184D2516AD7F004D9124 /* ammo.json in Resources */,
 				FADC484C25004B2A00FDB962 /* demo-recipeJSONED.json in Resources */,
+				FA20185C2516AD7F004D9124 /* mining-tools.json in Resources */,
+				FA20185A2516AD7F004D9124 /* module1.json in Resources */,
+				FA2018572516AD7F004D9124 /* demo-item-groups.json in Resources */,
+				FA2018592516AD7F004D9124 /* demo-turret.json in Resources */,
+				FA20184F2516AD7F004D9124 /* armor.json in Resources */,
+				FA2018552516AD7F004D9124 /* demo-ammo.json in Resources */,
 				FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */,
+				FA2018542516AD7F004D9124 /* equipment.json in Resources */,
+				FA20185B2516AD7F004D9124 /* modulesLimitations.json in Resources */,
 				FADC484F25004B2A00FDB962 /* moduleJSONED.json in Resources */,
+				FA20184B2516AD7F004D9124 /* demo-module.json in Resources */,
 				FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */,
+				FA2018512516AD7F004D9124 /* demo-gun.json in Resources */,
+				FA2018532516AD7F004D9124 /* turret.json in Resources */,
 				FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */,
 				FADC483025004AC700FDB962 /* Main.storyboard in Resources */,
+				FA20184C2516AD7F004D9124 /* demo-armor.json in Resources */,
 				FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */,
+				FA2018562516AD7F004D9124 /* demo-item.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +469,8 @@
 				FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */,
 				FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */,
 				FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */,
+				FA2018692517F577004D9124 /* Item.swift in Sources */,
+				FA2018602516AFF3004D9124 /* Group.swift in Sources */,
 				FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */,
 				FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */,
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
@@ -381,9 +479,11 @@
 				FA98527D2514039A00BED57D /* TreeNode.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */,
+				FA2018662517F54E004D9124 /* ItemParser.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
 				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
+				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
 				FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

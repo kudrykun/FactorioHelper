@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         setupTableViewData()
         setupView()
         setupSearchController()
+
+        let groups = GroupsParser.getGroups()
+        print(groups)
     }
 
     private func setupView() {
