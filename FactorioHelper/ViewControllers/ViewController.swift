@@ -11,89 +11,70 @@ import SnapKit
 
 class ViewController: UIViewController {
 
-    private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.rowHeight = 50
-        return tableView
-    }()
-
     private var recipes = [Recipe]()
 
-    private var filteredRecipes = [Recipe]()
+    private var groups = [String : Group]()
 
-    var searchController: UISearchController!
+    private let collectionView: UICollectionView = {
+        var layout = UICollectionViewFlowLayout()
+        layout.sectionInset = .init(top: 20, left: 0, bottom: 20, right: 0)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(RecipeCollectionCell.self, forCellWithReuseIdentifier: "\(RecipeCollectionCell.self)")
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableViewData()
-        setupView()
-        setupSearchController()
+        view.addSubview(collectionView)
 
-        let groups = GroupsParser.getGroups()
-        print(groups)
-    }
-
-    private func setupView() {
-        view.addSubview(tableView)
-        setupTableView()
-    }
-    private func setupTableViewData() {
-        recipes = RecipesProvider.getRecipes()
-        filteredRecipes = recipes
-    }
-
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(SimpleRecipeTableViewCell.self, forCellReuseIdentifier: "SimpleRecipeTableViewCell")
-
-        let blackView = UIView()
-        blackView.backgroundColor = .systemBackground
-        tableView.backgroundView = blackView
-
-        tableView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
-    private func setupSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.sizeToFit()
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
+        groups = GroupsParser.getGroups()
+        print(groups)
     }
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredRecipes.count
+extension ViewController: UICollectionViewDelegate {
+
+}
+
+extension ViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        let count = groups["logistics"]?.subgroups.count ?? 0
+        print("number of sections \(count)")
+        return count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SimpleRecipeTableViewCell", for: indexPath) as? SimpleRecipeTableViewCell else { return UITableViewCell() }
-        cell.model = SimpleRecipeCellModelGenerator.generateModel(from: filteredRecipes[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let count = groups["logistics"]?.subgroups[section].items.count ?? 0
+        print("number of items in section \(count)")
+        return count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+//        var itemsCounter = 0
+//        var subgroup: Group!
+//        guard let subgroups = (groups["logistics"]?.subgroups) else { return UICollectionViewCell() }
+//        for sub in subgroups {
+//            itemsCounter += sub.items.count
+//            if indexPath.row < itemsCounter {
+//                itemsCounter -= sub.items.count
+//                subgroup = sub
+//                break
+//            }
+//        }
+
+        guard let item = groups["logistics"]?.subgroups[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeCollectionCell.self)", for: indexPath) as? RecipeCollectionCell else { return UICollectionViewCell() }
+        cell.image = RecipesProvider.findRecipe(with: item.name)?.croppedIcon
+        print("createdCell for \(item.name)")
         return cell
-    }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = RecipeViewController()
-        vc.model = filteredRecipes[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-extension ViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchText = searchText.lowercased()
-        filteredRecipes = searchText.isEmpty ? recipes : recipes.filter {
-            let localizedName = $0.localizedName.lowercased()
-            return localizedName.range(of: searchText) != nil
-        }
-        tableView.reloadData()
     }
 }
 

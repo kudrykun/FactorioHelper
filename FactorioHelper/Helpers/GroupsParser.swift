@@ -9,26 +9,26 @@
 import Foundation
 
 class GroupsParser {
-    static func getGroups() -> [Group] {
+    static func getGroups() -> [String : Group] {
         var groups = [Group]()
         let fullFilename = "demo-item-groups"
 
-        guard let url = Bundle.main.url(forResource: fullFilename, withExtension: "json") else { return groups }
+        guard let url = Bundle.main.url(forResource: fullFilename, withExtension: "json") else { return [:] }
 
         do {
             let data = try Data(contentsOf: url)
-            guard let groupsArray = try JSONSerialization.jsonObject(with: data, options: []) as? [Any] else { return groups }
+            guard let groupsArray = try JSONSerialization.jsonObject(with: data, options: []) as? [Any] else { return [:] }
             for groupJSON in groupsArray {
                 guard let groupJSON = groupJSON as? [String: Any] else { continue }
                 guard let group = parseGroup(from: groupJSON) else { continue }
                 groups.append(group)
             }
-            var items = ItemParser.getItems()
-            arrangeGroupsAndItems(groups, items)
+            let items = ItemParser.getItems()
+            return arrangeGroupsAndItems(groups, items)
         } catch {
             print(error)
         }
-        return groups
+        return [:]
     }
 
     private static func parseGroup(from dict: [String: Any]) -> Group? {
@@ -46,20 +46,38 @@ class GroupsParser {
     }
 
     private static func arrangeGroupsAndItems(_ groups: [Group], _ items: [Item]) -> [ String : Group ] {
+
+        //формируем словарь глобальных групп
         var globalGroups: [String : Group] = [:]
         for group in groups.filter({ $0.isGlobalGroup }) {
             globalGroups[group.name] = group
         }
-        var subgroups = groups.filter { !$0.isGlobalGroup }
 
-        for subgroup in subgroups {
-            guard let groupName = subgroup.group else { continue }
-            globalGroups[groupName]?.subgroups[subgroup.name] = subgroup
+        //формируем словарь подгрупп
+        var subgroups: [String : Group] = [:]
+        for subgroup in groups.filter({ !$0.isGlobalGroup}) {
+            subgroups[subgroup.name] = subgroup
         }
 
+        //раскидываем итемы по подгруппам
         for item in items {
-            guard let groupName = (subgroups.first{$0.name == item.subgroup})?.group else { continue }
-            globalGroups[groupName]?.subgroups[item.subgroup]?.items.append(item)
+            subgroups[item.subgroup]?.items.append(item)
+        }
+
+        //сортируем итемы
+        for subgroup in subgroups {
+            subgroups[subgroup.value.name]?.items.sort { $0.order < $1.order }
+        }
+
+        //раскидываем подгруппы по группам
+        for subgroup in subgroups {
+            guard let groupName = subgroup.value.group else { continue }
+            globalGroups[groupName]?.subgroups.append(subgroup.value)
+        }
+
+        //сортируем подгруппы
+        for group in globalGroups {
+            globalGroups[group.value.name]?.subgroups.sort { $0.order < $1.order }
         }
 
         return globalGroups

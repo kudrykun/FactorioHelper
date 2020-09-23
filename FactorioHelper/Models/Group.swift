@@ -17,7 +17,7 @@ struct Group {
     var icon: String?
     var isGlobalGroup: Bool = false
 
-    var subgroups: [String : Group] = [:]
+    var subgroups: [Group] = []
     var items = [Item]()
 
     init(type: String, name: String, order: String, group: String?, icon: String?, isGlobalGroup: Bool) {
