@@ -37,8 +37,13 @@ class GroupsParser {
         guard let name = dict["name"] as? String else { return nil }
         guard let order = dict["order"] as? String else { return nil }
         let groupName = dict["group"] as? String
-        let icon = dict["icon"] as? String
+        var icon = dict["icon"] as? String
         let isGlobalGroup = name == "logistics" || name == "production" || name == "combat" || name == "intermediate-products"
+
+        if let iconPath = icon {
+            let subs = iconPath.split(separator: "/")
+            icon = String(subs.last ?? "")
+        }
 
         let group = Group(type: type, name: name, order: order, group: groupName, icon: icon, isGlobalGroup: isGlobalGroup)
 

@@ -33,9 +33,16 @@ class ViewController: UIViewController {
         groups = GroupsParser.getGroups()
 
         sortedGroups = groups.map{$0.value}
+        sortedGroups.sort{ $0.order < $1.order}
         currentGroup = sortedGroups.first
 
-        segmentedControl = UISegmentedControl(items: sortedGroups.map{NSLocalizedString($0.name, comment: "")})
+        let imagesForSegmentedControl = sortedGroups.compactMap { UIImage(named: $0.icon ?? "") }
+
+
+        segmentedControl = UISegmentedControl(items: imagesForSegmentedControl)
+        for (index,image) in imagesForSegmentedControl.enumerated() {
+            segmentedControl.setImage(image, forSegmentAt: index)
+        }
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(selectSegment(_:)), for: .valueChanged)
 
@@ -67,7 +74,12 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = RecipeViewController()
+        guard let recipeName = currentGroup?.subgroups[indexPath.section].items[indexPath.row].name else { return }
+        vc.model = RecipesProvider.findRecipe(with: recipeName)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {

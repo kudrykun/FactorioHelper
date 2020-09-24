@@ -34,6 +34,7 @@
 		FA2018662517F54E004D9124 /* ItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018652517F54E004D9124 /* ItemParser.swift */; };
 		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
 		FA20186C251A1DC0004D9124 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */; };
+		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */; };
 		FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */; };
@@ -102,6 +103,7 @@
 		FA2018652517F54E004D9124 /* ItemParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemParser.swift; sourceTree = "<group>"; };
 		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCell.swift; sourceTree = "<group>"; };
+		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionItemCell.swift; sourceTree = "<group>"; };
 		FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDescriptionView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				FA2018362516AD5B004D9124 /* Sorting */,
 				FADC483D25004B1500FDB962 /* Recipes */,
 				FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */,
+				FA642974251D30E500D08346 /* GroupIcons.xcassets */,
 			);
 			path = RecipesSources;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				FADC484E25004B2A00FDB962 /* ammoJSONED.json in Resources */,
 				FA20184D2516AD7F004D9124 /* ammo.json in Resources */,
 				FADC484C25004B2A00FDB962 /* demo-recipeJSONED.json in Resources */,
+				FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */,
 				FA20185C2516AD7F004D9124 /* mining-tools.json in Resources */,
 				FA20185A2516AD7F004D9124 /* module1.json in Resources */,
 				FA2018572516AD7F004D9124 /* demo-item-groups.json in Resources */,
