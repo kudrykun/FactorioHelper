@@ -36,15 +36,17 @@ class ViewController: UIViewController {
         sortedGroups.sort{ $0.order < $1.order}
         currentGroup = sortedGroups.first
 
-        let imagesForSegmentedControl = sortedGroups.compactMap { UIImage(named: $0.icon ?? "") }
+        let imagesForSegmentedControl = sortedGroups.compactMap { UIImage(named: $0.icon ?? "")?.withRenderingMode(.alwaysOriginal) }
 
 
         segmentedControl = UISegmentedControl(items: imagesForSegmentedControl)
         for (index,image) in imagesForSegmentedControl.enumerated() {
-            segmentedControl.setImage(image, forSegmentAt: index)
+            segmentedControl.setImage(ViewController.image(from: image, scaledToSize: CGSize(width: 50, height: 50)), forSegmentAt: index)
         }
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(selectSegment(_:)), for: .valueChanged)
+        segmentedControl.contentMode = .scaleAspectFill
+        segmentedControl.apportionsSegmentWidthsByContent = true
 
         view.addSubview(collectionView)
         view.addSubview(segmentedControl)
@@ -57,6 +59,7 @@ class ViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(collectionView.snp.top)
+            make.height.equalTo(60)
         }
 
         collectionView.dataSource = self
@@ -70,6 +73,14 @@ class ViewController: UIViewController {
     @objc func selectSegment(_ sender: Any) {
         currentGroup = sortedGroups[segmentedControl.selectedSegmentIndex]
         collectionView.reloadData()
+    }
+
+    static func image(from sourceImage: UIImage, scaledToSize newSize: CGSize) -> UIImage{
+        UIGraphicsBeginImageContext(newSize)
+        sourceImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image?.withRenderingMode(.alwaysOriginal) ?? UIImage()
     }
 }
 
