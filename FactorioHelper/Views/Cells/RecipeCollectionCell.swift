@@ -19,6 +19,7 @@ class RecipeCollectionCell: UICollectionViewCell {
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
 

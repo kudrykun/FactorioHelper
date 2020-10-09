@@ -24,7 +24,8 @@ class GroupsParser {
                 groups.append(group)
             }
             let items = ItemParser.getItems()
-            return arrangeGroupsAndItems(groups, items)
+            let arrangedGroupsAndItems = arrangeGroupsAndItems(groups, items)
+            return arrangedGroupsAndItems
         } catch {
             print(error)
         }

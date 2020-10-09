@@ -35,6 +35,11 @@
 		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
 		FA20186C251A1DC0004D9124 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
+		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
+		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
+		FA642994252D7A5200D08346 /* demo-fluidJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FA642992252D7A5100D08346 /* demo-fluidJSONED.json */; };
+		FA642995252D7A5200D08346 /* fluidJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FA642993252D7A5100D08346 /* fluidJSONED.json */; };
+		FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64299A252E0F8900D08346 /* FluidItemsGenerator.swift */; };
 		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */; };
 		FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */; };
@@ -104,6 +109,11 @@
 		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCell.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
+		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
+		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
+		FA642992252D7A5100D08346 /* demo-fluidJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-fluidJSONED.json"; sourceTree = "<group>"; };
+		FA642993252D7A5100D08346 /* fluidJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fluidJSONED.json; sourceTree = "<group>"; };
+		FA64299A252E0F8900D08346 /* FluidItemsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidItemsGenerator.swift; sourceTree = "<group>"; };
 		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionItemCell.swift; sourceTree = "<group>"; };
 		FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDescriptionView.swift; sourceTree = "<group>"; };
@@ -196,6 +206,34 @@
 			path = Sorting;
 			sourceTree = "<group>";
 		};
+		FA642977252D77D500D08346 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2018652517F54E004D9124 /* ItemParser.swift */,
+				FADC485925004D2500FDB962 /* RecipeParser.swift */,
+				FA2018622516B05B004D9124 /* GroupsParser.swift */,
+				FA642978252D77F700D08346 /* FluidParser.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		FA64297F252D78F500D08346 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FA642992252D7A5100D08346 /* demo-fluidJSONED.json */,
+				FA642993252D7A5100D08346 /* fluidJSONED.json */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FA642999252E0F7200D08346 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				FA64299A252E0F8900D08346 /* FluidItemsGenerator.swift */,
+			);
+			path = Generators;
+			sourceTree = "<group>";
+		};
 		FA72C12C2506B434008DC59D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +283,7 @@
 		FADC483C25004B0800FDB962 /* RecipesSources */ = {
 			isa = PBXGroup;
 			children = (
+				FA64297F252D78F500D08346 /* Other */,
 				FA2018362516AD5B004D9124 /* Sorting */,
 				FADC483D25004B1500FDB962 /* Recipes */,
 				FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */,
@@ -280,6 +319,7 @@
 				FA98527C2514039A00BED57D /* TreeNode.swift */,
 				FA20185F2516AFF3004D9124 /* Group.swift */,
 				FA2018682517F577004D9124 /* Item.swift */,
+				FA64297C252D780600D08346 /* Fluid.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,13 +327,12 @@
 		FADC485D2502B8F700FDB962 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FADC485925004D2500FDB962 /* RecipeParser.swift */,
+				FA642999252E0F7200D08346 /* Generators */,
+				FA642977252D77D500D08346 /* Parsers */,
 				FADC485E2502B92C00FDB962 /* IconsCropper.swift */,
 				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
 				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
-				FA2018622516B05B004D9124 /* GroupsParser.swift */,
-				FA2018652517F54E004D9124 /* ItemParser.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -404,12 +443,14 @@
 				FA2018572516AD7F004D9124 /* demo-item-groups.json in Resources */,
 				FA2018592516AD7F004D9124 /* demo-turret.json in Resources */,
 				FA20184F2516AD7F004D9124 /* armor.json in Resources */,
+				FA642994252D7A5200D08346 /* demo-fluidJSONED.json in Resources */,
 				FA2018552516AD7F004D9124 /* demo-ammo.json in Resources */,
 				FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */,
 				FA2018542516AD7F004D9124 /* equipment.json in Resources */,
 				FA20185B2516AD7F004D9124 /* modulesLimitations.json in Resources */,
 				FADC484F25004B2A00FDB962 /* moduleJSONED.json in Resources */,
 				FA20184B2516AD7F004D9124 /* demo-module.json in Resources */,
+				FA642995252D7A5200D08346 /* fluidJSONED.json in Resources */,
 				FADC485325004B2A00FDB962 /* capsuleJSONED.json in Resources */,
 				FA2018512516AD7F004D9124 /* demo-gun.json in Resources */,
 				FA2018532516AD7F004D9124 /* turret.json in Resources */,
@@ -483,6 +524,8 @@
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
+				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
+				FA642979252D77F700D08346 /* FluidParser.swift in Sources */,
 				FA98527D2514039A00BED57D /* TreeNode.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */,
@@ -492,6 +535,7 @@
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
 				FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */,
+				FA64297D252D780600D08346 /* Fluid.swift in Sources */,
 				FA20186C251A1DC0004D9124 /* RecipeCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

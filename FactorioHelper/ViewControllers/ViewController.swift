@@ -110,7 +110,7 @@ extension ViewController: UICollectionViewDataSource {
         guard let item = currentGroup?.subgroups[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeCollectionCell.self)", for: indexPath) as? RecipeCollectionCell else { return UICollectionViewCell() }
-        cell.image = RecipesProvider.findRecipe(with: item.name)?.croppedIcon
+        cell.image = item.croppedIcon
         print("createdCell for \(item.name)")
         return cell
     }

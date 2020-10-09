@@ -125,18 +125,23 @@ struct DifficultyRecipe: Codable {
     var result: String? = nil
 }
 
-struct CraftingMachineTint: Codable {
+struct CraftingMachineTint {
     var primary: Color
     var secondary: Color
     var tertiary: Color
     var quaternary: Color
 }
 
-struct Color: Codable {
+struct Color {
     var r: Double
     var g: Double
     var b: Double
-    var a: Double
+    var a: Double?
+
+    var uiColor: UIColor {
+        return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a ?? 1.0))
+//        return UIColor(red: r, green: g, blue: b, alpha: a ?? 1.0)
+    }
 }
 
 struct Result: Codable {
