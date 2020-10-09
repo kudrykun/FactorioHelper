@@ -75,7 +75,7 @@ struct Item {
         } else {
             guard let iconNameSubstring = icon?.split(separator: "/").last else { return nil }
             let iconName = String(iconNameSubstring)
-            guard let sourceImage = UIImage(named: iconName) else { return nil }
+            guard let sourceImage = UIImage(named: iconName) ??  UIImage(named: name) else { return nil }
             guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
             return croppedImage
         }
