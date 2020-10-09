@@ -107,11 +107,12 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+
         guard let item = currentGroup?.subgroups[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeCollectionCell.self)", for: indexPath) as? RecipeCollectionCell else { return UICollectionViewCell() }
         cell.image = item.croppedIcon
-        print("createdCell for \(item.name)")
+        print("createdCell \(item.name) \t\t \(item.subgroup) \t \(item.order)")
         return cell
     }
 }

@@ -39,9 +39,6 @@ class RecipeParser {
         guard let type = dict["type"] as? String else { return nil }
         guard let name = dict["name"] as? String else { return nil }
 
-        if name == "lubricant" {
-            print("wow!")
-        }
         let enabled = dict["enabled"] as? Bool
         let category = parseCategory(from: dict["category"] as? String)
         var ingredients: [Ingredient]?
