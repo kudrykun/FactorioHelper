@@ -33,13 +33,14 @@
 		FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018622516B05B004D9124 /* GroupsParser.swift */; };
 		FA2018662517F54E004D9124 /* ItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018652517F54E004D9124 /* ItemParser.swift */; };
 		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
-		FA20186C251A1DC0004D9124 /* RecipeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */; };
+		FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeListCell.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
 		FA642994252D7A5200D08346 /* demo-fluidJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FA642992252D7A5100D08346 /* demo-fluidJSONED.json */; };
 		FA642995252D7A5200D08346 /* fluidJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FA642993252D7A5100D08346 /* fluidJSONED.json */; };
 		FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64299A252E0F8900D08346 /* FluidItemsGenerator.swift */; };
+		FA64299E253782C100D08346 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64299D253782C000D08346 /* Colors.swift */; };
 		FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72C12D2506B487008DC59D /* TimeSelectionView.swift */; };
 		FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */; };
 		FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */; };
@@ -73,6 +74,7 @@
 		FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsCropper.swift */; };
 		FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */; };
 		FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */; };
+		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,13 +109,14 @@
 		FA2018622516B05B004D9124 /* GroupsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsParser.swift; sourceTree = "<group>"; };
 		FA2018652517F54E004D9124 /* ItemParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemParser.swift; sourceTree = "<group>"; };
 		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionCell.swift; sourceTree = "<group>"; };
+		FA20186B251A1DC0004D9124 /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
 		FA642992252D7A5100D08346 /* demo-fluidJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "demo-fluidJSONED.json"; sourceTree = "<group>"; };
 		FA642993252D7A5100D08346 /* fluidJSONED.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fluidJSONED.json; sourceTree = "<group>"; };
 		FA64299A252E0F8900D08346 /* FluidItemsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidItemsGenerator.swift; sourceTree = "<group>"; };
+		FA64299D253782C000D08346 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FA72C12D2506B487008DC59D /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
 		FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionItemCell.swift; sourceTree = "<group>"; };
 		FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDescriptionView.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		FADC485E2502B92C00FDB962 /* IconsCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCropper.swift; sourceTree = "<group>"; };
 		FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeCellModelGenerator.swift; sourceTree = "<group>"; };
+		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +337,7 @@
 				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
 				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
+				FA64299D253782C000D08346 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -354,7 +359,8 @@
 			children = (
 				FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */,
 				FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */,
-				FA20186B251A1DC0004D9124 /* RecipeCollectionCell.swift */,
+				FA20186B251A1DC0004D9124 /* RecipeListCell.swift */,
+				FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -521,10 +527,12 @@
 				FA2018602516AFF3004D9124 /* Group.swift in Sources */,
 				FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */,
 				FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */,
+				FA64299E253782C100D08346 /* Colors.swift in Sources */,
 				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
 				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
+				FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */,
 				FA642979252D77F700D08346 /* FluidParser.swift in Sources */,
 				FA98527D2514039A00BED57D /* TreeNode.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
@@ -536,7 +544,7 @@
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
 				FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */,
 				FA64297D252D780600D08346 /* Fluid.swift in Sources */,
-				FA20186C251A1DC0004D9124 /* RecipeCollectionCell.swift in Sources */,
+				FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

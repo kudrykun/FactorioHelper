@@ -19,16 +19,43 @@ class ViewController: UIViewController {
 
     private let collectionView: UICollectionView = {
         var layout = UICollectionViewFlowLayout()
-        layout.sectionInset = .init(top: 20, left: 0, bottom: 20, right: 0)
+        layout.sectionInset = .init(top: 1.5, left: 0, bottom: 1.5, right: 0)
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
+        layout.itemSize = .init(width: ViewController.itemWidth, height: ViewController.itemWidth)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(RecipeCollectionCell.self, forCellWithReuseIdentifier: "\(RecipeCollectionCell.self)")
+        collectionView.register(RecipeListCell.self, forCellWithReuseIdentifier: "\(RecipeListCell.self)")
+        collectionView.register(RecipeListEmptyCell.self, forCellWithReuseIdentifier: "\(RecipeListEmptyCell.self)")
         return collectionView
     }()
 
     private var segmentedControl: UISegmentedControl!
 
+    static var itemWidth: CGFloat {
+        get {
+            let basicItemWidth: CGFloat = 45
+            let interItemSpacing: CGFloat = 2
+            let screenWidth = UIScreen.main.bounds.width
+            var itemsInLine = (screenWidth / basicItemWidth).rounded(.down)
+            itemsInLine = ((screenWidth - itemsInLine * interItemSpacing) / basicItemWidth).rounded(.down)
+            return basicItemWidth + ((screenWidth - itemsInLine * interItemSpacing) - itemsInLine * basicItemWidth) / itemsInLine
+        }
+    }
+
+    static var itemsInLine: Int {
+        let basicItemWidth: CGFloat = 45
+        let interItemSpacing: CGFloat = 2
+        let screenWidth = UIScreen.main.bounds.width
+        var itemsInLine = (screenWidth / basicItemWidth).rounded(.down)
+        itemsInLine = ((screenWidth - itemsInLine * interItemSpacing) / basicItemWidth).rounded(.down)
+        return Int(itemsInLine)
+    }
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.itemCollectionBackgroundColor
 
         groups = GroupsParser.getGroups()
 
@@ -66,7 +93,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
 
         let blackView = UIView()
-        blackView.backgroundColor = .systemBackground
+        blackView.backgroundColor = Colors.itemCollectionBackgroundColor
         collectionView.backgroundView = blackView
     }
 
@@ -86,10 +113,15 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let subgroup = currentGroup?.subgroups[indexPath.section] else { return }
+
         let vc = RecipeViewController()
-        guard let recipeName = currentGroup?.subgroups[indexPath.section].items[indexPath.row].name else { return }
-        vc.model = RecipesProvider.findRecipe(with: recipeName)
-        self.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.row < subgroup.items.count {
+            let recipeName = subgroup.items[indexPath.row].name
+            vc.model = RecipesProvider.findRecipe(with: recipeName)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -101,19 +133,33 @@ extension ViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = currentGroup?.subgroups[section].items.count ?? 0
-        return count
+        guard let count = currentGroup?.subgroups[section].items.count else { return 0 }
+        let neededRows = (Float(count) /  Float(ViewController.itemsInLine)).rounded(.up)
+
+        let totalCount = Int(neededRows) * ViewController.itemsInLine
+
+        return totalCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+        guard let subgroup = currentGroup?.subgroups[indexPath.section] else { return UICollectionViewCell() }
 
-        guard let item = currentGroup?.subgroups[indexPath.section].items[indexPath.row] else { return UICollectionViewCell() }
 
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeCollectionCell.self)", for: indexPath) as? RecipeCollectionCell else { return UICollectionViewCell() }
-        cell.image = item.croppedIcon
-        print("createdCell \(item.name) \t\t \(item.subgroup) \t \(item.order)")
-        return cell
+        if indexPath.row < subgroup.items.count {
+            let item = subgroup.items[indexPath.row]
+
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeListCell.self)", for: indexPath) as? RecipeListCell else { return UICollectionViewCell() }
+            cell.image = item.croppedIcon
+            print("createdCell \(item.name) \t\t \(item.subgroup) \t \(item.order)")
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeListEmptyCell.self)", for: indexPath) as? RecipeListEmptyCell else { return UICollectionViewCell() }
+            return cell
+        }
+
+
+        return UICollectionViewCell()
     }
 }
 
