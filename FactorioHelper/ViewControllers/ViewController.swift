@@ -123,7 +123,7 @@ extension ViewController: UICollectionViewDelegate {
         let vc = RecipeViewController()
         if indexPath.row < subgroup.items.count {
             let recipeName = subgroup.items[indexPath.row].name
-            vc.model = RecipesProvider.findRecipe(with: recipeName)
+            vc.model = RecipesProvider.recipes[recipeName]
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

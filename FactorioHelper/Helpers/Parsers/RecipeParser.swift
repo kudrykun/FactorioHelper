@@ -11,8 +11,8 @@ import Foundation
 class RecipeParser {
     let filenames = ["ammo", "capsule", "circuit-network", "demo-furnace-recipe", "demo-recipe", "demo-turret", "equipment", "fluid-recipe", "inserter", "module", "recipe", "turret"]
 
-    func parseRecipes() -> [Recipe] {
-        var recipes = [Recipe]()
+    func parseRecipes() -> [String : Recipe] {
+        var recipes: [String : Recipe] = [:]
 
         for filename in filenames {
             let fullFilename = filename + "JSONED"
@@ -25,7 +25,7 @@ class RecipeParser {
                 for recipeJSON in recipesArray {
                     guard let recipeJSON = recipeJSON as? [String: Any] else { continue }
                     guard let recipe = parseRecipe(from: recipeJSON) else { continue }
-                    recipes.append(recipe)
+                    recipes[recipe.name] = recipe
                 }
             } catch {
                 print(error)

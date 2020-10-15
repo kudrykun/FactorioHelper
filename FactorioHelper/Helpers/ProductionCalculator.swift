@@ -31,7 +31,7 @@ class ProductionCalculator {
         let treeRoot = TreeNode<ProductionItem>(productionItem)
 
         for ingredient in ingredients {
-            guard let recipe = RecipesProvider.findRecipe(with: ingredient.name) else { continue }
+            guard let recipe = RecipesProvider.recipes[ingredient.name] else { continue }
             let itemsPerSecondCount = Double(roundedRequiredMachinesCount) * Double(ingredient.amount)
             let ingredientProductionItem = getProductionItem(for: recipe, countPerSecond: itemsPerSecondCount)
             if let ingredientProductionItem = ingredientProductionItem {

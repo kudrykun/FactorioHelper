@@ -9,26 +9,13 @@
 import Foundation
 
 class RecipesProvider {
-    private static var recipes: [Recipe] = []
-
-    static func getRecipes() -> [Recipe] {
-        if recipes.isEmpty {
-            recipes = RecipeParser().parseRecipes()
+    private static var innerRecipes: [String : Recipe] = [:]
+    public static var recipes: [String : Recipe] {
+        get {
+            if innerRecipes.isEmpty {
+                innerRecipes = RecipeParser().parseRecipes()
+            }
+            return innerRecipes
         }
-        recipes.sort { recipe1, recipe2 in
-            let recipe1Name = recipe1.localizedName
-            let recipe2Name = recipe2.localizedName
-            return recipe1Name < recipe2Name
-        }
-        return recipes
-    }
-
-    static func findRecipe(with name: String) -> Recipe? {
-        let recipes = RecipesProvider.getRecipes()
-        guard let searchedRecipeIndex = recipes.firstIndex(where: { recipe in
-            return recipe.name == name
-        }) else { return nil }
-
-        return recipes[searchedRecipeIndex]
     }
 }

@@ -83,13 +83,13 @@ class ProductionDescriptionView: UIView {
 
     func updateWithModel(with model: TreeNode<ProductionItem>?) {
         guard let model = model?.value else { return }
-        itemIcon.image = RecipesProvider.findRecipe(with: model.name)?.croppedIcon
+        guard let recipe =  RecipesProvider.recipes[model.name] else { return }
+        itemIcon.image = recipe.croppedIcon
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"
 
         guard let machinesNeeded = model.machinesNeeded else { return }
         machinesCountLabel.text = "x\(Int(machinesNeeded.rounded(.up)))"
 
-        guard let recipe = RecipesProvider.findRecipe(with: model.name) else { return }
         machinePicker.machine = model.machineType
         machinePicker.machines = ProductionCalculator.getPossibleMachineTypes(for: recipe)
     }

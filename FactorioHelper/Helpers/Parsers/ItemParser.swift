@@ -42,8 +42,8 @@ class ItemParser {
     
 
     private static func getItemsFromRecipes() -> [Item] {
-        let recipes = RecipesProvider.getRecipes().filter{$0.subgroup != nil}
-        let items = recipes.map { Item(type: $0.type, name: $0.name, subgroup: $0.subgroup ?? "", order: $0.order ?? "") }
+        let recipes = RecipesProvider.recipes.filter{$0.value.subgroup != nil}
+        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }
         return items
     }
 
@@ -60,28 +60,4 @@ class ItemParser {
 
         return group
     }
-
-    /*
-     struct Item {
-         var type: String
-         var name: String
-         var subgroup: String
-         var order: String
-     }
-     */
-
-//    private static func arrangeGroups(_ groups: [Group]) -> [ String : Group ] {
-//        var globalGroups: [String : Group] = [:]
-//        for group in groups.filter({ $0.isGlobalGroup }) {
-//            globalGroups[group.name] = group
-//        }
-//        var subgroups = groups.filter { !$0.isGlobalGroup }
-//
-//        for subgroup in subgroups {
-//            guard let groupName = subgroup.group else { continue }
-//            globalGroups[groupName]?.subgroups.append(subgroup)
-//        }
-//
-//        return globalGroups
-//    }
 }
