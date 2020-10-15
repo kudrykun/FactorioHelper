@@ -55,7 +55,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.itemCollectionBackgroundColor
+        view.backgroundColor = Colors.commonBackgroundColor
+        navigationController?.navigationBar.barTintColor = Colors.commonBackgroundColor
+        navigationController?.navigationBar.tintColor = Colors.commonTextColor
+        navigationController?.navigationBar.barStyle = .black
 
         groups = GroupsParser.getGroups()
 
@@ -74,6 +77,7 @@ class ViewController: UIViewController {
         segmentedControl.addTarget(self, action: #selector(selectSegment(_:)), for: .valueChanged)
         segmentedControl.contentMode = .scaleAspectFill
         segmentedControl.apportionsSegmentWidthsByContent = true
+        segmentedControl.selectedSegmentTintColor = Colors.segmentedControlSelectedColor
 
         view.addSubview(collectionView)
         view.addSubview(segmentedControl)
@@ -85,7 +89,7 @@ class ViewController: UIViewController {
         segmentedControl.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(collectionView.snp.top)
+            make.bottom.equalTo(collectionView.snp.top).offset(-10)
             make.height.equalTo(60)
         }
 
@@ -93,7 +97,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
 
         let blackView = UIView()
-        blackView.backgroundColor = Colors.itemCollectionBackgroundColor
+        blackView.backgroundColor = Colors.commonBackgroundColor
         collectionView.backgroundView = blackView
     }
 

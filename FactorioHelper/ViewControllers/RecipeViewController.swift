@@ -50,7 +50,7 @@ class RecipeViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Colors.commonBackgroundColor
 
         setupHeaderView()
         setupTimeSelectionView()
@@ -91,6 +91,10 @@ class RecipeViewController: UIViewController {
 
         productionTableView.register(ProductionItemCell.self, forCellReuseIdentifier: "ProductionItemCell")
         productionTableView.rowHeight = 250
+
+        let blackView = UIView()
+        blackView.backgroundColor = Colors.commonBackgroundColor
+        productionTableView.backgroundView = blackView
     }
 
     private func setupHeaderViewConstraints() {

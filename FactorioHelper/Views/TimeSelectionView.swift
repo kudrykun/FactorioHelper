@@ -18,6 +18,7 @@ class TimeSelectionView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.text = NSLocalizedString("required-items", comment: "")
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
@@ -26,6 +27,8 @@ class TimeSelectionView: UIView {
         textField.text = "1"
         textField.textAlignment = .center
         textField.keyboardType = .decimalPad
+        textField.textColor = Colors.commonTextColor
+        textField.layer.borderColor = Colors.commonTextColor.cgColor
         return textField
     }()
 
@@ -34,6 +37,7 @@ class TimeSelectionView: UIView {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 1
         label.text = NSLocalizedString("items/sec", comment: "")
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
@@ -55,9 +59,7 @@ class TimeSelectionView: UIView {
         secondsTextField.delegate = self
 
         secondsTextField.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
-        secondsTextField.textColor = .placeholderText
-        secondsTextField.backgroundColor = .systemBackground
-        secondsTextField.layer.borderColor = UIColor.placeholderText.cgColor
+        secondsTextField.backgroundColor = Colors.commonBackgroundColor
         secondsTextField.layer.borderWidth = 1
         secondsTextField.layer.cornerRadius = 6
 

@@ -22,6 +22,7 @@ class ProductionDescriptionView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
@@ -34,6 +35,7 @@ class ProductionDescriptionView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.textColor = Colors.commonTextColor
         return label
     }()
 

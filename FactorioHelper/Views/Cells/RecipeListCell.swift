@@ -59,7 +59,7 @@ class RecipeListCell: UICollectionViewCell {
 
         imageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.width.height.equalToSuperview().multipliedBy(0.9)
+            make.width.height.equalToSuperview().multipliedBy(0.85)
         }
     }
 

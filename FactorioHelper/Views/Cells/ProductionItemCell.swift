@@ -58,6 +58,8 @@ class ProductionItemCell: UITableViewCell {
         contentView.addSubview(productionTableView)
         selectionStyle = .none
 
+        backgroundColor = Colors.commonBackgroundColor
+
         productionDescriptionView.didSelectMachine = { machine in
             self.model?.value.machineType = machine
             self.didSelectMachine?()
@@ -85,6 +87,10 @@ class ProductionItemCell: UITableViewCell {
 
         productionTableView.register(ProductionItemCell.self, forCellReuseIdentifier: "ProductionItemCell")
         productionTableView.rowHeight = 50
+
+        let blackView = UIView()
+        blackView.backgroundColor = Colors.commonBackgroundColor
+        productionTableView.backgroundView = blackView
     }
 
     private func updateCell(with model: TreeNode<ProductionItem>?) {

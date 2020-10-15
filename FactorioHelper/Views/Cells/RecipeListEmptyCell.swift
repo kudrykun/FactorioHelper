@@ -17,7 +17,7 @@ class RecipeListEmptyCell: UICollectionViewCell {
 
     let grayBackgroundView: UIView = {
         let view = UIView()
-        view.backgroundColor = Colors.itemCollectionBackgroundColor
+        view.backgroundColor = Colors.commonBackgroundColor
         return view
     }()
 

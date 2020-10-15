@@ -28,7 +28,7 @@ class RecipeDescriptionHeaderView: UIView {
 
     private let resultCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
@@ -36,14 +36,14 @@ class RecipeDescriptionHeaderView: UIView {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = .zero
-        label.textColor = .label
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
     private let requiredTimeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = .label
+        label.textColor = Colors.commonTextColor
         return label
     }()
 
