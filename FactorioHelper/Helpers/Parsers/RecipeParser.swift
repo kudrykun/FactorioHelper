@@ -13,7 +13,6 @@ class RecipeParser {
     private enum RecipeField: String {
         case type = "type"
         case name = "name"
-        case enabled = "enabled"
         case category = "category"
         case ingredients = "ingredients"
         case energyRequired = "energy_required"
@@ -21,12 +20,7 @@ class RecipeParser {
         case normal = "normal"
         case expensive = "expensive"
         case resultCount = "result_count"
-        case requesterPasteMultiplier = "requester_paste_multiplier"
-        case craftingMachineTint = "crafting_machine_tint"
-        case hidden = "hidden"
         case icon = "icon"
-        case iconSize = "icon_size"
-        case iconMipmaps = "icon_mipmaps"
         case subgroup = "subgroup"
         case order = "order"
         case results = "results"
@@ -90,7 +84,6 @@ class RecipeParser {
         guard let type = dict[RecipeField.type.rawValue] as? String else { return nil }
         guard let name = dict[RecipeField.name.rawValue] as? String else { return nil }
 
-        let enabled = dict[RecipeField.enabled.rawValue] as? Bool
         let category = parseCategory(from: dict[RecipeField.category.rawValue] as? String)
         var ingredients: [Ingredient]?
         if category != .smelting { //зачем
@@ -101,24 +94,19 @@ class RecipeParser {
         let normal: DifficultyRecipe? = parseDifficultyRecipe(from: dict[RecipeField.normal.rawValue] as? [String : Any])
         let expensive: DifficultyRecipe? = parseDifficultyRecipe(from: dict[RecipeField.expensive.rawValue] as? [String : Any])
         let resultCount = dict[RecipeField.resultCount.rawValue] as? Int ?? 1
-        let requester_paste_multiplier = dict[RecipeField.requesterPasteMultiplier.rawValue] as? Double
-        let crafting_machine_tint: CraftingMachineTint? = parseCraftingMachineTint(from: dict[RecipeField.craftingMachineTint.rawValue] as? [String : Any])
-        let hidden = dict[RecipeField.hidden.rawValue] as? Bool
         let icon = dict[RecipeField.icon.rawValue] as? String
-        let icon_size = dict[RecipeField.iconSize.rawValue] as? String
-        let icon_mipmaps = dict[RecipeField.iconMipmaps.rawValue] as? String
         let subgroup = dict[RecipeField.subgroup.rawValue] as? String
         let order = dict[RecipeField.order.rawValue] as? String
         let results: [Result]? = parseResults(from: dict[RecipeField.results.rawValue] as? [Any] ?? [])
 
-        let recipe = Recipe(type: type, name: name, enabled: enabled, category: category, ingredients: ingredients, energyRequired: energyRequired, result: result, normal: normal, expensive: expensive, resultCount: resultCount, requester_paste_multiplier: requester_paste_multiplier, crafting_machine_tint: crafting_machine_tint, hidden: hidden, icon: icon, icon_size: icon_size, icon_mipmaps: icon_mipmaps, subgroup: subgroup, order: order, results: results)
+        let recipe = Recipe(type: type, name: name, category: category, ingredients: ingredients, energyRequired: energyRequired, result: result, normal: normal, expensive: expensive, resultCount: resultCount, icon: icon, subgroup: subgroup, order: order, results: results)
 
         return recipe
     }
 
     //TODO: найди способ аккуратнее
     func parseCategory(from string: String?) -> Category {
-        guard let category = string else { return .default}
+        guard let category = string else { return .none}
         switch category {
         case Category.rocketBuilding.rawValue:
             return .rocketBuilding
@@ -137,7 +125,7 @@ class RecipeParser {
         case Category.centrifuging.rawValue:
             return .centrifuging
         default:
-            return .default
+            return .none
         }
     }
 
@@ -178,15 +166,6 @@ class RecipeParser {
         guard let b = dict["b"] as? Double else { return nil }
         guard let a = dict["a"] as? Double else { return nil }
         return Color(r: r, g: g, b: b, a: a)
-    }
-
-    func parseCraftingMachineTint(from dict: [String : Any]?) -> CraftingMachineTint? {
-        guard let dict = dict else { return nil }
-        guard let primary = parseColor(from: dict[MachineTineField.primary.rawValue] as? [String : Any]) else { return nil }
-        guard let secondary = parseColor(from: dict[MachineTineField.secondary.rawValue] as? [String : Any]) else { return nil }
-        guard let tertiary = parseColor(from: dict[MachineTineField.tertiary.rawValue] as? [String : Any]) else { return nil }
-        guard let quaternary = parseColor(from: dict[MachineTineField.quaternary.rawValue] as? [String : Any]) else { return nil }
-        return CraftingMachineTint(primary: primary, secondary: secondary, tertiary: tertiary, quaternary: quaternary)
     }
 
     func parseResults(from array: [Any]) -> [Result]? {
