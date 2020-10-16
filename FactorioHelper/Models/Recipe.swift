@@ -12,7 +12,7 @@ struct Recipe {
     var type: String
     var name: String
     var enabled: Bool? = false
-    var category: Category = .Default
+    var category: Category = .default
     private var ingredients: [Ingredient]? = nil
     private var energyRequired: Double
     var result: String? = nil
@@ -57,7 +57,7 @@ struct Recipe {
 
         //нужно будет убрать default совсем
         switch category {
-        case .Chemistry:
+        case .chemistry:
             //будет несколько элементов в results при обработке нефти
             guard let results = results, !results.isEmpty else { return resultCount }
             return results[0].amount ?? resultCount
@@ -100,16 +100,16 @@ struct Recipe {
 
 }
 
-enum Category {
-    case Default
-    case RocketBuilding //rocket-building
-    case OilProcessing //oil-processing
-    case AdvancedCrafting //advanced-crafting
-    case CraftingWithFluid //crafting-with-fluid
-    case Smelting //smelting
-    case Chemistry //chemistry
-    case Crafting //crafting
-    case Centrifuging //centrifuging
+enum Category: String {
+    case default
+    case rocketBuilding = "rocket-building"
+    case oilProcessing = "oil-processing"
+    case advancedCrafting = "advanced-crafting"
+    case craftingWithFluid = "crafting-with-fluid"
+    case smelting = "smelting"
+    case chemistry = "chemistry"
+    case crafting = "crafting"
+    case centrifuging = "centrifuging"
 }
 
 struct Ingredient: Codable {

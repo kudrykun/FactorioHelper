@@ -84,17 +84,17 @@ class ProductionCalculator {
 
     static func getMachineType(for recipe: Recipe) -> MachineType {
         switch recipe.category {
-        case .Default, .Crafting, .RocketBuilding, .AdvancedCrafting, .CraftingWithFluid: return .Machine1
-        case .OilProcessing: return .OilRefinery
-        case .Smelting: return .StoneFurnace
-        case .Chemistry: return .ChemicalPlant
-        case .Centrifuging: return .Centrifuge
+        case .default, .crafting, .rocketBuilding, .advancedCrafting, .craftingWithFluid: return .Machine1
+        case .oilProcessing: return .OilRefinery
+        case .smelting: return .StoneFurnace
+        case .chemistry: return .ChemicalPlant
+        case .centrifuging: return .Centrifuge
         }
     }
 
     static func getPossibleMachineTypes(for recipe: Recipe) -> [MachineType] {
         switch recipe.category {
-        case .Default, .Crafting, .RocketBuilding, .AdvancedCrafting, .CraftingWithFluid:
+        case .default, .crafting, .rocketBuilding, .advancedCrafting, .craftingWithFluid:
             let ingredients = recipe.baseIngredients
             var machines = [MachineType]()
             if ingredients.count <= 2 && (ingredients.filter{ $0.type == "fluid" }).isEmpty {
@@ -108,10 +108,10 @@ class ProductionCalculator {
                 machines.append(.Machine3)
             }
             return machines
-        case .OilProcessing: return [.OilRefinery]
-        case .Smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
-        case .Chemistry: return [.ChemicalPlant]
-        case .Centrifuging: return [.Centrifuge]
+        case .oilProcessing: return [.OilRefinery]
+        case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
+        case .chemistry: return [.ChemicalPlant]
+        case .centrifuging: return [.Centrifuge]
         }
     }
 }
