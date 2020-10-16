@@ -84,7 +84,7 @@ class RecipeParser {
         guard let type = dict[RecipeField.type.rawValue] as? String else { return nil }
         guard let name = dict[RecipeField.name.rawValue] as? String else { return nil }
 
-        let category = parseCategory(from: dict[RecipeField.category.rawValue] as? String)
+        let category = Category.from(rawValue: dict[RecipeField.category.rawValue] as? String ?? "")
         var ingredients: [Ingredient]?
         if category != .smelting { //зачем
             ingredients = parseIngredients(from: dict[RecipeField.ingredients.rawValue] as? [Any] ?? [])
@@ -102,31 +102,6 @@ class RecipeParser {
         let recipe = Recipe(type: type, name: name, category: category, ingredients: ingredients, energyRequired: energyRequired, result: result, normal: normal, expensive: expensive, resultCount: resultCount, icon: icon, subgroup: subgroup, order: order, results: results)
 
         return recipe
-    }
-
-    //TODO: найди способ аккуратнее
-    func parseCategory(from string: String?) -> Category {
-        guard let category = string else { return .none}
-        switch category {
-        case Category.rocketBuilding.rawValue:
-            return .rocketBuilding
-        case Category.oilProcessing.rawValue:
-            return .oilProcessing
-        case Category.advancedCrafting.rawValue:
-            return .advancedCrafting
-        case Category.craftingWithFluid.rawValue:
-            return .craftingWithFluid
-        case Category.smelting.rawValue:
-            return .smelting
-        case Category.chemistry.rawValue:
-            return .chemistry
-        case Category.crafting.rawValue:
-            return .crafting
-        case Category.centrifuging.rawValue:
-            return .centrifuging
-        default:
-            return .none
-        }
     }
 
     func parseIngredients(from array: [Any]) -> [Ingredient]? {

@@ -98,6 +98,10 @@ enum Category: String {
     case chemistry = "chemistry"
     case crafting = "crafting"
     case centrifuging = "centrifuging"
+
+    static func from(rawValue: String) -> Category {
+        return Category(rawValue: rawValue) ?? .none
+    }
 }
 
 struct Ingredient: Codable {
