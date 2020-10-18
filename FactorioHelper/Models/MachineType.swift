@@ -9,7 +9,7 @@
 import UIKit
 
 //не парсится, нужна проверка после обновления версии игры
-enum MachineType {
+public enum MachineType {
     case Machine1
     case Machine2
     case Machine3

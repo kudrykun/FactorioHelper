@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecipesProvider {
+public class RecipesProvider {
     private static var innerRecipes: [String : Recipe] = [:]
     public static var recipes: [String : Recipe] {
         get {

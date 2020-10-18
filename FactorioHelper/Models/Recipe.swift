@@ -8,7 +8,12 @@
 
 import UIKit
 
-struct Recipe {
+public struct Recipe: Equatable {
+    public static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        //пока этого хватит
+        return lhs.type == rhs.type && lhs.name == rhs.name && lhs.category == rhs.category
+    }
+
     var type: String
     var name: String
     var category: Category = .none

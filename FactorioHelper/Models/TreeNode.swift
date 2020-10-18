@@ -8,16 +8,30 @@
 
 import Foundation
 
-class TreeNode<T> {
+public class TreeNode<T>: Equatable where T:Comparable, T:Equatable {
+    public static func == (lhs: TreeNode<T>, rhs: TreeNode<T>) -> Bool {
+        guard lhs.value == rhs.value && lhs.children.count == rhs.children.count else { return false }
+
+        var isChildrenEqual = true
+
+        let lhsChildren = lhs.children.sorted{$0.value < $1.value}
+        let rhsChildren = rhs.children.sorted{$0.value < $1.value}
+        for (index, _) in lhs.children.enumerated() {
+            isChildrenEqual = isChildrenEqual && (lhsChildren[index] == rhsChildren[index])
+        }
+
+        return isChildrenEqual
+    }
+
     var value: T
     weak var parent: TreeNode<T>?
     var children: [TreeNode<T>] = []
 
-    init(_ value: T) {
+    public init(_ value: T) {
         self.value = value
     }
 
-    func addChild(_ node: TreeNode<T>) {
+    public func addChild(_ node: TreeNode<T>) {
         children.append(node)
         node.parent = self
     }

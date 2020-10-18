@@ -47,6 +47,7 @@
 		FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */; };
 		FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */; };
 		FA79C4D72512A8BB001BC796 /* MachineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D62512A8BB001BC796 /* MachineType.swift */; };
+		FA81CDDA253C547B005EBA2E /* LubricantProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */; };
 		FA98527D2514039A00BED57D /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98527C2514039A00BED57D /* TreeNode.swift */; };
 		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
 		FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F22504242400CB8377 /* RecipesProvider.swift */; };
@@ -74,8 +75,19 @@
 		FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsCropper.swift */; };
 		FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */; };
 		FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */; };
+		FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5075253C5DDF001A774C /* TreeNodeTests.swift */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA81CDDC253C547B005EBA2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADC481D25004AC700FDB962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FADC482425004AC700FDB962;
+			remoteInfo = FactorioHelper;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		32B2E67B27890B2E58730BBB /* Pods-FactorioHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.release.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +135,9 @@
 		FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinePickerButton.swift; sourceTree = "<group>"; };
 		FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionHeaderView.swift; sourceTree = "<group>"; };
 		FA79C4D62512A8BB001BC796 /* MachineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineType.swift; sourceTree = "<group>"; };
+		FA81CDD7253C547B005EBA2E /* LubricantProductionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LubricantProductionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubricantProductionTests.swift; sourceTree = "<group>"; };
+		FA81CDDB253C547B005EBA2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA98527C2514039A00BED57D /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		FAB213F22504242400CB8377 /* RecipesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProvider.swift; sourceTree = "<group>"; };
@@ -152,10 +167,18 @@
 		FADC485E2502B92C00FDB962 /* IconsCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCropper.swift; sourceTree = "<group>"; };
 		FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeTableViewCell.swift; sourceTree = "<group>"; };
 		FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeCellModelGenerator.swift; sourceTree = "<group>"; };
+		FADF5075253C5DDF001A774C /* TreeNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNodeTests.swift; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA81CDD4253C547B005EBA2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADC482225004AC700FDB962 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,10 +270,21 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
+			isa = PBXGroup;
+			children = (
+				FADF5075253C5DDF001A774C /* TreeNodeTests.swift */,
+				FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */,
+				FA81CDDB253C547B005EBA2E /* Info.plist */,
+			);
+			path = LubricantProductionTests;
+			sourceTree = "<group>";
+		};
 		FADC481C25004AC700FDB962 = {
 			isa = PBXGroup;
 			children = (
 				FADC482725004AC700FDB962 /* FactorioHelper */,
+				FA81CDD8253C547B005EBA2E /* LubricantProductionTests */,
 				FADC482625004AC700FDB962 /* Products */,
 				DD4EF2B1B30239EF569B07C6 /* Pods */,
 				2B44E99D8191B38CDF067673 /* Frameworks */,
@@ -261,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				FADC482525004AC700FDB962 /* FactorioHelper.app */,
+				FA81CDD7253C547B005EBA2E /* LubricantProductionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,6 +403,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA81CDD6253C547B005EBA2E /* LubricantProductionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA81CDE0253C547B005EBA2E /* Build configuration list for PBXNativeTarget "LubricantProductionTests" */;
+			buildPhases = (
+				FA81CDD3253C547B005EBA2E /* Sources */,
+				FA81CDD4253C547B005EBA2E /* Frameworks */,
+				FA81CDD5253C547B005EBA2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA81CDDD253C547B005EBA2E /* PBXTargetDependency */,
+			);
+			name = LubricantProductionTests;
+			productName = LubricantProductionTests;
+			productReference = FA81CDD7253C547B005EBA2E /* LubricantProductionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FADC482425004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADC483925004AC900FDB962 /* Build configuration list for PBXNativeTarget "FactorioHelper" */;
@@ -393,10 +446,14 @@
 		FADC481D25004AC700FDB962 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1160;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = kudrykun;
 				TargetAttributes = {
+					FA81CDD6253C547B005EBA2E = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FADC482425004AC700FDB962;
+					};
 					FADC482425004AC700FDB962 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -417,11 +474,19 @@
 			projectRoot = "";
 			targets = (
 				FADC482425004AC700FDB962 /* FactorioHelper */,
+				FA81CDD6253C547B005EBA2E /* LubricantProductionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA81CDD5253C547B005EBA2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADC482325004AC700FDB962 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,6 +578,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA81CDD3253C547B005EBA2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA81CDDA253C547B005EBA2E /* LubricantProductionTests.swift in Sources */,
+				FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADC482125004AC700FDB962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +624,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FA81CDDD253C547B005EBA2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FADC482425004AC700FDB962 /* FactorioHelper */;
+			targetProxy = FA81CDDC253C547B005EBA2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		FA1CA2FE25080FB100125B05 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -581,6 +663,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA81CDDE253C547B005EBA2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDNNR82432;
+				INFOPLIST_FILE = LubricantProductionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudrykun.LubricantProductionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FactorioHelper.app/FactorioHelper";
+			};
+			name = Debug;
+		};
+		FA81CDDF253C547B005EBA2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDNNR82432;
+				INFOPLIST_FILE = LubricantProductionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudrykun.LubricantProductionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FactorioHelper.app/FactorioHelper";
+			};
+			name = Release;
+		};
 		FADC483725004AC900FDB962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -738,6 +864,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA81CDE0253C547B005EBA2E /* Build configuration list for PBXNativeTarget "LubricantProductionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA81CDDE253C547B005EBA2E /* Debug */,
+				FA81CDDF253C547B005EBA2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FADC482025004AC700FDB962 /* Build configuration list for PBXProject "FactorioHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

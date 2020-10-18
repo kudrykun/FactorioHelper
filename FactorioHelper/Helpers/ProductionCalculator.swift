@@ -8,16 +8,36 @@
 
 import UIKit
 
-struct ProductionItem {
+public struct ProductionItem: Equatable, Comparable{
+    public static func < (lhs: ProductionItem, rhs: ProductionItem) -> Bool {
+        return lhs.name < rhs.name
+    }
+
     var name: String
     var countPerSecond: Double
     var machinesNeeded: Double?
     var machineType: MachineType
     var recipe: Recipe
+
+    public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType, recipe: Recipe) {
+        self.name = name
+        self.countPerSecond = countPerSecond
+        self.machinesNeeded = machinesNeeded
+        self.machineType = machineType
+        self.recipe = recipe
+    }
+
+    public static func == (lhs: ProductionItem, rhs: ProductionItem) -> Bool {
+        return lhs.name == rhs.name &&
+            lhs.countPerSecond == rhs.countPerSecond &&
+            lhs.machinesNeeded == rhs.machinesNeeded &&
+            lhs.machineType == rhs.machineType &&
+            lhs.recipe == rhs.recipe
+    }
 }
 
-class ProductionCalculator {
-    static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> TreeNode<ProductionItem>?{
+public class ProductionCalculator {
+    public static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> TreeNode<ProductionItem>?{
         let ingredients = recipe.baseIngredients
 
         if ingredients.isEmpty {
@@ -89,7 +109,7 @@ class ProductionCalculator {
         return totalCount
     }
 
-    static func getMachineType(for recipe: Recipe) -> MachineType {
+    public static func getMachineType(for recipe: Recipe) -> MachineType {
         switch recipe.category {
         case .none, .crafting, .rocketBuilding, .advancedCrafting, .craftingWithFluid: return .Machine1
         case .oilProcessing: return .OilRefinery
