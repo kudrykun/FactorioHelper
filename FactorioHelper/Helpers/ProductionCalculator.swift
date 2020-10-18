@@ -54,7 +54,7 @@ public class ProductionCalculator {
         let roundedRequiredMachinesCount = Int(requiredMachinesCount.rounded(.up))
 
 
-        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: requiredMachinesCount, machineType: machineType, recipe: recipe)
+        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: Double(roundedRequiredMachinesCount), machineType: machineType, recipe: recipe)
         let treeRoot = TreeNode<ProductionItem>(productionItem)
 
         for ingredient in ingredients {

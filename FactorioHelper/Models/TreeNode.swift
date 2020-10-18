@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TreeNode<T>: Equatable where T:Comparable, T:Equatable {
+public class TreeNode<T>: Equatable where T:Comparable {
     public static func == (lhs: TreeNode<T>, rhs: TreeNode<T>) -> Bool {
         guard lhs.value == rhs.value && lhs.children.count == rhs.children.count else { return false }
 
