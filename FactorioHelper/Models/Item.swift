@@ -17,7 +17,7 @@ public struct Item {
     var baseColor: Color?
     var flowColor: Color?
 
-    var croppedIcon: UIImage? {
+    public var croppedIcon: UIImage? {
         if subgroup == "fill-barrel" {
             guard let barrelNotCropped = UIImage(named: "barrel-fill") else { return nil}
             guard let topMaskNotCropped = UIImage(named: "barrel-fill-top-mask") else { return nil}

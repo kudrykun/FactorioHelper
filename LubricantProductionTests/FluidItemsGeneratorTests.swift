@@ -25,7 +25,6 @@ class FluidItemsGeneratorTests: XCTestCase {
         let items = FluidItemsGenerator.generateFillBarrelItems(from: fluids)
         XCTAssertEqual(items.count, 7, "There is more of less than 7 recipes!")
         for item in items {
-            XCTAssertTrue(item.name.contains("fill-barrel"), "Wrong item naming!")
             XCTAssertFalse(item.name.contains("steam"), "Should not fill barrel with steam")
         }
     }
@@ -34,7 +33,6 @@ class FluidItemsGeneratorTests: XCTestCase {
         let items = FluidItemsGenerator.generateEmptyBarrelItems(from: fluids)
         XCTAssertEqual(items.count, 7, "There is more of less than 7 recipes!")
         for item in items {
-            XCTAssertTrue(item.name.contains("empty-barrel"), "Wrong item naming!")
             XCTAssertFalse(item.name.contains("steam"), "Should not empty barrel with steam")
         }
     }

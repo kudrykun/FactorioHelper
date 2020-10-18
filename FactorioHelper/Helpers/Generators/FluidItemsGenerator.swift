@@ -14,7 +14,7 @@ public class FluidItemsGenerator {
     }
 
     private static func generateFillBarrelItem(from fluid: Fluid) -> Item {
-        let item = Item(type: "item", name: "\(fluid.name)-fill-barrel", subgroup: "fill-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
+        let item = Item(type: "item", name: "\(fluid.name)", subgroup: "fill-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
         return item
     }
 
@@ -23,7 +23,7 @@ public class FluidItemsGenerator {
     }
 
     private static func generateEmptyBarrelItem(from fluid: Fluid) -> Item {
-        let item = Item(type: "item", name: "\(fluid.name)-empty-barrel", subgroup: "empty-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
+        let item = Item(type: "item", name: "\(fluid.name)", subgroup: "empty-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
         return item
     }
 }
