@@ -19,10 +19,12 @@ public struct Item {
 
     public var croppedIcon: UIImage? {
         if subgroup == "fill-barrel" {
+            guard let range = name.range(of: "-fill-barrel") else { return nil }
+            let iconName = String(name[name.startIndex..<range.lowerBound])
             guard let barrelNotCropped = UIImage(named: "barrel-fill") else { return nil}
             guard let topMaskNotCropped = UIImage(named: "barrel-fill-top-mask") else { return nil}
             guard let sideMaskNotCropped = UIImage(named: "barrel-fill-side-mask") else { return nil}
-            guard let dropNotCropped = UIImage(named: name) else { return nil}
+            guard let dropNotCropped = UIImage(named: iconName) else { return nil}
 
 
             guard let barrel = IconsCropper.crop(barrelNotCropped) else { return nil }
@@ -45,12 +47,13 @@ public struct Item {
             return newImage
 
         } else if subgroup == "empty-barrel" {
-            //?.withTintColor(baseColor?.uiColor ?? UIColor.white)
+            guard let range = name.range(of: "-empty-barrel") else { return nil }
+            let iconName = String(name[name.startIndex..<range.lowerBound])
 
             guard let barrelNotCropped = UIImage(named: "barrel-empty") else { return nil}
             guard let topMaskNotCropped = UIImage(named: "barrel-empty-top-mask") else { return nil}
             guard let sideMaskNotCropped = UIImage(named: "barrel-empty-side-mask") else { return nil}
-            guard let dropNotCropped = UIImage(named: name) else { return nil}
+            guard let dropNotCropped = UIImage(named: iconName) else { return nil}
 
 
             guard let barrel = IconsCropper.crop(barrelNotCropped) else { return nil }
