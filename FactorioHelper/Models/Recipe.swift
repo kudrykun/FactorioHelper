@@ -15,7 +15,7 @@ public struct Recipe: Equatable {
     }
 
     var type: String
-    var name: String
+    public var name: String
     var category: Category = .none
     private var ingredients: [Ingredient]? = nil
     private var energyRequired: Double?

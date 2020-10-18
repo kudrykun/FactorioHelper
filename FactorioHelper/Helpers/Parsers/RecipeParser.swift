@@ -83,6 +83,11 @@ class RecipeParser {
             recipes[recipe.name] = recipe
         }
 
+        let barrelFillRecipes = generateFillBarrelRecipes()
+        barrelFillRecipes.forEach { recipe in
+            recipes[recipe.name] = recipe
+        }
+
         if let oilProcessingRecipe = recipes["advanced-oil-processing"] {
             let oilProcessingRecipes = generateOilProcessingLiquidRecipes(oilProcessingRecipe)
             oilProcessingRecipes.forEach { recipe in
@@ -122,6 +127,17 @@ class RecipeParser {
         let crudeOil = Recipe(type: "recipe", name: "crude-oil", category: .fluid, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "crude-oil", subgroup: nil, order: nil, results: nil)
         recipes.append(crudeOil)
 
+        return recipes
+    }
+
+    func generateFillBarrelRecipes() -> [Recipe] {
+        var fluids: [Fluid] = FluidParser.parseFluids()
+        var recipes: [Recipe] = []
+        for fluid in fluids {
+            guard fluid.autoBarrel else { continue }
+            var recipe = Recipe(type: "recipe", name: "\(fluid.name)-fill-barrel", category: .none, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: nil, subgroup: nil, order: nil, results: nil)
+            recipes.append(recipe)
+        }
         return recipes
     }
 
