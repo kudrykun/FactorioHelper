@@ -11,7 +11,7 @@ import Foundation
 class ItemParser {
     private static let filenames = ["ammo", "armor", "capsule", "circuit-network", "demo-ammo", "demo-armor", "demo-gun", "demo-item-groups", "demo-item", "demo-module", "demo-turret", "equipment", "gun", "item", "mining-tools", "module1", "module2", "turret"]
 
-    private static let exceptionItems = ["dummy-steel-axe", "blueprint", "deconstruction-planner", "upgrade-planner", "blueprint-book", "copy-paste-tool", "cut-paste-tool", "loader", "fast-loader", "express-loader", "small-plane", "wood", "coal", "stone", "iron-ore", "copper-ore", "uranium-ore"/*точно?*/, "raw-fish", "solid-fuel"/*точно?*/,"coin", "space-science-pack", "used-up-uranium-fuel-cell", "uranium-235", "uranium-238", "tank-machine-gun", "vehicle-machine-gun", "tank-flamethrower", "railgun", "artillery-wagon-cannon", "spidertron-rocket-launcher-1", "spidertron-rocket-launcher-2", "spidertron-rocket-launcher-3", "spidertron-rocket-launcher-4", "tank-cannon", "railgun-dart", "computer", "player-port", "rocket-part"]
+    private static let exceptionItems = ["dummy-steel-axe", "blueprint", "deconstruction-planner", "upgrade-planner", "blueprint-book", "copy-paste-tool", "cut-paste-tool", "loader", "fast-loader", "express-loader", "small-plane", "wood", "coal", "stone", "iron-ore", "copper-ore", "uranium-ore"/*точно?*/, "raw-fish", "solid-fuel"/*точно?*/,"coin", "space-science-pack", "used-up-uranium-fuel-cell", "uranium-235", "uranium-238", "tank-machine-gun", "vehicle-machine-gun", "tank-flamethrower", "railgun", "artillery-wagon-cannon", "spidertron-rocket-launcher-1", "spidertron-rocket-launcher-2", "spidertron-rocket-launcher-3", "spidertron-rocket-launcher-4", "tank-cannon", "railgun-dart", "computer", "player-port", "rocket-part", "basic-oil-processing", "advanced-oil-processing", "coal-liquefaction", "heavy-oil-cracking", "light-oil-cracking"]
 
     static func getItems() -> [Item] {
         var items = [Item]()
@@ -43,7 +43,8 @@ class ItemParser {
 
     private static func getItemsFromRecipes() -> [Item] {
         let recipes = RecipesProvider.recipes.filter{$0.value.subgroup != nil}
-        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }
+ы        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }.filter {!exceptionItems.contains($0.name)}
+
         return items
     }
 

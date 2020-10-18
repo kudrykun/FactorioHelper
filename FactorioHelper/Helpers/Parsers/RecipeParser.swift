@@ -98,7 +98,7 @@ class RecipeParser {
         guard let results = oilProcessingRecipe.results else { return [] }
 
         for result in results {
-            recipes.append(Recipe(type: "recipe", name: result.name ?? "", category: .oilProcessing, ingredients: oilProcessingRecipe.baseIngredients, energyRequired: oilProcessingRecipe.baseProductionTime, result: nil, normal: nil, expensive: nil, resultCount: result.amount, icon: result.name, subgroup: nil, order: nil, results: nil))
+            recipes.append(Recipe(type: "recipe", name: result.name ?? "", category: .oilProcessing, ingredients: oilProcessingRecipe.baseIngredients, energyRequired: oilProcessingRecipe.baseProductionTime, result: nil, normal: nil, expensive: nil, resultCount: result.amount, icon: result.name, subgroup: "fluid-recipes", order: nil, results: nil))
         }
 
         /*
