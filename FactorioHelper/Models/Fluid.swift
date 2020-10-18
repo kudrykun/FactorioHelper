@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Fluid {
+public struct Fluid {
     var name: String
     var baseColor: Color
     var flowColor: Color

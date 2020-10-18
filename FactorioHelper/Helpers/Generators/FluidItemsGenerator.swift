@@ -8,22 +8,22 @@
 
 import Foundation
 
-class FluidItemsGenerator {
-    static func generateFillBarrelItems(from fluids: [Fluid]) -> [Item] {
+public class FluidItemsGenerator {
+    public static func generateFillBarrelItems(from fluids: [Fluid]) -> [Item] {
         return fluids.filter{$0.autoBarrel}.map{generateFillBarrelItem(from:$0)}
     }
 
     private static func generateFillBarrelItem(from fluid: Fluid) -> Item {
-        let item = Item(type: "item", name: fluid.name, subgroup: "fill-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
+        let item = Item(type: "item", name: "\(fluid.name)-fill-barrel", subgroup: "fill-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
         return item
     }
 
-    static func generateEmptyBarrelItems(from fluids: [Fluid]) -> [Item] {
+    public static func generateEmptyBarrelItems(from fluids: [Fluid]) -> [Item] {
         return fluids.filter{$0.autoBarrel}.map{generateEmptyBarrelItem(from:$0)}
     }
 
     private static func generateEmptyBarrelItem(from fluid: Fluid) -> Item {
-        let item = Item(type: "item", name: fluid.name, subgroup: "empty-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
+        let item = Item(type: "item", name: "\(fluid.name)-empty-barrel", subgroup: "empty-barrel", order: fluid.oder, icon: fluid.icon, baseColor: fluid.baseColor, flowColor: fluid.flowColor)
         return item
     }
 }

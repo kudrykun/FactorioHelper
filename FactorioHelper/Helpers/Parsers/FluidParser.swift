@@ -8,10 +8,10 @@
 
 import Foundation
 
-class FluidParser {
+public class FluidParser {
     static let filenames = ["fluid", "demo-fluid"]
 
-    static func parseFluids() -> [Fluid] {
+    public static func parseFluids() -> [Fluid] {
         var fluids = [Fluid]()
 
         for filename in filenames {

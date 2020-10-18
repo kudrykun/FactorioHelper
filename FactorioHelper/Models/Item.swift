@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct Item {
+public struct Item {
     var type: String
-    var name: String
+    public var name: String
     var subgroup: String
     var order: String
     var icon: String?
