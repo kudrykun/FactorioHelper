@@ -43,7 +43,7 @@ class ItemParser {
 
     private static func getItemsFromRecipes() -> [Item] {
         let recipes = RecipesProvider.recipes.filter{$0.value.subgroup != nil}
-ы        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }.filter {!exceptionItems.contains($0.name)}
+        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }.filter {!exceptionItems.contains($0.name)}
 
         return items
     }
