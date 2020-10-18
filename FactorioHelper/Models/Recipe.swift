@@ -13,11 +13,11 @@ struct Recipe {
     var name: String
     var category: Category = .none
     private var ingredients: [Ingredient]? = nil
-    private var energyRequired: Double
+    private var energyRequired: Double?
     var result: String? = nil
     var normal: DifficultyRecipe? = nil
     var expensive: DifficultyRecipe? = nil
-    private var resultCount: Int
+    private var resultCount: Int?
     var icon: String? = nil
     var subgroup: String? = nil
     var order: String? = nil
@@ -32,7 +32,7 @@ struct Recipe {
         if let normal = normal?.energyRequired {
             return normal
         }
-        return energyRequired
+        return energyRequired ?? 0
     }
 
     var baseIngredients: [Ingredient] {
@@ -53,10 +53,10 @@ struct Recipe {
         switch category {
         case .chemistry:
             //будет несколько элементов в results при обработке нефти
-            guard let results = results, !results.isEmpty else { return resultCount }
-            return results[0].amount ?? resultCount
+            guard let results = results, !results.isEmpty else { return resultCount ?? 0}
+            return results[0].amount ?? resultCount ?? 0
         default:
-            return resultCount
+            return resultCount ?? 0
         }
     }
 
@@ -70,7 +70,7 @@ struct Recipe {
         return croppedImage
     }
 
-    init(type: String, name: String, category: Category, ingredients: [Ingredient]?, energyRequired: Double, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int, icon: String?, subgroup: String?, order: String?, results: [Result]?) {
+    init(type: String, name: String, category: Category, ingredients: [Ingredient]?, energyRequired: Double?, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int?, icon: String?, subgroup: String?, order: String?, results: [Result]?) {
         self.type = type
         self.name = name
         self.category = category
@@ -90,6 +90,7 @@ struct Recipe {
 
 enum Category: String {
     case none
+    case fluid
     case rocketBuilding = "rocket-building"
     case oilProcessing = "oil-processing"
     case advancedCrafting = "advanced-crafting"

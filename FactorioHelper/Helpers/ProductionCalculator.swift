@@ -20,6 +20,13 @@ class ProductionCalculator {
     static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> TreeNode<ProductionItem>?{
         let ingredients = recipe.baseIngredients
 
+        if ingredients.isEmpty {
+            let machineType = getMachineType(for: recipe)
+            let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: nil, machineType: machineType, recipe: recipe)
+            let treeRoot = TreeNode<ProductionItem>(productionItem)
+            return treeRoot
+        }
+
         let machineType = getMachineType(for: recipe)
         let baseProductionPerSecond = Double(recipe.baseProductionResultCount) / recipe.baseProductionTime
         let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
@@ -89,6 +96,7 @@ class ProductionCalculator {
         case .smelting: return .StoneFurnace
         case .chemistry: return .ChemicalPlant
         case .centrifuging: return .Centrifuge
+        case .fluid: return .Machine1 //TODO: что то не так
         }
     }
 
@@ -112,6 +120,7 @@ class ProductionCalculator {
         case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
         case .chemistry: return [.ChemicalPlant]
         case .centrifuging: return [.Centrifuge]
+        case .fluid: return [.Machine1] //TODO: что то не так
         }
     }
 }

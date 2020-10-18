@@ -77,8 +77,54 @@ class RecipeParser {
             }
         }
 
+
+        let fluidRecipes = generateBaseFluidRecipes()
+        fluidRecipes.forEach { recipe in
+            recipes[recipe.name] = recipe
+        }
+
+        if let oilProcessingRecipe = recipes["advanced-oil-processing"] {
+            let oilProcessingRecipes = generateOilProcessingLiquidRecipes(oilProcessingRecipe)
+            oilProcessingRecipes.forEach { recipe in
+                recipes[recipe.name] = recipe
+            }
+        }
+
         return recipes
     }
+
+    func generateOilProcessingLiquidRecipes(_ oilProcessingRecipe: Recipe) -> [Recipe] {
+        var recipes: [Recipe] = []
+        guard let results = oilProcessingRecipe.results else { return [] }
+
+        for result in results {
+            recipes.append(Recipe(type: "recipe", name: result.name ?? "", category: .oilProcessing, ingredients: oilProcessingRecipe.baseIngredients, energyRequired: oilProcessingRecipe.baseProductionTime, result: nil, normal: nil, expensive: nil, resultCount: result.amount, icon: result.name, subgroup: nil, order: nil, results: nil))
+        }
+
+        /*
+         struct Result: Codable {
+             var name: String?
+             var probability: Double?
+             var amount: Int?
+             var type: String?
+             var fluidbox_index: Int?
+         }
+         */
+
+        return recipes
+    }
+
+    func generateBaseFluidRecipes() -> [Recipe] {
+        var recipes: [Recipe] = []
+        let water = Recipe(type: "recipe", name: "water", category: .fluid, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "water", subgroup: nil, order: nil, results: nil)
+        recipes.append(water)
+
+        let crudeOil = Recipe(type: "recipe", name: "crude-oil", category: .fluid, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "crude-oil", subgroup: nil, order: nil, results: nil)
+        recipes.append(crudeOil)
+
+        return recipes
+    }
+
 
     func parseRecipe(from dict: [String: Any]) -> Recipe? {
         guard let type = dict[RecipeField.type.rawValue] as? String else { return nil }
