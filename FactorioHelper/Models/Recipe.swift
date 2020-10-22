@@ -26,7 +26,7 @@ public struct Recipe: Equatable {
     var icon: String? = nil
     public var subgroup: String? = nil
     var order: String? = nil
-    var results: [Result]? = nil
+    public var results: [Result]? = nil
 
     public var baseProductionTime: Double {
         let isExpensiveProduction = UserDefaults.standard.bool(forKey: "isExpensiveProduction")
@@ -122,8 +122,8 @@ enum Category: String {
     }
 }
 
-public struct Ingredient: Codable, Comparable {
-    public static func < (lhs: Ingredient, rhs: Ingredient) -> Bool {
+public struct Ingredient: Codable, Equatable {
+    public static func == (lhs: Ingredient, rhs: Ingredient) -> Bool {
         return lhs.name == rhs.name && lhs.amount == rhs.amount
     }
 
@@ -157,10 +157,22 @@ struct Color {
     }
 }
 
-struct Result: Codable {
-    var name: String?
-    var probability: Double?
-    var amount: Int?
-    var type: String?
-    var fluidbox_index: Int?
+public struct Result: Codable, Equatable {
+    public static func == (lhs: Result, rhs: Result) -> Bool {
+        return lhs.name == rhs.name && lhs.amount == rhs.amount
+    }
+
+    public init(name: String?, probability: Double?, amount: Int?, type: String?, fluidbox_index: Int?) {
+        self.name = name
+        self.probability = probability
+        self.amount = amount
+        self.type = type
+        self.fluidbox_index = fluidbox_index
+    }
+
+    var name: String? = nil
+    var probability: Double? = nil
+    var amount: Int? = nil
+    var type: String? = nil
+    var fluidbox_index: Int? = nil
 }

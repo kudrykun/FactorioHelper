@@ -88,6 +88,11 @@ class RecipeParser {
             recipes[recipe.name] = recipe
         }
 
+        let barrelEmptyRecipes = generateEmptyBarrelRecipes()
+        barrelEmptyRecipes.forEach { recipe in
+            recipes[recipe.name] = recipe
+        }
+
         if let oilProcessingRecipe = recipes["advanced-oil-processing"] {
             let oilProcessingRecipes = generateOilProcessingLiquidRecipes(oilProcessingRecipe)
             oilProcessingRecipes.forEach { recipe in
@@ -145,6 +150,19 @@ class RecipeParser {
         return recipes
     }
 
+    func generateEmptyBarrelRecipes() -> [Recipe] {
+        let fluids: [Fluid] = FluidParser.parseFluids()
+        var recipes: [Recipe] = []
+
+        for fluid in fluids {
+            guard fluid.autoBarrel else { continue }
+            let fillBarrelIngredient = Ingredient(name: "\(fluid.name)-fill-barrel", amount: 1, type: nil)
+            let results = [Result(name: "empty-barrel", probability: nil, amount: 1, type: nil, fluidbox_index: nil), Result(name: fluid.name, probability: nil, amount: 50, type: nil, fluidbox_index: nil)]
+            let recipe = Recipe(type: "empty-barrel", name: "\(fluid.name)-empty-barrel", category: .none, ingredients: [fillBarrelIngredient], energyRequired: 0.2, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: nil, subgroup: "empty-barrel", order: nil, results: results)
+            recipes.append(recipe)
+        }
+        return recipes
+    }
 
     func parseRecipe(from dict: [String: Any]) -> Recipe? {
         guard let type = dict[RecipeField.type.rawValue] as? String else { return nil }

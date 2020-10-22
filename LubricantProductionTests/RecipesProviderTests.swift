@@ -13,6 +13,7 @@ class RecipesProviderTests: XCTestCase {
 
     var recipes: [String : Recipe]!
     var fillBarrelRecipes: [Recipe]!
+    var emptyBarrelRecipes: [Recipe]!
 
     override func setUpWithError() throws {
         recipes = RecipesProvider.recipes
@@ -23,21 +24,18 @@ class RecipesProviderTests: XCTestCase {
         fillBarrelRecipes.append(recipes["petroleum-gas-fill-barrel"]!)
         fillBarrelRecipes.append(recipes["sulfuric-acid-fill-barrel"]!)
         fillBarrelRecipes.append(recipes["water-fill-barrel"]!)
+
+        emptyBarrelRecipes = []
+        emptyBarrelRecipes.append(recipes["heavy-oil-empty-barrel"]!)
+        emptyBarrelRecipes.append(recipes["light-oil-empty-barrel"]!)
+        emptyBarrelRecipes.append(recipes["lubricant-empty-barrel"]!)
+        emptyBarrelRecipes.append(recipes["petroleum-gas-empty-barrel"]!)
+        emptyBarrelRecipes.append(recipes["sulfuric-acid-empty-barrel"]!)
+        emptyBarrelRecipes.append(recipes["water-empty-barrel"]!)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-
-    func testFillBarrelsExistence() {
-        XCTAssertNotNil(recipes["crude-oil-fill-barrel"], "There is not crude-oil-fill-barrel!")
-        XCTAssertNotNil(recipes["heavy-oil-fill-barrel"], "There is not heavy-oil-fill-barrel!")
-        XCTAssertNotNil(recipes["light-oil-fill-barrel"], "There is not light-oil-fill-barrel!")
-        XCTAssertNotNil(recipes["lubricant-fill-barrel"], "There is not lubricant-fill-barrel!")
-        XCTAssertNotNil(recipes["petroleum-gas-fill-barrel"], "There is not petroleum-gas-fill-barrel!")
-        XCTAssertNotNil(recipes["sulfuric-acid-fill-barrel"], "There is not sulfuric-acid-fill-barrel!")
-        XCTAssertNotNil(recipes["water-fill-barrel"], "There is not water-fill-barrel!")
     }
 
     func testFillBarrelsCorrectness() {
@@ -53,6 +51,25 @@ class RecipesProviderTests: XCTestCase {
                 XCTAssertEqual(recipe.baseIngredients, ingredients, "Wrong ingredients!")
                 XCTAssertEqual(recipe.result, recipe.name, "Wrong result!")
                 XCTAssertEqual(recipe.baseProductionResultCount, 1, "Wrong result count!")
+            } else {
+                XCTAssert(true, "Wrong recipe naming!")
+            }
+        }
+    }
+
+    func testEmptyBarrelsCorrectness() {
+        for recipe in emptyBarrelRecipes {
+            XCTAssertEqual(recipe.baseProductionTime, 0.2, "Wrong empty barrel time!")
+            XCTAssertEqual(recipe.subgroup, "empty-barrel")
+
+            if let liquidStringRange = recipe.name.range(of: "-empty-barrel") {
+                var liquidString = recipe.name
+                liquidString.removeSubrange(liquidStringRange)
+                let ingredients = [Ingredient(name: "\(liquidString)-fill-barrel", amount: 1)]
+                let results = [Result(name: "empty-barrel", probability: nil, amount: 1, type: nil, fluidbox_index: nil), Result(name: liquidString, probability: nil, amount: 50, type: nil, fluidbox_index: nil)]
+
+                XCTAssertEqual(recipe.baseIngredients, ingredients, "Wrong ingredients!")
+                XCTAssertEqual(recipe.results, results, "Wrong results!")
             } else {
                 XCTAssert(true, "Wrong recipe naming!")
             }
