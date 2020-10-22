@@ -19,16 +19,16 @@ public struct Recipe: Equatable {
     var category: Category = .none
     private var ingredients: [Ingredient]? = nil
     private var energyRequired: Double?
-    var result: String? = nil
+    public var result: String? = nil
     var normal: DifficultyRecipe? = nil
     var expensive: DifficultyRecipe? = nil
     private var resultCount: Int?
     var icon: String? = nil
-    var subgroup: String? = nil
+    public var subgroup: String? = nil
     var order: String? = nil
     var results: [Result]? = nil
 
-    var baseProductionTime: Double {
+    public var baseProductionTime: Double {
         let isExpensiveProduction = UserDefaults.standard.bool(forKey: "isExpensiveProduction")
         if let expensive = expensive?.energyRequired, isExpensiveProduction {
             return expensive
@@ -40,7 +40,7 @@ public struct Recipe: Equatable {
         return energyRequired ?? 0
     }
 
-    var baseIngredients: [Ingredient] {
+    public var baseIngredients: [Ingredient] {
         let isExpensiveProduction = UserDefaults.standard.bool(forKey: "isExpensiveProduction")
         if let expensive = expensive?.ingredients, isExpensiveProduction {
             return expensive
@@ -52,7 +52,7 @@ public struct Recipe: Equatable {
         return ingredients ?? []
     }
 
-    var baseProductionResultCount: Int {
+    public var baseProductionResultCount: Int {
 
         //нужно будет убрать default совсем
         switch category {
@@ -70,9 +70,21 @@ public struct Recipe: Equatable {
     }
 
     var croppedIcon: UIImage? {
-        guard let sourceImage = UIImage(named: name) else { return nil }
-        guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
-        return croppedImage
+        if subgroup == "fill-barrel" {
+            guard let range = name.range(of: "-fill-barrel") else { return nil }
+            let fluidName = String(name[name.startIndex..<range.lowerBound])
+            let fluid = FluidParser.parseFluids().filter{$0.name == fluidName}
+            return IconsProvider.getFillBarrelIcon(for: fluid[0])
+        } else if subgroup == "empty-barrel" {
+            guard let range = name.range(of:"-empty-barrel") else { return nil }
+            let fluidName = String(name[name.startIndex..<range.lowerBound])
+            let fluid = FluidParser.parseFluids().filter{$0.name == fluidName}
+            return IconsProvider.getEmptyBarrelIcon(for: fluid[0])
+        } else {
+            guard let sourceImage = UIImage(named: name) else { return nil }
+            guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
+            return croppedImage
+        }
     }
 
     init(type: String, name: String, category: Category, ingredients: [Ingredient]?, energyRequired: Double?, result: String?, normal: DifficultyRecipe?, expensive: DifficultyRecipe?, resultCount: Int?, icon: String?, subgroup: String?, order: String?, results: [Result]?) {
@@ -110,7 +122,17 @@ enum Category: String {
     }
 }
 
-struct Ingredient: Codable {
+public struct Ingredient: Codable, Comparable {
+    public static func < (lhs: Ingredient, rhs: Ingredient) -> Bool {
+        return lhs.name == rhs.name && lhs.amount == rhs.amount
+    }
+
+    public init(name: String, amount: Int, type: String? = nil) {
+        self.name = name
+        self.amount = amount
+        self.type = type
+    }
+
     var name: String
     var amount: Int
     var type: String? = nil

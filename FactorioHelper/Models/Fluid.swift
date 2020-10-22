@@ -9,7 +9,7 @@
 import UIKit
 
 public struct Fluid {
-    var name: String
+    public var name: String
     var baseColor: Color
     var flowColor: Color
     var icon: String?

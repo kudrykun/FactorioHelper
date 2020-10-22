@@ -20,61 +20,14 @@ public struct Item {
     public var croppedIcon: UIImage? {
         if subgroup == "fill-barrel" {
             guard let range = name.range(of: "-fill-barrel") else { return nil }
-            let iconName = String(name[name.startIndex..<range.lowerBound])
-            guard let barrelNotCropped = UIImage(named: "barrel-fill") else { return nil}
-            guard let topMaskNotCropped = UIImage(named: "barrel-fill-top-mask") else { return nil}
-            guard let sideMaskNotCropped = UIImage(named: "barrel-fill-side-mask") else { return nil}
-            guard let dropNotCropped = UIImage(named: iconName) else { return nil}
-
-
-            guard let barrel = IconsCropper.crop(barrelNotCropped) else { return nil }
-            guard let topMask = IconsCropper.crop(topMaskNotCropped)?.withTintColor(flowColor?.uiColor ?? UIColor.white, renderingMode: .alwaysTemplate) else { return nil }
-            guard let sideMask = IconsCropper.crop(sideMaskNotCropped)?.withTintColor(baseColor?.uiColor ?? UIColor.white, renderingMode: .alwaysOriginal) else { return nil }
-            guard let drop = IconsCropper.crop(dropNotCropped) else { return nil }
-
-            let size = CGSize(width: 64, height: 64)
-            UIGraphicsBeginImageContext(size)
-
-            let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            barrel.draw(in: areaSize)
-            topMask.draw(in: areaSize, blendMode: .color, alpha: 0.5)
-            sideMask.draw(in: areaSize, blendMode: .darken, alpha: 0.7)
-            drop.draw(in: CGRect(x: 2, y: 2, width: 32, height: 32))
-
-            let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-
-            return newImage
-
+            let fluidName = String(name[name.startIndex..<range.lowerBound])
+            let fluid = FluidParser.parseFluids().filter{$0.name == fluidName}
+            return IconsProvider.getFillBarrelIcon(for: fluid[0])
         } else if subgroup == "empty-barrel" {
-            guard let range = name.range(of: "-empty-barrel") else { return nil }
-            let iconName = String(name[name.startIndex..<range.lowerBound])
-
-            guard let barrelNotCropped = UIImage(named: "barrel-empty") else { return nil}
-            guard let topMaskNotCropped = UIImage(named: "barrel-empty-top-mask") else { return nil}
-            guard let sideMaskNotCropped = UIImage(named: "barrel-empty-side-mask") else { return nil}
-            guard let dropNotCropped = UIImage(named: iconName) else { return nil}
-
-
-            guard let barrel = IconsCropper.crop(barrelNotCropped) else { return nil }
-            guard let topMask = IconsCropper.crop(topMaskNotCropped)?.withTintColor(flowColor?.uiColor ?? UIColor.white, renderingMode: .alwaysTemplate) else { return nil }
-            guard let sideMask = IconsCropper.crop(sideMaskNotCropped)?.withTintColor(baseColor?.uiColor ?? UIColor.white, renderingMode: .alwaysOriginal) else { return nil }
-            guard let drop = IconsCropper.crop(dropNotCropped) else { return nil }
-
-            let size = CGSize(width: 64, height: 64)
-            UIGraphicsBeginImageContext(size)
-
-            let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            barrel.draw(in: areaSize)
-            topMask.draw(in: areaSize, blendMode: .color, alpha: 0.5)
-            sideMask.draw(in: areaSize, blendMode: .darken, alpha: 0.7)
-            drop.draw(in: CGRect(x: 30, y: 32, width: 32, height: 32))
-
-            let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-
-            return newImage
-
+            guard let range = name.range(of:"-empty-barrel") else { return nil }
+            let fluidName = String(name[name.startIndex..<range.lowerBound])
+            let fluid = FluidParser.parseFluids().filter{$0.name == fluidName}
+            return IconsProvider.getEmptyBarrelIcon(for: fluid[0])
         } else {
             guard let iconNameSubstring = icon?.split(separator: "/").last ?? Substring(name) else { return nil }
             let iconName = String(iconNameSubstring)
@@ -82,7 +35,5 @@ public struct Item {
             guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
             return croppedImage
         }
-
-        return UIImage()
     }
 }

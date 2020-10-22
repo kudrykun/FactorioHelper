@@ -131,11 +131,15 @@ class RecipeParser {
     }
 
     func generateFillBarrelRecipes() -> [Recipe] {
-        var fluids: [Fluid] = FluidParser.parseFluids()
+        let fluids: [Fluid] = FluidParser.parseFluids()
         var recipes: [Recipe] = []
+
+        let barrel = Ingredient(name: "empty-barrel", amount: 1, type: nil)
+
         for fluid in fluids {
             guard fluid.autoBarrel else { continue }
-            var recipe = Recipe(type: "recipe", name: "\(fluid.name)-fill-barrel", category: .none, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: nil, subgroup: nil, order: nil, results: nil)
+            let fluid = Ingredient(name: fluid.name, amount: 50, type: nil)
+            let recipe = Recipe(type: "recipe", name: "\(fluid.name)-fill-barrel", category: .none, ingredients: [barrel, fluid], energyRequired: 0.2, result: "\(fluid.name)-fill-barrel", normal: nil, expensive: nil, resultCount: 1, icon: nil, subgroup: "fill-barrel", order: nil, results: nil)
             recipes.append(recipe)
         }
         return recipes
