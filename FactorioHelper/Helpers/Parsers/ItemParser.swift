@@ -35,8 +35,6 @@ class ItemParser {
         }
 
         items.append(contentsOf: getItemsFromRecipes())
-        items.append(contentsOf: FluidItemsGenerator.generateFillBarrelItems(from: FluidParser.parseFluids()))
-        items.append(contentsOf: FluidItemsGenerator.generateEmptyBarrelItems(from: FluidParser.parseFluids()))
         return items
     }
     
