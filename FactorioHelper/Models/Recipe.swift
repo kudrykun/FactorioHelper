@@ -52,16 +52,16 @@ public struct Recipe: Equatable {
         return ingredients ?? []
     }
 
-    public var baseProductionResultCount: Int {
+    public var baseProductionResultCount: Double {
 
         //нужно будет убрать default совсем
         switch category {
         case .chemistry:
             //будет несколько элементов в results при обработке нефти
-            guard let results = results, !results.isEmpty else { return resultCount ?? 0}
-            return results[0].amount ?? resultCount ?? 0
+            guard let results = results, !results.isEmpty else { return Double(resultCount ?? 0)}
+            return Double(results[0].amount ?? resultCount ?? 0)
         default:
-            return resultCount ?? 0
+            return Double(resultCount ?? 1)
         }
     }
 
