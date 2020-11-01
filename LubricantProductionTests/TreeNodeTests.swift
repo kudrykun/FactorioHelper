@@ -74,4 +74,50 @@ class TreeNodeTests: XCTestCase {
         XCTAssertNotEqual(tree1, tree2, "Tree equality not working!")
     }
 
+    func testSimpleFlattening() {
+        let nodeA = TreeNode<String>("A")
+        let nodeB = TreeNode<String>("B")
+        let nodeC = TreeNode<String>("C")
+        nodeA.addChild(nodeB)
+        nodeA.addChild(nodeC)
+        XCTAssertEqual(nodeA.flattened(), ["A", "B", "C"], "Wrong flattening!")
+    }
+
+    func testSimpleFlatteningOrder() {
+        let nodeA = TreeNode<String>("A")
+        let nodeB = TreeNode<String>("B")
+        let nodeC = TreeNode<String>("C")
+        nodeA.addChild(nodeC)
+        nodeA.addChild(nodeB)
+        XCTAssertEqual(nodeA.flattened(), ["A", "C", "B"], "Wrong flattening order!")
+    }
+
+    func testFlatteningWithOneElement() {
+        let nodeA = TreeNode<String>("A")
+        XCTAssertEqual(nodeA.flattened(), ["A"], "Wrong flattening one element!")
+    }
+
+    func testFlattening() {
+        let nodeA = TreeNode<String>("A")
+        let nodeB = TreeNode<String>("B")
+        let nodeC = TreeNode<String>("C")
+        let nodeD = TreeNode<String>("D")
+        let nodeE = TreeNode<String>("E")
+        let nodeF = TreeNode<String>("F")
+        let nodeG = TreeNode<String>("G")
+        let nodeH = TreeNode<String>("H")
+        let nodeI = TreeNode<String>("I")
+        nodeA.addChild(nodeB)
+        nodeA.addChild(nodeC)
+        nodeA.addChild(nodeD)
+
+        nodeB.addChild(nodeG)
+        nodeB.addChild(nodeH)
+        nodeH.addChild(nodeI)
+
+        nodeD.addChild(nodeE)
+        nodeD.addChild(nodeF)
+
+        XCTAssertEqual(nodeA.flattened(), ["A", "B", "G", "H", "I", "C", "D", "E", "F"], "Wrong flattening order!")
+    }
 }

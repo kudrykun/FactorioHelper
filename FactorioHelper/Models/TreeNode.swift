@@ -35,4 +35,16 @@ public class TreeNode<T>: Equatable where T:Comparable {
         children.append(node)
         node.parent = self
     }
+
+    public func flattened() -> [T]{
+        var resultArray = [T]()
+
+        resultArray.append(value)
+
+        children.forEach { child in
+            resultArray.append(contentsOf: child.flattened())
+        }
+
+        return resultArray
+    }
 }
