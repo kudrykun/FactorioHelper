@@ -81,6 +81,7 @@
 		FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50A5253C9525001A774C /* FluidItemsGeneratorTests.swift */; };
 		FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50A9253C989B001A774C /* RecipesProviderTests.swift */; };
 		FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50AD253C9D1E001A774C /* ItemTests.swift */; };
+		FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		FADF50A5253C9525001A774C /* FluidItemsGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidItemsGeneratorTests.swift; sourceTree = "<group>"; };
 		FADF50A9253C989B001A774C /* RecipesProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProviderTests.swift; sourceTree = "<group>"; };
 		FADF50AD253C9D1E001A774C /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
+		FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCalculatorTests.swift; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,6 +285,7 @@
 		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */,
 				FAA6864D25421B66005568DB /* IconsProviderTests.swift */,
 				FADF50AD253C9D1E001A774C /* ItemTests.swift */,
 				FADF50A9253C989B001A774C /* RecipesProviderTests.swift */,
@@ -601,6 +604,7 @@
 				FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */,
 				FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */,
 				FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */,
+				FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */,
 				FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */,
 				FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */,
 			);

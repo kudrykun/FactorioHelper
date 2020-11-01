@@ -18,13 +18,15 @@ public struct ProductionItem: Equatable, Comparable{
     var machinesNeeded: Double?
     var machineType: MachineType
     var recipe: Recipe
+    var nestingLevel: Int
 
-    public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType, recipe: Recipe) {
+    public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType, recipe: Recipe, nestingLevel: Int) {
         self.name = name
         self.countPerSecond = countPerSecond
         self.machinesNeeded = machinesNeeded
         self.machineType = machineType
         self.recipe = recipe
+        self.nestingLevel = nestingLevel
     }
 
     public static func == (lhs: ProductionItem, rhs: ProductionItem) -> Bool {
@@ -32,17 +34,18 @@ public struct ProductionItem: Equatable, Comparable{
             lhs.countPerSecond == rhs.countPerSecond &&
             lhs.machinesNeeded == rhs.machinesNeeded &&
             lhs.machineType == rhs.machineType &&
-            lhs.recipe == rhs.recipe
+            lhs.recipe == rhs.recipe &&
+            lhs.nestingLevel == rhs.nestingLevel
     }
 }
 
 public class ProductionCalculator {
-    public static func getProductionItem(for recipe: Recipe, countPerSecond: Double) -> TreeNode<ProductionItem>?{
+    public static func getProductionItem(for recipe: Recipe, countPerSecond: Double, nestingLevel: Int) -> TreeNode<ProductionItem>?{
         let ingredients = recipe.baseIngredients
 
         if ingredients.isEmpty {
             let machineType = getMachineType(for: recipe)
-            let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: nil, machineType: machineType, recipe: recipe)
+            let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: nil, machineType: machineType, recipe: recipe, nestingLevel: nestingLevel)
             let treeRoot = TreeNode<ProductionItem>(productionItem)
             return treeRoot
         }
@@ -54,13 +57,13 @@ public class ProductionCalculator {
         let roundedRequiredMachinesCount = Int(requiredMachinesCount.rounded(.up))
 
 
-        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: Double(roundedRequiredMachinesCount), machineType: machineType, recipe: recipe)
+        let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: Double(roundedRequiredMachinesCount), machineType: machineType, recipe: recipe, nestingLevel: nestingLevel)
         let treeRoot = TreeNode<ProductionItem>(productionItem)
 
         for ingredient in ingredients {
             guard let recipe = RecipesProvider.recipes[ingredient.name] else { continue }
             let itemsPerSecondCount = Double(roundedRequiredMachinesCount) * Double(ingredient.amount)
-            let ingredientProductionItem = getProductionItem(for: recipe, countPerSecond: itemsPerSecondCount)
+            let ingredientProductionItem = getProductionItem(for: recipe, countPerSecond: itemsPerSecondCount, nestingLevel: nestingLevel + 1)
             if let ingredientProductionItem = ingredientProductionItem {
                 let treeNode = ingredientProductionItem
                 treeRoot.addChild(treeNode)
