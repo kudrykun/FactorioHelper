@@ -47,7 +47,6 @@
 		FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */; };
 		FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */; };
 		FA79C4D72512A8BB001BC796 /* MachineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79C4D62512A8BB001BC796 /* MachineType.swift */; };
-		FA81CDDA253C547B005EBA2E /* LubricantProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */; };
 		FA98527D2514039A00BED57D /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98527C2514039A00BED57D /* TreeNode.swift */; };
 		FAA6864A25421B3B005568DB /* IconsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6864925421B3B005568DB /* IconsProvider.swift */; };
 		FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6864D25421B66005568DB /* IconsProviderTests.swift */; };
@@ -142,7 +141,6 @@
 		FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionHeaderView.swift; sourceTree = "<group>"; };
 		FA79C4D62512A8BB001BC796 /* MachineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineType.swift; sourceTree = "<group>"; };
 		FA81CDD7253C547B005EBA2E /* LubricantProductionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LubricantProductionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LubricantProductionTests.swift; sourceTree = "<group>"; };
 		FA81CDDB253C547B005EBA2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA98527C2514039A00BED57D /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		FAA6864925421B3B005568DB /* IconsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProvider.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				FADF50A9253C989B001A774C /* RecipesProviderTests.swift */,
 				FADF50A5253C9525001A774C /* FluidItemsGeneratorTests.swift */,
 				FADF5075253C5DDF001A774C /* TreeNodeTests.swift */,
-				FA81CDD9253C547B005EBA2E /* LubricantProductionTests.swift */,
 				FA81CDDB253C547B005EBA2E /* Info.plist */,
 			);
 			path = LubricantProductionTests;
@@ -600,7 +597,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA81CDDA253C547B005EBA2E /* LubricantProductionTests.swift in Sources */,
 				FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */,
 				FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */,
 				FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */,
