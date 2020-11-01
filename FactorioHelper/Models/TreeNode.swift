@@ -23,9 +23,9 @@ public class TreeNode<T>: Equatable where T:Comparable {
         return isChildrenEqual
     }
 
-    var value: T
-    weak var parent: TreeNode<T>?
-    var children: [TreeNode<T>] = []
+    public var value: T
+    public weak var parent: TreeNode<T>?
+    public var children: [TreeNode<T>] = []
 
     public init(_ value: T) {
         self.value = value
@@ -36,10 +36,10 @@ public class TreeNode<T>: Equatable where T:Comparable {
         node.parent = self
     }
 
-    public func flattened() -> [T]{
-        var resultArray = [T]()
+    public func flattened() -> [TreeNode<T>]{
+        var resultArray = [TreeNode<T>]()
 
-        resultArray.append(value)
+        resultArray.append(self)
 
         children.forEach { child in
             resultArray.append(contentsOf: child.flattened())

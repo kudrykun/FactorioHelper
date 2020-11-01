@@ -20,7 +20,12 @@ class RecipeViewController: UIViewController {
     }
 
     var ingredients = [Ingredient]()
-    var productionItem: TreeNode<ProductionItem>?
+    var productionItem: TreeNode<ProductionItem>? {
+        didSet {
+            flattenedItems = productionItem?.flattened() ?? []
+        }
+    }
+    var flattenedItems: [TreeNode<ProductionItem>] = []
     var itemsPerSecond: Double = 1
 
     private let headerView: RecipeDescriptionHeaderView = {
@@ -108,22 +113,21 @@ class RecipeViewController: UIViewController {
 
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let productionItem = productionItem else { return 0 }
-        return ProductionItemCell.calculateHeight(for: productionItem)
+        return 62
     }
 }
 
 extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return flattenedItems.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let productionItem = productionItem else { return UITableViewCell()}
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
-        cell.model = productionItem
+        cell.model = flattenedItems[indexPath.row]
         cell.didSelectMachine = {
-            self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: productionItem, countPerSecond: self.itemsPerSecond)
+            guard let model = self.productionItem else { return }
+            self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: model, countPerSecond: self.itemsPerSecond)
             self.productionTableView.reloadData()
         }
         return cell

@@ -13,7 +13,7 @@ public struct ProductionItem: Equatable, Comparable{
         return lhs.name < rhs.name
     }
 
-    var name: String
+    public var name: String
     var countPerSecond: Double
     var machinesNeeded: Double?
     var machineType: MachineType

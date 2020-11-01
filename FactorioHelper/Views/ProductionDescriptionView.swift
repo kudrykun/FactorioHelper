@@ -81,8 +81,8 @@ class ProductionDescriptionView: UIView {
         }
     }
 
-    func updateWithModel(with model: TreeNode<ProductionItem>?) {
-        guard let model = model?.value else { return }
+    func updateWithModel(with model: ProductionItem?) {
+        guard let model = model else { return }
         guard let recipe =  RecipesProvider.recipes[model.name] else { return }
         itemIcon.image = recipe.croppedIcon
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"

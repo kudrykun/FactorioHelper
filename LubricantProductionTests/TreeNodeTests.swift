@@ -80,7 +80,7 @@ class TreeNodeTests: XCTestCase {
         let nodeC = TreeNode<String>("C")
         nodeA.addChild(nodeB)
         nodeA.addChild(nodeC)
-        XCTAssertEqual(nodeA.flattened(), ["A", "B", "C"], "Wrong flattening!")
+        XCTAssertEqual(nodeA.flattened(), [nodeA, nodeB, nodeC], "Wrong flattening!")
     }
 
     func testSimpleFlatteningOrder() {
@@ -89,12 +89,12 @@ class TreeNodeTests: XCTestCase {
         let nodeC = TreeNode<String>("C")
         nodeA.addChild(nodeC)
         nodeA.addChild(nodeB)
-        XCTAssertEqual(nodeA.flattened(), ["A", "C", "B"], "Wrong flattening order!")
+        XCTAssertEqual(nodeA.flattened(), [nodeA, nodeC, nodeB], "Wrong flattening order!")
     }
 
     func testFlatteningWithOneElement() {
         let nodeA = TreeNode<String>("A")
-        XCTAssertEqual(nodeA.flattened(), ["A"], "Wrong flattening one element!")
+        XCTAssertEqual(nodeA.flattened(), [nodeA], "Wrong flattening one element!")
     }
 
     func testFlattening() {
@@ -118,6 +118,6 @@ class TreeNodeTests: XCTestCase {
         nodeD.addChild(nodeE)
         nodeD.addChild(nodeF)
 
-        XCTAssertEqual(nodeA.flattened(), ["A", "B", "G", "H", "I", "C", "D", "E", "F"], "Wrong flattening order!")
+        XCTAssertEqual(nodeA.flattened(), [nodeA, nodeB, nodeG, nodeH, nodeI, nodeC, nodeD, nodeE, nodeF], "Wrong flattening order!")
     }
 }
