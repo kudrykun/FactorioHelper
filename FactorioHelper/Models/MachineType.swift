@@ -34,20 +34,6 @@ public enum MachineType {
         }
     }
 
-    var maximumComponentsCount: Int {
-        switch self {
-        case .Machine1: return 2
-        case .Machine2: return 4
-        case .Machine3: return 6
-        case .OilRefinery: return 3 //проверить
-        case .ChemicalPlant: return 2 //проверить
-        case .Centrifuge: return 2
-        case .StoneFurnace: return 1
-        case .SteelFurnace: return 1
-        case .ElectricFurnace: return 1
-        }
-    }
-
     var isLiquidEnabled: Bool {
         switch self {
         case .Machine1, .Centrifuge, .StoneFurnace, .SteelFurnace, .ElectricFurnace: return false

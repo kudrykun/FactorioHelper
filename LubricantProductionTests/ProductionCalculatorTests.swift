@@ -15,6 +15,7 @@ class ProductionCalculatorTests: XCTestCase {
     var heavyOilRecipe: Recipe!
     var waterRecipe: Recipe!
     var crudeOilRecipe: Recipe!
+    var spidertroneRecipe: Recipe!
 
     override func setUpWithError() throws {
         let recipes = RecipesProvider.recipes
@@ -22,11 +23,13 @@ class ProductionCalculatorTests: XCTestCase {
         guard let heavyOilRecipe = recipes["heavy-oil"] else { return  }
         guard let waterRecipe = recipes["water"] else { return  }
         guard let crudeOilRecipe = recipes["crude-oil"] else { return  }
+        guard let spidertroneRecipe = recipes["spidertron"] else { return  }
 
         self.lubricantRecipe = lubricantRecipe
         self.heavyOilRecipe = heavyOilRecipe
         self.waterRecipe = waterRecipe
         self.crudeOilRecipe = crudeOilRecipe
+        self.spidertroneRecipe = spidertroneRecipe
     }
 
     override func tearDownWithError() throws {
@@ -135,5 +138,10 @@ class ProductionCalculatorTests: XCTestCase {
         for i in 0..<testFlattenedArray.count {
             XCTAssertEqual(testFlattenedArray[i].value.name, resultFlattenedArray[i].value.name, "Wrong lubricant production item flattening!")
         }
+    }
+
+    func testSpiderTronePossibleMachines() {
+        let possibleMachineTypes = ProductionCalculator.getPossibleMachineTypes(for: spidertroneRecipe)
+        XCTAssertEqual(possibleMachineTypes, [MachineType.Machine1, MachineType.Machine2, MachineType.Machine3])
     }
 }

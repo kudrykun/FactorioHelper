@@ -123,21 +123,16 @@ public class ProductionCalculator {
         }
     }
 
-    static func getPossibleMachineTypes(for recipe: Recipe) -> [MachineType] {
+    public static func getPossibleMachineTypes(for recipe: Recipe) -> [MachineType] {
         switch recipe.category {
         case .none, .crafting, .rocketBuilding, .advancedCrafting, .craftingWithFluid:
             let ingredients = recipe.baseIngredients
             var machines = [MachineType]()
-            if ingredients.count <= 2 && (ingredients.filter{ $0.type == "fluid" }).isEmpty {
+            if ingredients.filter({ $0.type == "fluid" }).isEmpty {
                 machines.append(.Machine1)
             }
-            if ingredients.count <= 4 {
-                machines.append(.Machine2)
-            }
-
-            if ingredients.count <= 6 {
-                machines.append(.Machine3)
-            }
+            machines.append(.Machine2)
+            machines.append(.Machine3)
             return machines
         case .oilProcessing: return [.OilRefinery]
         case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
