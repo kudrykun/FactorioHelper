@@ -16,6 +16,7 @@ class ProductionCalculatorTests: XCTestCase {
     var waterRecipe: Recipe!
     var crudeOilRecipe: Recipe!
     var spidertroneRecipe: Recipe!
+    var expressBelt: Recipe!
 
     override func setUpWithError() throws {
         let recipes = RecipesProvider.recipes
@@ -24,12 +25,14 @@ class ProductionCalculatorTests: XCTestCase {
         guard let waterRecipe = recipes["water"] else { return  }
         guard let crudeOilRecipe = recipes["crude-oil"] else { return  }
         guard let spidertroneRecipe = recipes["spidertron"] else { return  }
+        guard let expressBelt = recipes["express-transport-belt"] else { return  }
 
         self.lubricantRecipe = lubricantRecipe
         self.heavyOilRecipe = heavyOilRecipe
         self.waterRecipe = waterRecipe
         self.crudeOilRecipe = crudeOilRecipe
         self.spidertroneRecipe = spidertroneRecipe
+        self.expressBelt = expressBelt
     }
 
     override func tearDownWithError() throws {
@@ -143,5 +146,13 @@ class ProductionCalculatorTests: XCTestCase {
     func testSpiderTronePossibleMachines() {
         let possibleMachineTypes = ProductionCalculator.getPossibleMachineTypes(for: spidertroneRecipe)
         XCTAssertEqual(possibleMachineTypes, [MachineType.Machine1, MachineType.Machine2, MachineType.Machine3])
+    }
+
+    func testInitialMachineForExpressBeltIsNotMachine1() {
+        guard let item = ProductionCalculator.getProductionItem(for: expressBelt, countPerSecond: 1, nestingLevel: 0) else {
+            XCTAssertTrue(false, "Express belt production item not created!")
+            return
+        }
+        XCTAssertNotEqual(item.value.machineType, MachineType.Machine1, "Wrong initial machineType for express-belt!")
     }
 }

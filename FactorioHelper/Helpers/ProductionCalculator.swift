@@ -16,7 +16,7 @@ public struct ProductionItem: Equatable, Comparable{
     public var name: String
     var countPerSecond: Double
     var machinesNeeded: Double?
-    var machineType: MachineType
+    public var machineType: MachineType
     var recipe: Recipe
     var nestingLevel: Int
 
@@ -44,13 +44,13 @@ public class ProductionCalculator {
         let ingredients = recipe.baseIngredients
 
         if ingredients.isEmpty {
-            let machineType = getMachineType(for: recipe)
+            guard let machineType = getPossibleMachineTypes(for: recipe).first else { return nil }
             let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: nil, machineType: machineType, recipe: recipe, nestingLevel: nestingLevel)
             let treeRoot = TreeNode<ProductionItem>(productionItem)
             return treeRoot
         }
 
-        let machineType = getMachineType(for: recipe)
+        guard let machineType = getPossibleMachineTypes(for: recipe).first else { return nil }
         let baseProductionPerSecond = Double(recipe.baseProductionResultCount) / recipe.baseProductionTime
         let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
         let requiredMachinesCount = countPerSecond / productionByOneMachinePerSecond
