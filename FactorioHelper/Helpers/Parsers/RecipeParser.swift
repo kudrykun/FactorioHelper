@@ -169,10 +169,7 @@ class RecipeParser {
         guard let name = dict[RecipeField.name.rawValue] as? String else { return nil }
 
         let category = Category.from(rawValue: dict[RecipeField.category.rawValue] as? String ?? "")
-        var ingredients: [Ingredient]?
-        if category != .smelting { //зачем
-            ingredients = parseIngredients(from: dict[RecipeField.ingredients.rawValue] as? [Any] ?? [])
-        }
+        let ingredients = parseIngredients(from: dict[RecipeField.ingredients.rawValue] as? [Any] ?? [])
         let energyRequired = dict[RecipeField.energyRequired.rawValue] as? Double ?? 0.5
         let result = dict[RecipeField.result.rawValue] as? String
         let normal: DifficultyRecipe? = parseDifficultyRecipe(from: dict[RecipeField.normal.rawValue] as? [String : Any])
