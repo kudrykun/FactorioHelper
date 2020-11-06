@@ -155,6 +155,7 @@ extension ViewController: UICollectionViewDataSource {
 
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeListCell.self)", for: indexPath) as? RecipeListCell else { return UICollectionViewCell() }
             cell.image = item.croppedIcon
+            cell.accessibilityIdentifier = item.name
             print("createdCell \(item.name) \t\t \(item.subgroup) \t \(item.order)")
             return cell
         } else {

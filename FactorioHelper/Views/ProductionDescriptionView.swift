@@ -36,6 +36,7 @@ class ProductionDescriptionView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textColor = Colors.commonTextColor
+        label.accessibilityIdentifier = "machinesCountLabel"
         return label
     }()
 
@@ -87,8 +88,17 @@ class ProductionDescriptionView: UIView {
         itemIcon.image = recipe.croppedIcon
         itemsCountLabel.text = "\(model.countPerSecond) \(NSLocalizedString("items/sec", comment: ""))"
 
-        guard let machinesNeeded = model.machinesNeeded else { return }
-        machinesCountLabel.text = "x\(Int(machinesNeeded.rounded(.up)))"
+        if let machinesNeeded = model.machinesNeeded {
+            machinesCountLabel.text = "x\(Int(machinesNeeded.rounded(.up)))"
+        }
+
+        if model.machineType == nil {
+            machinesCountLabel.accessibilityIdentifier = "machinesCountLabel-hidden"
+            machinesCountLabel.isHidden = true
+        } else {
+            machinesCountLabel.accessibilityIdentifier = "machinesCountLabel"
+            machinesCountLabel.isHidden = false
+        }
 
         machinePicker.machine = model.machineType
         machinePicker.machines = ProductionCalculator.getPossibleMachineTypes(for: recipe)

@@ -23,6 +23,7 @@ class ProductionItemCell: UITableViewCell {
 
     private let productionDescriptionView: ProductionDescriptionView = {
         let view = ProductionDescriptionView()
+        view.accessibilityIdentifier = "productionDescriptionView"
         return view
     }()
 

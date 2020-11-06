@@ -44,9 +44,9 @@ class ProductionCalculatorTests: XCTestCase {
 
         let heavyOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "heavy-oil", countPerSecond: 10, machinesNeeded: 2, machineType: .OilRefinery, recipe: heavyOilRecipe, nestingLevel: 1))
 
-        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: waterRecipe), recipe: waterRecipe, nestingLevel: 2))
+        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: nil, recipe: waterRecipe, nestingLevel: 2))
 
-        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: crudeOilRecipe), recipe: crudeOilRecipe, nestingLevel: 2))
+        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: nil, recipe: crudeOilRecipe, nestingLevel: 2))
 
 
         heavyOilProductionItem.addChild(waterProductionItem)
@@ -64,9 +64,9 @@ class ProductionCalculatorTests: XCTestCase {
 
         let heavyOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "heavy-oil", countPerSecond: 10, machinesNeeded: 2, machineType: .OilRefinery, recipe: heavyOilRecipe, nestingLevel: 1))
 
-        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: waterRecipe), recipe: waterRecipe, nestingLevel: 2))
+        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: nil, recipe: waterRecipe, nestingLevel: 2))
 
-        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: crudeOilRecipe), recipe: crudeOilRecipe, nestingLevel: 2))
+        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: nil, recipe: crudeOilRecipe, nestingLevel: 2))
 
 
         heavyOilProductionItem.addChild(waterProductionItem)
@@ -85,9 +85,9 @@ class ProductionCalculatorTests: XCTestCase {
 
         let heavyOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "heavy-oil", countPerSecond: 10, machinesNeeded: 2, machineType: .OilRefinery, recipe: heavyOilRecipe, nestingLevel: 1))
 
-        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: waterRecipe), recipe: waterRecipe, nestingLevel: 2))
+        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 100, machinesNeeded: nil, machineType: nil, recipe: waterRecipe, nestingLevel: 2))
 
-        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: crudeOilRecipe), recipe: crudeOilRecipe, nestingLevel: 2))
+        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 200, machinesNeeded: nil, machineType: nil, recipe: crudeOilRecipe, nestingLevel: 2))
 
 
         heavyOilProductionItem.addChild(waterProductionItem)
@@ -105,9 +105,9 @@ class ProductionCalculatorTests: XCTestCase {
 
         let heavyOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "heavy-oil", countPerSecond: 20, machinesNeeded: 4, machineType: .OilRefinery, recipe: heavyOilRecipe, nestingLevel: 1))
 
-        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 200, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: waterRecipe), recipe: waterRecipe, nestingLevel: 2))
+        let waterProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "water", countPerSecond: 200, machinesNeeded: nil, machineType: nil, recipe: waterRecipe, nestingLevel: 2))
 
-        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 400, machinesNeeded: nil, machineType: ProductionCalculator.getMachineType(for: crudeOilRecipe), recipe: crudeOilRecipe, nestingLevel: 2))
+        let crudeOilProductionItem = TreeNode<ProductionItem>(ProductionItem(name: "crude-oil", countPerSecond: 400, machinesNeeded: nil, machineType: nil, recipe: crudeOilRecipe, nestingLevel: 2))
 
 
         heavyOilProductionItem.addChild(waterProductionItem)
@@ -154,5 +154,10 @@ class ProductionCalculatorTests: XCTestCase {
             return
         }
         XCTAssertNotEqual(item.value.machineType, MachineType.Machine1, "Wrong initial machineType for express-belt!")
+    }
+
+    func testWaterPossibleMachinesIsEmpty() {
+        let possibleMachineTypes = ProductionCalculator.getPossibleMachineTypes(for: waterRecipe)
+        XCTAssertEqual(possibleMachineTypes, [], "Possible machines array for water is not empty!")
     }
 }

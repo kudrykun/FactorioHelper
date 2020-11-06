@@ -44,6 +44,7 @@ class RecipeViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.isMultipleTouchEnabled = true
+        tableView.accessibilityIdentifier = "productionTableView"
         return tableView
     }()
 
@@ -125,6 +126,7 @@ extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductionItemCell", for: indexPath) as? ProductionItemCell else { return UITableViewCell() }
         cell.model = flattenedItems[indexPath.row]
+        cell.accessibilityIdentifier = flattenedItems[indexPath.row].value.name
         cell.didSelectMachine = {
             guard let model = self.productionItem else { return }
             self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: model, countPerSecond: self.itemsPerSecond)

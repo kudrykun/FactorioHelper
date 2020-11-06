@@ -38,6 +38,16 @@
                ReferencedContainer = "container:FactorioHelper.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAE201002551FCEA00BF16EC"
+               BuildableName = "FactorioHelperUITests.xctest"
+               BlueprintName = "FactorioHelperUITests"
+               ReferencedContainer = "container:FactorioHelper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

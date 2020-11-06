@@ -24,9 +24,16 @@ class MachinePickerButton: UIButton {
         machinePicker
     }
 
-    var machine: MachineType = .Machine1 {
+    var machine: MachineType?{
         didSet {
-            setImage(machine.icon, for: .normal)
+            if machine == nil {
+                accessibilityIdentifier = "machinePicker-hidden"
+                isHidden = false
+            } else {
+                accessibilityIdentifier = "machinePicker"
+                isHidden = false
+            }
+            setImage(machine?.icon, for: .normal)
         }
     }
 
@@ -63,9 +70,11 @@ class MachinePickerButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setImage(machine.icon, for: .normal)
+        accessibilityIdentifier = "machinePicker-hidden"
         setupMachinePicker()
         addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        guard let machine = machine else { return }
+        setImage(machine.icon, for: .normal)
     }
 
     private func setupMachinePicker() {

@@ -81,11 +81,19 @@
 		FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50A9253C989B001A774C /* RecipesProviderTests.swift */; };
 		FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50AD253C9D1E001A774C /* ItemTests.swift */; };
 		FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */; };
+		FAE201042551FCEA00BF16EC /* FactorioHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		FA81CDDC253C547B005EBA2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADC481D25004AC700FDB962 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FADC482425004AC700FDB962;
+			remoteInfo = FactorioHelper;
+		};
+		FAE201062551FCEA00BF16EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FADC481D25004AC700FDB962 /* Project object */;
 			proxyType = 1;
@@ -178,6 +186,9 @@
 		FADF50A9253C989B001A774C /* RecipesProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProviderTests.swift; sourceTree = "<group>"; };
 		FADF50AD253C9D1E001A774C /* ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTests.swift; sourceTree = "<group>"; };
 		FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCalculatorTests.swift; sourceTree = "<group>"; };
+		FAE201012551FCEA00BF16EC /* FactorioHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FactorioHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorioHelperUITests.swift; sourceTree = "<group>"; };
+		FAE201052551FCEA00BF16EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D87B83827A67381FCCB74DE6 /* Pods_FactorioHelper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAE200FE2551FCEA00BF16EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +317,7 @@
 			children = (
 				FADC482725004AC700FDB962 /* FactorioHelper */,
 				FA81CDD8253C547B005EBA2E /* LubricantProductionTests */,
+				FAE201022551FCEA00BF16EC /* FactorioHelperUITests */,
 				FADC482625004AC700FDB962 /* Products */,
 				DD4EF2B1B30239EF569B07C6 /* Pods */,
 				2B44E99D8191B38CDF067673 /* Frameworks */,
@@ -310,6 +329,7 @@
 			children = (
 				FADC482525004AC700FDB962 /* FactorioHelper.app */,
 				FA81CDD7253C547B005EBA2E /* LubricantProductionTests.xctest */,
+				FAE201012551FCEA00BF16EC /* FactorioHelperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,6 +435,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FAE201022551FCEA00BF16EC /* FactorioHelperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */,
+				FAE201052551FCEA00BF16EC /* Info.plist */,
+			);
+			path = FactorioHelperUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +484,24 @@
 			productReference = FADC482525004AC700FDB962 /* FactorioHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FAE201002551FCEA00BF16EC /* FactorioHelperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAE2010A2551FCEA00BF16EC /* Build configuration list for PBXNativeTarget "FactorioHelperUITests" */;
+			buildPhases = (
+				FAE200FD2551FCEA00BF16EC /* Sources */,
+				FAE200FE2551FCEA00BF16EC /* Frameworks */,
+				FAE200FF2551FCEA00BF16EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAE201072551FCEA00BF16EC /* PBXTargetDependency */,
+			);
+			name = FactorioHelperUITests;
+			productName = FactorioHelperUITests;
+			productReference = FAE201012551FCEA00BF16EC /* FactorioHelperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -471,6 +518,10 @@
 					};
 					FADC482425004AC700FDB962 = {
 						CreatedOnToolsVersion = 11.6;
+					};
+					FAE201002551FCEA00BF16EC = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = FADC482425004AC700FDB962;
 					};
 				};
 			};
@@ -490,6 +541,7 @@
 			targets = (
 				FADC482425004AC700FDB962 /* FactorioHelper */,
 				FA81CDD6253C547B005EBA2E /* LubricantProductionTests */,
+				FAE201002551FCEA00BF16EC /* FactorioHelperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -545,6 +597,13 @@
 				FA20184C2516AD7F004D9124 /* demo-armor.json in Resources */,
 				FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */,
 				FA2018562516AD7F004D9124 /* demo-item.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAE200FF2551FCEA00BF16EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +701,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAE200FD2551FCEA00BF16EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAE201042551FCEA00BF16EC /* FactorioHelperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -649,6 +716,11 @@
 			isa = PBXTargetDependency;
 			target = FADC482425004AC700FDB962 /* FactorioHelper */;
 			targetProxy = FA81CDDC253C547B005EBA2E /* PBXContainerItemProxy */;
+		};
+		FAE201072551FCEA00BF16EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FADC482425004AC700FDB962 /* FactorioHelper */;
+			targetProxy = FAE201062551FCEA00BF16EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -881,6 +953,48 @@
 			};
 			name = Release;
 		};
+		FAE201082551FCEA00BF16EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDNNR82432;
+				INFOPLIST_FILE = FactorioHelperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudrykun.FactorioHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FactorioHelper;
+			};
+			name = Debug;
+		};
+		FAE201092551FCEA00BF16EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDNNR82432;
+				INFOPLIST_FILE = FactorioHelperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kudrykun.FactorioHelperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FactorioHelper;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -907,6 +1021,15 @@
 			buildConfigurations = (
 				FADC483A25004AC900FDB962 /* Debug */,
 				FADC483B25004AC900FDB962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAE2010A2551FCEA00BF16EC /* Build configuration list for PBXNativeTarget "FactorioHelperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAE201082551FCEA00BF16EC /* Debug */,
+				FAE201092551FCEA00BF16EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

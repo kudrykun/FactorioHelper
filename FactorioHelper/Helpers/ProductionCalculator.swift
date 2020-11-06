@@ -16,11 +16,11 @@ public struct ProductionItem: Equatable, Comparable{
     public var name: String
     var countPerSecond: Double
     var machinesNeeded: Double?
-    public var machineType: MachineType
+    public var machineType: MachineType?
     var recipe: Recipe
     var nestingLevel: Int
 
-    public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType, recipe: Recipe, nestingLevel: Int) {
+    public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType?, recipe: Recipe, nestingLevel: Int) {
         self.name = name
         self.countPerSecond = countPerSecond
         self.machinesNeeded = machinesNeeded
@@ -44,7 +44,7 @@ public class ProductionCalculator {
         let ingredients = recipe.baseIngredients
 
         if ingredients.isEmpty {
-            guard let machineType = getPossibleMachineTypes(for: recipe).first else { return nil }
+            let machineType = getPossibleMachineTypes(for: recipe).first
             let productionItem = ProductionItem(name: recipe.name, countPerSecond: countPerSecond, machinesNeeded: nil, machineType: machineType, recipe: recipe, nestingLevel: nestingLevel)
             let treeRoot = TreeNode<ProductionItem>(productionItem)
             return treeRoot
@@ -76,7 +76,7 @@ public class ProductionCalculator {
     static func getRecalculatedProductionItem(item: TreeNode<ProductionItem>, countPerSecond: Double) -> TreeNode<ProductionItem> {
         let ingredients = item.value.recipe.baseIngredients
 
-        let machineType = item.value.machineType
+        guard let machineType = item.value.machineType else { return item }
         let baseProductionPerSecond = Double(item.value.recipe.baseProductionResultCount) / item.value.recipe.baseProductionTime
         let productionByOneMachinePerSecond = baseProductionPerSecond * machineType.speedMultipier
         let requiredMachinesCount = countPerSecond / productionByOneMachinePerSecond
@@ -138,7 +138,7 @@ public class ProductionCalculator {
         case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
         case .chemistry: return [.ChemicalPlant]
         case .centrifuging: return [.Centrifuge]
-        case .fluid: return [.Machine1] //TODO: что то не так
+        case .fluid: return [] //TODO: что то не так
         }
     }
 }
