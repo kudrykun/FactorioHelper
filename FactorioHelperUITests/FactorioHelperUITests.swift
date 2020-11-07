@@ -142,4 +142,12 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertFalse(element.staticTexts["machinesCountLabel"].exists)
         XCTAssertFalse(element.buttons["machinePicker"].exists)
     }
+
+    func testUraniumProcessingNotExist() {
+        app.segmentedControls.children(matching: .button).element(boundBy: 2).tap()
+
+        XCTAssertFalse(XCUIApplication().collectionViews.cells["uranium-processing"].exists)
+        XCTAssertFalse(XCUIApplication().collectionViews.cells["nuclear-fuel-reprocessing"].exists)
+        XCTAssertFalse(XCUIApplication().collectionViews.cells["kovarex-enrichment-process"].exists)
+    }
 }
