@@ -83,6 +83,11 @@ class RecipeParser {
             recipes[recipe.name] = recipe
         }
 
+        let oreRecipes = generateBaseOreRecipes()
+        oreRecipes.forEach { recipe in
+            recipes[recipe.name] = recipe
+        }
+
 //        let barrelFillRecipes = generateFillBarrelRecipes()
 //        barrelFillRecipes.forEach { recipe in
 //            recipes[recipe.name] = recipe
@@ -131,6 +136,17 @@ class RecipeParser {
 
         let crudeOil = Recipe(type: "recipe", name: "crude-oil", category: .fluid, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "crude-oil", subgroup: nil, order: nil, results: nil)
         recipes.append(crudeOil)
+
+        return recipes
+    }
+
+    func generateBaseOreRecipes() -> [Recipe] {
+        var recipes: [Recipe] = []
+        let ironOre = Recipe(type: "recipe", name: "iron-ore", category: .ore, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "iron-ore", subgroup: nil, order: nil, results: nil)
+        recipes.append(ironOre)
+
+        let copperOre = Recipe(type: "recipe", name: "copper-ore", category: .ore, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "copper-ore", subgroup: nil, order: nil, results: nil)
+        recipes.append(copperOre)
 
         return recipes
     }

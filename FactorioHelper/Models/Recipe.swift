@@ -108,6 +108,7 @@ public struct Recipe: Equatable {
 enum Category: String {
     case none
     case fluid
+    case ore
     case rocketBuilding = "rocket-building"
     case oilProcessing = "oil-processing"
     case advancedCrafting = "advanced-crafting"

@@ -15,6 +15,8 @@ class ProductionDescriptionView: UIView {
     private let itemIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = "itemIcon"
+        imageView.isAccessibilityElement = true
         return imageView
     }()
 
@@ -23,6 +25,7 @@ class ProductionDescriptionView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textColor = Colors.commonTextColor
+        label.accessibilityIdentifier = "itemsCountLabel"
         return label
     }()
 

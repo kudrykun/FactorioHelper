@@ -119,7 +119,7 @@ public class ProductionCalculator {
         case .smelting: return .StoneFurnace
         case .chemistry: return .ChemicalPlant
         case .centrifuging: return .Centrifuge
-        case .fluid: return .Machine1 //TODO: что то не так
+        case .fluid, .ore: return .Machine1 //TODO: что то не так
         }
     }
 
@@ -138,7 +138,7 @@ public class ProductionCalculator {
         case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
         case .chemistry: return [.ChemicalPlant]
         case .centrifuging: return [.Centrifuge]
-        case .fluid: return [] //TODO: что то не так
+        case .fluid, .ore: return [] //TODO: что то не так
         }
     }
 }

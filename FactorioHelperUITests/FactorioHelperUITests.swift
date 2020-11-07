@@ -76,4 +76,18 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertTrue(!app.collectionViews.cells["petroleum-gas-empty-barrel"].exists)
         XCTAssertTrue(!app.collectionViews.cells["sulfuric-acid-empty-barrel"].exists)
     }
+
+    func testOreCellsExistance() {
+        app.segmentedControls.children(matching: .button).element(boundBy: 2).tap()
+
+        //открываем дизельное топливо
+        app.collectionViews.cells["iron-plate"].tap()
+
+        let oreCell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "iron-ore")
+
+        XCTAssertTrue(oreCell.staticTexts["itemsCountLabel"].exists)
+        XCTAssertTrue(oreCell.images["itemIcon"].exists)
+        XCTAssertFalse(oreCell.staticTexts["machinesCountLabel"].exists)
+        XCTAssertFalse(oreCell.buttons["machinePicker"].exists)
+    }
 }
