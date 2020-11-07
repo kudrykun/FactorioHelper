@@ -37,6 +37,11 @@
                BlueprintName = "LubricantProductionTests"
                ReferencedContainer = "container:FactorioHelper.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "RecipesProviderTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
