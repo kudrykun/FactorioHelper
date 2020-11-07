@@ -32,4 +32,18 @@ class RecipeParserTests: XCTestCase {
         XCTAssertEqual(ironOre, ironOreRecipe, "Wrong generated recipe!")
         XCTAssertEqual(copperOre, copperOreRecipe, "Wrong generated recipe!")
     }
+
+    func testUraniumsEmptyRecipeExistance() {
+        let uranium235 = recipes["uranium-235"]
+        let uranium238 = recipes["uranium-238"]
+
+        let uranium235Recipe = Recipe(type: "recipe", name: "uranium-235", category: .centrifuging, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "uranium-235", subgroup: nil, order: nil, results: nil)
+
+        let uranium238Recipe = Recipe(type: "recipe", name: "uranium-238", category: .centrifuging, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "uranium-238", subgroup: nil, order: nil, results: nil)
+
+        XCTAssertNotNil(uranium235, "uranium235 recipe should exist!")
+        XCTAssertNotNil(uranium238, "uranium238 recipe should exist!")
+        XCTAssertEqual(uranium235, uranium235Recipe, "Wrong generated recipe!")
+        XCTAssertEqual(uranium238, uranium238Recipe, "Wrong generated recipe!")
+    }
 }

@@ -137,7 +137,11 @@ public class ProductionCalculator {
         case .oilProcessing: return [.OilRefinery]
         case .smelting: return [.StoneFurnace, .SteelFurnace, .ElectricFurnace]
         case .chemistry: return [.ChemicalPlant]
-        case .centrifuging: return [.Centrifuge]
+        case .centrifuging:
+            if recipe.name == "uranium-238" || recipe.name == "uranium-235" {
+                return []
+            }
+            return [.Centrifuge]
         case .fluid, .ore: return [] //TODO: что то не так
         }
     }

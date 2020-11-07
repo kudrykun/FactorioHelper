@@ -88,6 +88,11 @@ class RecipeParser {
             recipes[recipe.name] = recipe
         }
 
+        let uraniumRecipes = generateUraniumRecipes()
+        uraniumRecipes.forEach { recipe in
+            recipes[recipe.name] = recipe
+        }
+
 //        let barrelFillRecipes = generateFillBarrelRecipes()
 //        barrelFillRecipes.forEach { recipe in
 //            recipes[recipe.name] = recipe
@@ -147,6 +152,17 @@ class RecipeParser {
 
         let copperOre = Recipe(type: "recipe", name: "copper-ore", category: .ore, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "copper-ore", subgroup: nil, order: nil, results: nil)
         recipes.append(copperOre)
+
+        return recipes
+    }
+
+    func generateUraniumRecipes() -> [Recipe] {
+        var recipes: [Recipe] = []
+        let uranium235Recipe = Recipe(type: "recipe", name: "uranium-235", category: .centrifuging, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "uranium-235", subgroup: nil, order: nil, results: nil)
+        recipes.append(uranium235Recipe)
+
+        let uranium238Recipe = Recipe(type: "recipe", name: "uranium-238", category: .centrifuging, ingredients: nil, energyRequired: nil, result: nil, normal: nil, expensive: nil, resultCount: nil, icon: "uranium-238", subgroup: nil, order: nil, results: nil)
+        recipes.append(uranium238Recipe)
 
         return recipes
     }

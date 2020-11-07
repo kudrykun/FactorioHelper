@@ -90,4 +90,56 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertFalse(oreCell.staticTexts["machinesCountLabel"].exists)
         XCTAssertFalse(oreCell.buttons["machinePicker"].exists)
     }
+
+    func testUraniumsPresence() {
+        //идем на третью вкладку
+        app.segmentedControls.children(matching: .button).element(boundBy: 2).tap()
+
+        //нажимаем рецепт ядерного топлива
+        XCUIApplication().collectionViews.cells["nuclear-fuel"].children(matching: .other).element(boundBy: 1).tap()
+        var uranium235cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-235")
+        checkUraniumCorretness(for: uranium235cell)
+        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+
+        //нажимаем рецепт ядерного стержня
+        XCUIApplication().collectionViews.cells["uranium-fuel-cell"].children(matching: .other).element(boundBy: 1).tap()
+        uranium235cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-235")
+        var uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
+        checkUraniumCorretness(for: uranium238cell)
+        checkUraniumCorretness(for: uranium235cell)
+        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+
+        //жмем назад
+        //идем на четвертую вкладку
+        app.segmentedControls.children(matching: .button).element(boundBy: 3).tap()
+        //нажимаем рецепт ядерных патронов
+        XCUIApplication().collectionViews.cells["uranium-rounds-magazine"].children(matching: .other).element(boundBy: 1).tap()
+        uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
+        checkUraniumCorretness(for: uranium238cell)
+        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+
+        //нажимаем рецепт ядерного заряда
+        XCUIApplication().collectionViews.cells["uranium-cannon-shell"].children(matching: .other).element(boundBy: 1).tap()
+        uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
+        checkUraniumCorretness(for: uranium238cell)
+        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+
+        //нажимаем рецепт ядерного разрывного заряда
+        XCUIApplication().collectionViews.cells["explosive-uranium-cannon-shell"].children(matching: .other).element(boundBy: 1).tap()
+        uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
+        checkUraniumCorretness(for: uranium238cell)
+        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+
+        //нажимаем рецепт ядерной бомбы
+        XCUIApplication().collectionViews.cells["atomic-bomb"].children(matching: .other).element(boundBy: 1).tap()
+        uranium235cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-235")
+        checkUraniumCorretness(for: uranium235cell)
+    }
+
+    func checkUraniumCorretness(for element: XCUIElementQuery) {
+        XCTAssertTrue(element.staticTexts["itemsCountLabel"].exists)
+        XCTAssertTrue(element.images["itemIcon"].exists)
+        XCTAssertFalse(element.staticTexts["machinesCountLabel"].exists)
+        XCTAssertFalse(element.buttons["machinePicker"].exists)
+    }
 }
