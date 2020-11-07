@@ -104,15 +104,27 @@ class TimeSelectionView: UIView {
     @objc func didTapClose() {
         secondsTextField.resignFirstResponder()
     }
+
+    func isValidSecondsString(_ string: String) -> Bool {
+        guard string.filter({$0 == "."}).count <= 1 else { return false }
+        if let firstChar = string.first, firstChar == "." {
+            return false
+        }
+        if let doubleValue = Double(string), doubleValue > 1000 {
+            return false
+        }
+        return true
+    }
 }
 
 extension TimeSelectionView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let newString = textField.text as NSString? else { return false }
         let finalString = newString.replacingCharacters(in: range, with: string).replacingOccurrences(of: ",", with: ".")
-        if !finalString.isEmpty, Double(finalString) != nil {
+        let isValid = isValidSecondsString(finalString)
+        if !finalString.isEmpty, Double(finalString) != nil, isValid {
             secondsTextFieldChanged?(finalString)
         }
-        return true
+        return isValid
     }
 }

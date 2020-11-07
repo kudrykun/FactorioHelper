@@ -50,6 +50,7 @@
 		FA98527D2514039A00BED57D /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98527C2514039A00BED57D /* TreeNode.swift */; };
 		FAA6864A25421B3B005568DB /* IconsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6864925421B3B005568DB /* IconsProvider.swift */; };
 		FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6864D25421B66005568DB /* IconsProviderTests.swift */; };
+		FAAA13812557409B00571CA2 /* TimeSelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */; };
 		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
 		FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F22504242400CB8377 /* RecipesProvider.swift */; };
 		FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC482825004AC700FDB962 /* AppDelegate.swift */; };
@@ -153,6 +154,7 @@
 		FA98527C2514039A00BED57D /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		FAA6864925421B3B005568DB /* IconsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProvider.swift; sourceTree = "<group>"; };
 		FAA6864D25421B66005568DB /* IconsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProviderTests.swift; sourceTree = "<group>"; };
+		FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionViewTests.swift; sourceTree = "<group>"; };
 		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		FAB213F22504242400CB8377 /* RecipesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProvider.swift; sourceTree = "<group>"; };
 		FADC482525004AC700FDB962 /* FactorioHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactorioHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +303,7 @@
 		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */,
 				FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */,
 				FAA6864D25421B66005568DB /* IconsProviderTests.swift */,
 				FADF50AD253C9D1E001A774C /* ItemTests.swift */,
@@ -659,6 +662,7 @@
 				FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */,
 				FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */,
 				FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */,
+				FAAA13812557409B00571CA2 /* TimeSelectionViewTests.swift in Sources */,
 				FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */,
 				FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */,
 				FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */,
