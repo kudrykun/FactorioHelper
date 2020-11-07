@@ -54,6 +54,26 @@ class FactorioHelperUITests: XCTestCase {
 
         XCTAssertTrue(!machineCounterLabel.exists)
         XCTAssertTrue(!machinePicker.exists)
+    }
 
+    func testThereIsNoBarrelRecipes() {
+        //переходим на intermediate product
+        app.segmentedControls.children(matching: .button).element(boundBy: 2).tap()
+
+        XCTAssertTrue(!app.collectionViews.cells["water-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["light-oil-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["lubricant-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["heavy-oil-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["crude-oil-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["petroleum-gas-fill-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["sulfuric-acid-fill-barrel"].exists)
+
+        XCTAssertTrue(!app.collectionViews.cells["water-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["light-oil-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["lubricant-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["heavy-oil-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["crude-oil-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["petroleum-gas-empty-barrel"].exists)
+        XCTAssertTrue(!app.collectionViews.cells["sulfuric-acid-empty-barrel"].exists)
     }
 }

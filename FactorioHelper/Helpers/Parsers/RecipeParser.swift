@@ -83,15 +83,15 @@ class RecipeParser {
             recipes[recipe.name] = recipe
         }
 
-        let barrelFillRecipes = generateFillBarrelRecipes()
-        barrelFillRecipes.forEach { recipe in
-            recipes[recipe.name] = recipe
-        }
-
-        let barrelEmptyRecipes = generateEmptyBarrelRecipes()
-        barrelEmptyRecipes.forEach { recipe in
-            recipes[recipe.name] = recipe
-        }
+//        let barrelFillRecipes = generateFillBarrelRecipes()
+//        barrelFillRecipes.forEach { recipe in
+//            recipes[recipe.name] = recipe
+//        }
+//
+//        let barrelEmptyRecipes = generateEmptyBarrelRecipes()
+//        barrelEmptyRecipes.forEach { recipe in
+//            recipes[recipe.name] = recipe
+//        }
 
         if let oilProcessingRecipe = recipes["advanced-oil-processing"] {
             let oilProcessingRecipes = generateOilProcessingLiquidRecipes(oilProcessingRecipe)
