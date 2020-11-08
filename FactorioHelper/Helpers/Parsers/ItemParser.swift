@@ -41,7 +41,7 @@ class ItemParser {
 
     private static func getItemsFromRecipes() -> [Item] {
         let recipes = RecipesProvider.recipes.filter{$0.value.subgroup != nil}
-        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? "") }.filter {!exceptionItems.contains($0.name)}
+        let items = recipes.map { Item(type: $0.value.type, name: $0.value.name, subgroup: $0.value.subgroup ?? "", order: $0.value.order ?? generateOrder(for: $0.value)) }.filter {!exceptionItems.contains($0.name)}
 
         return items
     }
@@ -58,5 +58,23 @@ class ItemParser {
         let group = Item(type: type, name: name, subgroup: subgroup, order: order, icon: icon)
 
         return group
+    }
+
+    private static func generateOrder(for recipe: Recipe) -> String {
+        //["sulfuric-acid", "petroleum-gas", "heavy-oil", "light-oil", "solid-fuel-from-light-oil", "solid-fuel-from-petroleum-gas", "solid-fuel-from-heavy-oil", "lubricant"]
+        switch recipe.name {
+        case "sulfuric-acid":
+            return "a[fluid-recipes]-a[sulfuric-acid]"
+        case "petroleum-gas":
+            return "a[fluid-recipes]-b[petroleum-gas]"
+        case "heavy-oil":
+            return "a[fluid-recipes]-c[heavy-oil]"
+        case "light-oil":
+            return "a[fluid-recipes]-d[light-oil]"
+        case "lubricant":
+            return "b[fluid-chemistry]-f[lubricant]"
+        default:
+            return ""
+        }
     }
 }

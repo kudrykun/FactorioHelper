@@ -34,6 +34,7 @@
 		FA2018662517F54E004D9124 /* ItemParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018652517F54E004D9124 /* ItemParser.swift */; };
 		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
 		FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeListCell.swift */; };
+		FA32C6FC25580B1D00C48396 /* GroupsParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -137,6 +138,7 @@
 		FA2018652517F54E004D9124 /* ItemParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemParser.swift; sourceTree = "<group>"; };
 		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA20186B251A1DC0004D9124 /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
+		FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsParserTests.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */,
 				FAAA13852557502500571CA2 /* RecipeParserTests.swift */,
 				FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */,
 				FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */,
@@ -667,6 +670,7 @@
 				FAAA13862557502500571CA2 /* RecipeParserTests.swift in Sources */,
 				FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */,
 				FAAA13812557409B00571CA2 /* TimeSelectionViewTests.swift in Sources */,
+				FA32C6FC25580B1D00C48396 /* GroupsParserTests.swift in Sources */,
 				FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */,
 				FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */,
 				FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */,
