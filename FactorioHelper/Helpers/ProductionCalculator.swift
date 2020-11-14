@@ -19,6 +19,8 @@ public struct ProductionItem: Equatable, Comparable{
     public var machineType: MachineType?
     var recipe: Recipe
     var nestingLevel: Int
+    var collapsed: Bool = false
+    var collapsedDescendants: Bool = false
 
     public init(name: String, countPerSecond: Double, machinesNeeded: Double?, machineType: MachineType?, recipe: Recipe, nestingLevel: Int) {
         self.name = name

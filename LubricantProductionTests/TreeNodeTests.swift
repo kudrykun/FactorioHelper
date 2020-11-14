@@ -11,8 +11,37 @@ import FactorioHelper
 
 class TreeNodeTests: XCTestCase {
 
+    var nodeA: TreeNode<String>!
+    var nodeB: TreeNode<String>!
+    var nodeC: TreeNode<String>!
+    var nodeD: TreeNode<String>!
+    var nodeE: TreeNode<String>!
+    var nodeF: TreeNode<String>!
+    var nodeG: TreeNode<String>!
+    var nodeH: TreeNode<String>!
+    var nodeI: TreeNode<String>!
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        nodeA = TreeNode<String>("A")
+        nodeB = TreeNode<String>("B")
+        nodeC = TreeNode<String>("C")
+        nodeD = TreeNode<String>("D")
+        nodeE = TreeNode<String>("E")
+        nodeF = TreeNode<String>("F")
+        nodeG = TreeNode<String>("G")
+        nodeH = TreeNode<String>("H")
+        nodeI = TreeNode<String>("I")
+
+        nodeA.addChild(nodeB)
+        nodeA.addChild(nodeC)
+        nodeA.addChild(nodeD)
+
+        nodeB.addChild(nodeG)
+        nodeB.addChild(nodeH)
+        nodeH.addChild(nodeI)
+
+        nodeD.addChild(nodeE)
+        nodeD.addChild(nodeF)
     }
 
     override func tearDownWithError() throws {
@@ -98,26 +127,78 @@ class TreeNodeTests: XCTestCase {
     }
 
     func testFlattening() {
-        let nodeA = TreeNode<String>("A")
-        let nodeB = TreeNode<String>("B")
-        let nodeC = TreeNode<String>("C")
-        let nodeD = TreeNode<String>("D")
-        let nodeE = TreeNode<String>("E")
-        let nodeF = TreeNode<String>("F")
-        let nodeG = TreeNode<String>("G")
-        let nodeH = TreeNode<String>("H")
-        let nodeI = TreeNode<String>("I")
-        nodeA.addChild(nodeB)
-        nodeA.addChild(nodeC)
-        nodeA.addChild(nodeD)
-
-        nodeB.addChild(nodeG)
-        nodeB.addChild(nodeH)
-        nodeH.addChild(nodeI)
-
-        nodeD.addChild(nodeE)
-        nodeD.addChild(nodeF)
-
         XCTAssertEqual(nodeA.flattened(), [nodeA, nodeB, nodeG, nodeH, nodeI, nodeC, nodeD, nodeE, nodeF], "Wrong flattening order!")
+    }
+
+    func testDescendantsCounting() {
+        XCTAssertEqual(nodeA.descendantsCount(), 8)
+        XCTAssertEqual(nodeB.descendantsCount(), 3)
+        XCTAssertEqual(nodeG.descendantsCount(), 0)
+    }
+
+    func testTreeTraversalEqual() {
+        let nodeA1 = TreeNode<String>("A1")
+        let nodeB1 = TreeNode<String>("B1")
+        let nodeC1 = TreeNode<String>("C1")
+        let nodeD1 = TreeNode<String>("D1")
+        let nodeE1 = TreeNode<String>("E1")
+        let nodeF1 = TreeNode<String>("F1")
+        let nodeG1 = TreeNode<String>("G1")
+        let nodeH1 = TreeNode<String>("H1")
+        let nodeI1 = TreeNode<String>("I1")
+        nodeA1.addChild(nodeB1)
+        nodeA1.addChild(nodeC1)
+        nodeA1.addChild(nodeD1)
+
+        nodeB1.addChild(nodeG1)
+        nodeB1.addChild(nodeH1)
+        nodeH1.addChild(nodeI1)
+
+        nodeD1.addChild(nodeE1)
+        nodeD1.addChild(nodeF1)
+
+        nodeA.traverseTree() { value in
+            value.value = "\(value.value)1"
+        }
+
+        XCTAssertEqual(nodeA1, nodeA)
+    }
+
+    func testTreeTraversalNotEqual() {
+        let nodeA1 = TreeNode<String>("A1")
+        let nodeB1 = TreeNode<String>("B1")
+        let nodeC1 = TreeNode<String>("C1")
+        let nodeD1 = TreeNode<String>("D1")
+        let nodeE1 = TreeNode<String>("E1")
+        let nodeF1 = TreeNode<String>("F")
+        let nodeG1 = TreeNode<String>("G1")
+        let nodeH1 = TreeNode<String>("H1")
+        let nodeI1 = TreeNode<String>("I1")
+        nodeA1.addChild(nodeB1)
+        nodeA1.addChild(nodeC1)
+        nodeA1.addChild(nodeD1)
+
+        nodeB1.addChild(nodeG1)
+        nodeB1.addChild(nodeH1)
+        nodeH1.addChild(nodeI1)
+
+        nodeD1.addChild(nodeE1)
+        nodeD1.addChild(nodeF1)
+
+        nodeA.traverseTree() { value in
+            value.value = "\(value.value)1"
+        }
+
+        XCTAssertNotEqual(nodeA1, nodeA)
+    }
+
+    func testTreeTraversalEqualOnlyRoot() {
+        let nodeA1 = TreeNode<String>("A1")
+        let nodeA = TreeNode<String>("A")
+        nodeA.traverseTree() { value in
+            value.value = "\(value.value)1"
+        }
+
+        XCTAssertEqual(nodeA1, nodeA)
     }
 }

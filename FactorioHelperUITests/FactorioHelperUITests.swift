@@ -150,4 +150,53 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertFalse(XCUIApplication().collectionViews.cells["nuclear-fuel-reprocessing"].exists)
         XCTAssertFalse(XCUIApplication().collectionViews.cells["kovarex-enrichment-process"].exists)
     }
+
+    func testCollapsingAllInserter() {
+        //проверка скрытия и открытия по манипулятору
+        XCUIApplication().collectionViews.cells["inserter"].children(matching: .other).element(boundBy: 1).tap()
+        let inserter = XCUIApplication().tables["productionTableView"].cells["inserter"]
+        let circuit = XCUIApplication().tables["productionTableView"].cells["electronic-circuit"]
+        XCTAssertTrue(inserter.exists)
+        XCTAssertTrue(inserter.isHittable)
+        XCTAssertTrue(circuit.exists)
+        XCTAssertTrue(circuit.isHittable)
+
+        inserter.tap()
+        XCTAssertTrue(circuit.exists)
+        XCTAssertFalse(circuit.isHittable)
+
+        inserter.tap()
+        XCTAssertTrue(circuit.exists)
+        XCTAssertTrue(circuit.isHittable)
+    }
+
+    func testCopperPlateCollapseCorrectness() {
+        XCUIApplication().collectionViews.cells["inserter"].children(matching: .other).element(boundBy: 1).tap()
+        let copperCable = XCUIApplication().tables["productionTableView"].cells["copper-cable"]
+        let copperPlate = XCUIApplication().tables["productionTableView"].cells["copper-plate"]
+        let copperOre = XCUIApplication().tables["productionTableView"].cells["copper-ore"]
+
+        XCTAssertTrue(copperCable.exists)
+        XCTAssertTrue(copperCable.isHittable)
+        XCTAssertTrue(copperPlate.exists)
+        XCTAssertTrue(copperPlate.isHittable)
+        XCTAssertTrue(copperOre.exists)
+        XCTAssertTrue(copperOre.isHittable)
+
+        copperPlate.tap()
+        XCTAssertTrue(copperCable.exists)
+        XCTAssertTrue(copperCable.isHittable)
+        XCTAssertTrue(copperPlate.exists)
+        XCTAssertTrue(copperPlate.isHittable)
+        XCTAssertTrue(copperOre.exists)
+        XCTAssertFalse(copperOre.isHittable)
+
+        copperCable.tap()
+        XCTAssertTrue(copperCable.exists)
+        XCTAssertTrue(copperCable.isHittable)
+        XCTAssertTrue(copperPlate.exists)
+        XCTAssertFalse(copperPlate.isHittable)
+        XCTAssertTrue(copperOre.exists)
+        XCTAssertFalse(copperOre.isHittable)
+    }
 }

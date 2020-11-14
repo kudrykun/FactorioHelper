@@ -47,4 +47,16 @@ public class TreeNode<T>: Equatable where T:Comparable {
 
         return resultArray
     }
+
+    public func descendantsCount() -> Int {
+        return flattened().count - 1
+    }
+
+    public func traverseTree(wtih closure: (inout TreeNode<T>) -> Void) {
+        var mySelf = self
+        closure(&mySelf)
+        children.forEach { child in
+            child.traverseTree(wtih: closure)
+        }
+    }
 }

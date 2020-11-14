@@ -22,9 +22,13 @@ class RecipeViewController: UIViewController {
     var ingredients = [Ingredient]()
     var productionItem: TreeNode<ProductionItem>? {
         didSet {
-            flattenedItems = productionItem?.flattened() ?? []
+            reloadFlattened()
         }
     }
+    func reloadFlattened() {
+        flattenedItems = productionItem?.flattened() ?? []
+    }
+    
     var flattenedItems: [TreeNode<ProductionItem>] = []
     var itemsPerSecond: Double = 1
 
@@ -40,9 +44,9 @@ class RecipeViewController: UIViewController {
 
     private let productionTableView: UITableView = {
         let tableView = UITableView()
-        tableView.estimatedRowHeight = 60
+        tableView.estimatedRowHeight = 0
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         tableView.isMultipleTouchEnabled = true
         tableView.accessibilityIdentifier = "productionTableView"
         return tableView
@@ -114,7 +118,39 @@ class RecipeViewController: UIViewController {
 
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 62
+
+
+        let model = flattenedItems[indexPath.row]
+        return model.value.collapsed ? 0 : 62
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? ProductionItemCell else { return }
+//        var indexPathCopy = indexPath
+
+        guard let collapsedDescendants = cell.model?.value.collapsedDescendants else { return }
+        if collapsedDescendants {
+            cell.model?.value.collapsedDescendants = false
+            cell.model?.traverseTree(wtih: { child in
+                child.value.collapsed = false
+            })
+            cell.model?.value.collapsed = false
+        } else {
+            cell.model?.value.collapsedDescendants = true
+            cell.model?.traverseTree(wtih: { child in
+                child.value.collapsed = true
+            })
+            cell.model?.value.collapsed = false
+        }
+
+//        cell.model?.value.collapsedDescendants = !(cell.model?.value.collapsedDescendants ?? true)
+//        cell.model?.traverseTree(wtih: { child in
+//            child.value.collapsed = !child.value.collapsed
+//        })
+//        cell.model?.value.collapsed = !(cell.model?.value.collapsed ?? true)
+
+        reloadFlattened()
+        tableView.reloadData()
     }
 }
 
@@ -132,6 +168,8 @@ extension RecipeViewController: UITableViewDataSource {
             self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: model, countPerSecond: self.itemsPerSecond)
             self.productionTableView.reloadData()
         }
+        cell.isHidden = flattenedItems[indexPath.row].value.collapsed
+//        print("reload cell. isCollapsed: \(model?.c)")
         return cell
     }
 
