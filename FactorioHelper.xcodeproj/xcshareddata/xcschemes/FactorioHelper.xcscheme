@@ -53,6 +53,11 @@
                BlueprintName = "FactorioHelperUITests"
                ReferencedContainer = "container:FactorioHelper.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "CollapsingIndicatorTests/testDisclosureIconRotatesOnTap()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

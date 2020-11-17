@@ -27,6 +27,13 @@ class ProductionItemCell: UITableViewCell {
         return view
     }()
 
+    private let disclosureIcon: UIImageView = {
+        let imageview = UIImageView(image: UIImage(systemName: "chevron.right"))
+        imageview.contentMode = .scaleAspectFit
+        imageview.tintColor = Colors.segmentedControlSelectedColor
+        return imageview
+    }()
+
     required init?(coder: NSCoder) {
         fatalError("init?(coder:) has not been implemented")
     }
@@ -39,6 +46,7 @@ class ProductionItemCell: UITableViewCell {
 
     private func setupView() {
         contentView.addSubview(productionDescriptionView)
+        contentView.addSubview(disclosureIcon)
         selectionStyle = .none
 
         backgroundColor = Colors.commonBackgroundColor
@@ -50,12 +58,17 @@ class ProductionItemCell: UITableViewCell {
     }
 
     private func setupConstraints() {
-
         productionDescriptionView.snp.makeConstraints { make in
             descriptionViewOffsetConstraint = make.left.equalToSuperview().offset(15).constraint
             make.top.equalToSuperview().offset(15)
-            make.right.equalToSuperview().inset(15)
             make.bottom.equalToSuperview().inset(15)
+        }
+
+        disclosureIcon.snp.makeConstraints { make in
+            make.width.height.equalTo(20)
+            make.centerY.equalToSuperview()
+            make.left.equalTo(productionDescriptionView.snp.right).offset(5)
+            make.right.equalToSuperview().inset(10)
         }
     }
 
@@ -63,5 +76,18 @@ class ProductionItemCell: UITableViewCell {
         guard let model = model else { return }
         descriptionViewOffsetConstraint?.update(offset: 15 * model.value.nestingLevel)
         productionDescriptionView.updateWithModel(with: model.value)
+        if model.children.isEmpty {
+            disclosureIcon.isHidden = true
+            disclosureIcon.accessibilityIdentifier = nil
+            return
+        } else {
+            if model.value.collapsedDescendants {
+                disclosureIcon.transform = CGAffineTransform(rotationAngle: 0)
+                disclosureIcon.accessibilityIdentifier = "disclosure_icon_collapsed"
+            } else {
+                disclosureIcon.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+                disclosureIcon.accessibilityIdentifier = "disclosure_icon_expanded"
+            }
+        }
     }
 }

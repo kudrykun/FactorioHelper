@@ -35,6 +35,7 @@
 		FA2018692517F577004D9124 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2018682517F577004D9124 /* Item.swift */; };
 		FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeListCell.swift */; };
 		FA32C6FC25580B1D00C48396 /* GroupsParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */; };
+		FA32C73225646B2F00C48396 /* CollapsingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -139,6 +140,7 @@
 		FA2018682517F577004D9124 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FA20186B251A1DC0004D9124 /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
 		FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsParserTests.swift; sourceTree = "<group>"; };
+		FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsingIndicatorTests.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 		FAE201022551FCEA00BF16EC /* FactorioHelperUITests */ = {
 			isa = PBXGroup;
 			children = (
+				FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */,
 				FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */,
 				FAE201052551FCEA00BF16EC /* Info.plist */,
 			);
@@ -718,6 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE201042551FCEA00BF16EC /* FactorioHelperUITests.swift in Sources */,
+				FA32C73225646B2F00C48396 /* CollapsingIndicatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
