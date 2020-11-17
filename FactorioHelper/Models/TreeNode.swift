@@ -59,4 +59,14 @@ public class TreeNode<T>: Equatable where T:Comparable {
             child.traverseTree(wtih: closure)
         }
     }
+
+    public func traverseTree(wtih closure: (inout TreeNode<T>) -> Void, proceed: (TreeNode<T>) -> Bool) {
+        var mySelf = self
+
+        closure(&mySelf)
+        guard proceed(mySelf) else { return }
+        children.forEach { child in
+            child.traverseTree(wtih: closure, proceed: proceed)
+        }
+    }
 }

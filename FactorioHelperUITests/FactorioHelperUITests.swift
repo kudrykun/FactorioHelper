@@ -199,4 +199,29 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertTrue(copperOre.exists)
         XCTAssertFalse(copperOre.isHittable)
     }
+
+    func testChildStillCollapsedIfParentCollapsedAndDecollapsed() {
+        XCUIApplication().collectionViews.cells["inserter"].children(matching: .other).element(boundBy: 1).tap()
+        let copperCable = XCUIApplication().tables["productionTableView"].cells["copper-cable"]
+        let copperOre = XCUIApplication().tables["productionTableView"].cells["copper-ore"]
+        let copperPlate = XCUIApplication().tables["productionTableView"].cells["copper-plate"]
+        let inserter = XCUIApplication().tables["productionTableView"].cells["inserter"]
+
+        XCTAssertTrue(copperCable.isHittable)
+        XCTAssertTrue(copperOre.isHittable)
+        XCTAssertTrue(inserter.isHittable)
+
+        copperCable.tap()
+        XCTAssertFalse(copperOre.isHittable)
+        XCTAssertFalse(copperPlate.isHittable)
+        XCTAssertTrue(copperCable.isHittable)
+        inserter.tap()
+        XCTAssertFalse(copperCable.isHittable, "Copper cable should be hidden if inserter was tap!")
+        inserter.tap()
+
+        XCTAssertTrue(copperCable.isHittable)
+        XCTAssertFalse(copperOre.isHittable, "Copper ore should be collapsed!")
+        XCTAssertFalse(copperPlate.isHittable)
+        XCTAssertTrue(inserter.isHittable)
+    }
 }

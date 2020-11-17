@@ -126,28 +126,51 @@ extension RecipeViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ProductionItemCell else { return }
-//        var indexPathCopy = indexPath
 
-        guard let collapsedDescendants = cell.model?.value.collapsedDescendants else { return }
-        if collapsedDescendants {
-            cell.model?.value.collapsedDescendants = false
-            cell.model?.traverseTree(wtih: { child in
-                child.value.collapsed = false
-            })
-            cell.model?.value.collapsed = false
-        } else {
+
+        guard let isExpandingAction = cell.model?.value.collapsedDescendants else { return }
+
+        if !isExpandingAction {
             cell.model?.value.collapsedDescendants = true
             cell.model?.traverseTree(wtih: { child in
                 child.value.collapsed = true
+            }, proceed: { item in
+                guard item != cell.model else { return true }
+                if item.value.collapsedDescendants {
+                    return false
+                } else {
+                    return true
+                }
+            })
+            cell.model?.value.collapsed = false
+        } else {
+            cell.model?.value.collapsedDescendants = false
+            cell.model?.traverseTree(wtih: { child in
+                child.value.collapsed = false
+            }, proceed: { item in
+                guard item != cell.model else { return true }
+                if item.value.collapsedDescendants {
+                    return false
+                } else {
+                    return true
+                }
             })
             cell.model?.value.collapsed = false
         }
 
-//        cell.model?.value.collapsedDescendants = !(cell.model?.value.collapsedDescendants ?? true)
-//        cell.model?.traverseTree(wtih: { child in
-//            child.value.collapsed = !child.value.collapsed
-//        })
-//        cell.model?.value.collapsed = !(cell.model?.value.collapsed ?? true)
+//        if collapsedDescendants {
+//            cell.model?.value.collapsedDescendants = false
+//            cell.model?.traverseTree(wtih: { child in
+//                child.value.collapsed = false
+//            })
+//            cell.model?.value.collapsed = false
+//        } else {
+//            cell.model?.value.collapsedDescendants = true
+//            cell.model?.traverseTree(wtih: { child in
+//                child.value.collapsed = true
+//            })
+//            cell.model?.value.collapsed = false
+//        }
 
         reloadFlattened()
         tableView.reloadData()

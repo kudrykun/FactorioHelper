@@ -201,4 +201,64 @@ class TreeNodeTests: XCTestCase {
 
         XCTAssertEqual(nodeA1, nodeA)
     }
+
+    func testTreeTraversalWithStoppper() {
+        let nodeA1 = TreeNode<String>("A1")
+        let nodeB1 = TreeNode<String>("B1")
+        let nodeC1 = TreeNode<String>("C1")
+        let nodeD1 = TreeNode<String>("D1")
+        let nodeE1 = TreeNode<String>("E")
+        let nodeF1 = TreeNode<String>("F")
+        let nodeG1 = TreeNode<String>("G1")
+        let nodeH1 = TreeNode<String>("H1")
+        let nodeI1 = TreeNode<String>("I1")
+        nodeA1.addChild(nodeB1)
+        nodeA1.addChild(nodeC1)
+        nodeA1.addChild(nodeD1)
+
+        nodeB1.addChild(nodeG1)
+        nodeB1.addChild(nodeH1)
+        nodeH1.addChild(nodeI1)
+
+        nodeD1.addChild(nodeE1)
+        nodeD1.addChild(nodeF1)
+
+        nodeA.traverseTree(wtih: { value in
+            value.value = "\(value.value)1"
+        }, proceed: { value in
+            return value != nodeD
+        })
+
+        XCTAssertEqual(nodeA1, nodeA)
+    }
+
+    func testTreeTraversalWithStoppper1() {
+        let nodeA1 = TreeNode<String>("A1")
+        let nodeB1 = TreeNode<String>("B1")
+        let nodeC1 = TreeNode<String>("C1")
+        let nodeD1 = TreeNode<String>("D1")
+        let nodeE1 = TreeNode<String>("E1")
+        let nodeF1 = TreeNode<String>("F1")
+        let nodeG1 = TreeNode<String>("G1")
+        let nodeH1 = TreeNode<String>("H1")
+        let nodeI1 = TreeNode<String>("I1")
+        nodeA1.addChild(nodeB1)
+        nodeA1.addChild(nodeC1)
+        nodeA1.addChild(nodeD1)
+
+        nodeB1.addChild(nodeG1)
+        nodeB1.addChild(nodeH1)
+        nodeH1.addChild(nodeI1)
+
+        nodeD1.addChild(nodeE1)
+        nodeD1.addChild(nodeF1)
+
+        nodeA.traverseTree(wtih: { value in
+            value.value = "\(value.value)1"
+        }, proceed: { value in
+            return value != nodeD
+        })
+
+        XCTAssertNotEqual(nodeA1, nodeA)
+    }
 }
