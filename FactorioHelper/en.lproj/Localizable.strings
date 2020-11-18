@@ -6,8 +6,10 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
-"required-items" = "You need";
+"description" = "Description";
 "items/sec" = "items/s";
+"required-items" = "You need";
+"summary" = "Summary";
 
 "copper-ore" = "__ENTITY__copper-ore__";
 "iron-ore" = "__ENTITY__iron-ore__";

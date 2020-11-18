@@ -41,6 +41,11 @@ public struct ProductionItem: Equatable, Comparable{
     }
 }
 
+public struct MachinesSet: Equatable {
+    var type: MachineType
+    var count: Int
+}
+
 public class ProductionCalculator {
     public static func getProductionItem(for recipe: Recipe, countPerSecond: Double, nestingLevel: Int) -> TreeNode<ProductionItem>?{
         let ingredients = recipe.baseIngredients
@@ -146,5 +151,25 @@ public class ProductionCalculator {
             return [.Centrifuge]
         case .fluid, .ore: return [] //TODO: что то не так
         }
+    }
+
+    public static func getMachinesCountSet(for item: TreeNode<ProductionItem>) -> [MachinesSet] {
+        let dict: [MachineType : Int] = getMachinesCountSet(for: item)
+        let array = dict.map {MachinesSet(type: $0.key, count: $0.value)}
+        return array.sorted(by: { $0.type.rawValue < $1.type.rawValue })
+    }
+
+    private static func getMachinesCountSet(for item: TreeNode<ProductionItem>) -> [MachineType : Int] {
+        guard let machinesNeeded = item.value.machinesNeeded else { return [:] }
+        guard let machinesType = item.value.machineType else { return [:] }
+        let machinesNeededRounded = Int(machinesNeeded.rounded(.up))
+        var resultDict = [machinesType : machinesNeededRounded]
+        item.children.forEach { child in
+            let childDict: [MachineType : Int] = ProductionCalculator.getMachinesCountSet(for: child)
+            resultDict.merge(childDict, uniquingKeysWith: { first, second in
+                return first + second
+            })
+        }
+        return resultDict
     }
 }

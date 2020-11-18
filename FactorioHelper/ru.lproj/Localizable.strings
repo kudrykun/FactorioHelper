@@ -6,8 +6,10 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
-"required-items" = "Требуется";
+"description" = "Детали";
 "items/sec" = "шт/с";
+"required-items" = "Требуется";
+"summary" = "Итог";
 
 "automated-cleanup" = "Снесите 100 объектов строительными дронами.";
 "automated-construction" = "Постройте 100 объектов с помощью дронов.";

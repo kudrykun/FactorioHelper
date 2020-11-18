@@ -9,16 +9,16 @@
 import UIKit
 
 //не парсится, нужна проверка после обновления версии игры
-public enum MachineType {
-    case Machine1
-    case Machine2
-    case Machine3
-    case OilRefinery
-    case ChemicalPlant
-    case Centrifuge
-    case StoneFurnace
-    case SteelFurnace
-    case ElectricFurnace
+public enum MachineType: Int {
+    case Machine1 = 3
+    case Machine2 = 4
+    case Machine3 = 5
+    case OilRefinery = 6
+    case ChemicalPlant = 7
+    case Centrifuge = 8
+    case StoneFurnace = 0
+    case SteelFurnace = 1
+    case ElectricFurnace = 2
 
     var speedMultipier: Double {
         switch self {

@@ -36,6 +36,8 @@
 		FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20186B251A1DC0004D9124 /* RecipeListCell.swift */; };
 		FA32C6FC25580B1D00C48396 /* GroupsParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */; };
 		FA32C73225646B2F00C48396 /* CollapsingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */; };
+		FA32C755256827CF00C48396 /* MachinesCountingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C754256827CD00C48396 /* MachinesCountingTests.swift */; };
+		FA32C75A25682DC900C48396 /* SummaryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -141,6 +143,8 @@
 		FA20186B251A1DC0004D9124 /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
 		FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsParserTests.swift; sourceTree = "<group>"; };
 		FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsingIndicatorTests.swift; sourceTree = "<group>"; };
+		FA32C754256827CD00C48396 /* MachinesCountingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesCountingTests.swift; sourceTree = "<group>"; };
+		FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCellTableViewCell.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA32C754256827CD00C48396 /* MachinesCountingTests.swift */,
 				FA32C6FB25580B1D00C48396 /* GroupsParserTests.swift */,
 				FAAA13852557502500571CA2 /* RecipeParserTests.swift */,
 				FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */,
@@ -442,6 +447,7 @@
 				FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */,
 				FA20186B251A1DC0004D9124 /* RecipeListCell.swift */,
 				FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */,
+				FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -674,6 +680,7 @@
 				FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */,
 				FAAA13812557409B00571CA2 /* TimeSelectionViewTests.swift in Sources */,
 				FA32C6FC25580B1D00C48396 /* GroupsParserTests.swift in Sources */,
+				FA32C755256827CF00C48396 /* MachinesCountingTests.swift in Sources */,
 				FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */,
 				FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */,
 				FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */,
@@ -708,6 +715,7 @@
 				FA2018662517F54E004D9124 /* ItemParser.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
 				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
+				FA32C75A25682DC900C48396 /* SummaryCellTableViewCell.swift in Sources */,
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
 				FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */,

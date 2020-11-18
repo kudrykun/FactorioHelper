@@ -17,15 +17,17 @@ class ProductionCalculatorTests: XCTestCase {
     var crudeOilRecipe: Recipe!
     var spidertroneRecipe: Recipe!
     var expressBelt: Recipe!
+    var transportBelt: Recipe!
 
     override func setUpWithError() throws {
         let recipes = RecipesProvider.recipes
-        guard let lubricantRecipe = recipes["lubricant"] else { return  }
-        guard let heavyOilRecipe = recipes["heavy-oil"] else { return  }
-        guard let waterRecipe = recipes["water"] else { return  }
-        guard let crudeOilRecipe = recipes["crude-oil"] else { return  }
-        guard let spidertroneRecipe = recipes["spidertron"] else { return  }
-        guard let expressBelt = recipes["express-transport-belt"] else { return  }
+        guard let lubricantRecipe = recipes["lubricant"] else { return }
+        guard let heavyOilRecipe = recipes["heavy-oil"] else { return }
+        guard let waterRecipe = recipes["water"] else { return }
+        guard let crudeOilRecipe = recipes["crude-oil"] else { return }
+        guard let spidertroneRecipe = recipes["spidertron"] else { return }
+        guard let expressBelt = recipes["express-transport-belt"] else { return }
+        guard let transportBelt = recipes["transport-belt"] else { return }
 
         self.lubricantRecipe = lubricantRecipe
         self.heavyOilRecipe = heavyOilRecipe
@@ -33,6 +35,7 @@ class ProductionCalculatorTests: XCTestCase {
         self.crudeOilRecipe = crudeOilRecipe
         self.spidertroneRecipe = spidertroneRecipe
         self.expressBelt = expressBelt
+        self.transportBelt = transportBelt
     }
 
     override func tearDownWithError() throws {

@@ -17,6 +17,6 @@ class Colors {
     static let commonBackgroundColor = UIColor.init(red: 36/255.0, green: 35/255.0, blue: 36/255.0, alpha: 1.0)
     static let commonTextColor = UIColor.init(red: 255/255.0, green: 231/255.0, blue: 196/255.0, alpha: 1.0)
 
-    static let segmentedControlBackgroundColor = UIColor.init(red: 142/255.0, green: 142/255.0, blue: 142/255.0, alpha: 1.0)
+    static let segmentedControlBackgroundColor = UIColor.init(red: 46/255.0, green: 46/255.0, blue: 46/255.0, alpha: 1.0)
     static let segmentedControlSelectedColor = UIColor.init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
 }
