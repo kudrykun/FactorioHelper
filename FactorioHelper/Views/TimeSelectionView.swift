@@ -29,6 +29,7 @@ class TimeSelectionView: UIView {
         textField.keyboardType = .decimalPad
         textField.textColor = Colors.commonTextColor
         textField.layer.borderColor = Colors.commonTextColor.cgColor
+        textField.accessibilityLabel = "secondsTextField"
         return textField
     }()
 

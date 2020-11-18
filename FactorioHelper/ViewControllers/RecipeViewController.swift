@@ -83,8 +83,8 @@ class RecipeViewController: UIViewController {
 
         timeSelectionView.secondsTextFieldChanged = { [weak self] timeString in
             guard let time = Double(timeString) else { return }
-            guard let recipe = self?.model else { return }
-            self?.productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: time, nestingLevel: 0)
+            guard let recipe = self?.productionItem else { return }
+            self?.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: recipe, countPerSecond: time)
             self?.itemsPerSecond = time
             self?.productionTableView.reloadData()
         }

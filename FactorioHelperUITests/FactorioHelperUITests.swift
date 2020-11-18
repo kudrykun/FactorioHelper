@@ -224,4 +224,24 @@ class FactorioHelperUITests: XCTestCase {
         XCTAssertFalse(copperPlate.isHittable)
         XCTAssertTrue(inserter.isHittable)
     }
+
+    func testStillСollapsedAfterChangeItemsPerSec() {
+        XCUIApplication().collectionViews.cells["inserter"].children(matching: .other).element(boundBy: 1).tap()
+        let copperOre = XCUIApplication().tables["productionTableView"].cells["copper-ore"]
+        let circuit = XCUIApplication().tables["productionTableView"].cells["electronic-circuit"]
+
+        XCTAssertTrue(copperOre.isHittable)
+        circuit.tap()
+        XCTAssertFalse(copperOre.isHittable)
+
+        let app = XCUIApplication()
+        app.textFields["secondsTextField"].tap()
+
+        let key = app/*@START_MENU_TOKEN@*/.keys["1"]/*[[".keyboards.keys[\"1\"]",".keys[\"1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+        app.toolbars["Toolbar"].buttons["Готово"].tap()
+
+        XCTAssertFalse(copperOre.isHittable, "copper ore cell should remain hidden!")
+    }
+
 }
