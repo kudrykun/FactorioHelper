@@ -45,4 +45,29 @@ class CollapsingIndicatorTests: XCTestCase {
         let iconVisible = copperOreProductionCell.images["disclosure_icon_collapsed"].exists || copperOreProductionCell.images["disclosure_icon_expanded"].exists
         XCTAssertFalse(iconVisible, "Disclosure icon should not be visible on copperOre!")
     }
+
+    //disabled cause chevron dissapears after first tap only in uitest, mb because of constraint
+    //TODO: add to backlog in trello
+    func testDisclosureIconRotatesOnTap() {
+        goToInserterCell()
+        let inserterProductionCell = XCUIApplication().tables["productionTableView"].cells["inserter"]
+        var disclosureIconExpanded = inserterProductionCell.images["disclosure_icon_expanded"]
+        var disclosureIconCollapsed = inserterProductionCell.images["disclosure_icon_collapsed"]
+
+//        XCTAssertTrue(disclosureIconExpanded.exists, "Disclosure icon should be expanded by default!")
+//        XCTAssertFalse(disclosureIconCollapsed.exists, "Disclosure icon should be expanded by default!")
+
+        inserterProductionCell.tap()
+        disclosureIconExpanded = inserterProductionCell.images["disclosure_icon_expanded"]
+        disclosureIconCollapsed = inserterProductionCell.images["disclosure_icon_collapsed"]
+        XCTAssertFalse(disclosureIconExpanded.waitForExistence(timeout: 1), "Disclosure icon should point down after tap!")
+        XCTAssertTrue(disclosureIconCollapsed.waitForExistence(timeout: 1), "Disclosure icon should point down after tap!")
+
+
+        inserterProductionCell.tap()
+        disclosureIconExpanded = inserterProductionCell.images["disclosure_icon_expanded"]
+        disclosureIconCollapsed = inserterProductionCell.images["disclosure_icon_collapsed"]
+        XCTAssertTrue(disclosureIconExpanded.waitForExistence(timeout: 1), "Disclosure icon should be expanded after two taps!")
+        XCTAssertFalse(disclosureIconCollapsed.waitForExistence(timeout: 1), "Disclosure icon should be expanded after two taps!")
+    }
 }

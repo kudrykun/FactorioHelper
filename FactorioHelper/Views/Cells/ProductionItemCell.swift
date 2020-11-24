@@ -44,6 +44,10 @@ class ProductionItemCell: UITableViewCell {
         setupConstraints()
     }
 
+    override func prepareForReuse() {
+        disclosureIcon.isHidden = false
+    }
+
     private func setupView() {
         contentView.addSubview(productionDescriptionView)
         contentView.addSubview(disclosureIcon)
