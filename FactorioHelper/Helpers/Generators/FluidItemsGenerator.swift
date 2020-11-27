@@ -27,19 +27,3 @@ public class FluidItemsGenerator {
         return item
     }
 }
-
-
-//struct Fluid {
-//    var name: String
-//    var baseColor: Color
-//    var icon: String?
-//    var oder: String
-//    var autoBarrel: Bool
-//}
-
-//struct Item {
-//    var type: String
-//    var name: String
-//    var subgroup: String
-//    var order: String
-//}

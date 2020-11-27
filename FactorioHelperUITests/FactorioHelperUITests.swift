@@ -99,7 +99,7 @@ class FactorioHelperUITests: XCTestCase {
         XCUIApplication().collectionViews.cells["nuclear-fuel"].children(matching: .other).element(boundBy: 1).tap()
         var uranium235cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-235")
         checkUraniumCorretness(for: uranium235cell)
-        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+        XCUIApplication().navigationBars["FactorioHelper.ProductionView"].buttons["Back"].tap()
 
         //нажимаем рецепт ядерного стержня
         XCUIApplication().collectionViews.cells["uranium-fuel-cell"].children(matching: .other).element(boundBy: 1).tap()
@@ -107,7 +107,7 @@ class FactorioHelperUITests: XCTestCase {
         var uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
         checkUraniumCorretness(for: uranium238cell)
         checkUraniumCorretness(for: uranium235cell)
-        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+        XCUIApplication().navigationBars["FactorioHelper.ProductionView"].buttons["Back"].tap()
 
         //жмем назад
         //идем на четвертую вкладку
@@ -116,19 +116,19 @@ class FactorioHelperUITests: XCTestCase {
         XCUIApplication().collectionViews.cells["uranium-rounds-magazine"].children(matching: .other).element(boundBy: 1).tap()
         uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
         checkUraniumCorretness(for: uranium238cell)
-        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+        XCUIApplication().navigationBars["FactorioHelper.ProductionView"].buttons["Back"].tap()
 
         //нажимаем рецепт ядерного заряда
         XCUIApplication().collectionViews.cells["uranium-cannon-shell"].children(matching: .other).element(boundBy: 1).tap()
         uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
         checkUraniumCorretness(for: uranium238cell)
-        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+        XCUIApplication().navigationBars["FactorioHelper.ProductionView"].buttons["Back"].tap()
 
         //нажимаем рецепт ядерного разрывного заряда
         XCUIApplication().collectionViews.cells["explosive-uranium-cannon-shell"].children(matching: .other).element(boundBy: 1).tap()
         uranium238cell = XCUIApplication().tables["productionTableView"].children(matching: .cell).matching(identifier: "uranium-238")
         checkUraniumCorretness(for: uranium238cell)
-        app.navigationBars["FactorioHelper.RecipeView"].buttons["Back"].tap()
+        XCUIApplication().navigationBars["FactorioHelper.ProductionView"].buttons["Back"].tap()
 
         //нажимаем рецепт ядерной бомбы
         XCUIApplication().collectionViews.cells["atomic-bomb"].children(matching: .other).element(boundBy: 1).tap()

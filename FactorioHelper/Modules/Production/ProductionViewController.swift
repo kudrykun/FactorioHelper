@@ -1,34 +1,21 @@
 //
-//  RecipeViewController.swift
+//  ProductionViewController.swift
 //  FactorioHelper
 //
-//  Created by Sergey Vasilenko on 05.09.2020.
+//  Created by Sergey Vasilenko on 26.11.2020.
 //  Copyright © 2020 kudrykun. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class RecipeViewController: UIViewController {
+class ProductionViewController: UIViewController {
 
-    var model: Recipe? {
-        didSet {
-            guard let recipe = model else { return }
-            self.ingredients = recipe.baseIngredients
-            self.headerView.model = recipe
-        }
-    }
+    var presenter: ProductionViewControllerOuput?
+    let configurator = ProductionConfigurator()
 
-    var ingredients = [Ingredient]()
-    var productionItem: TreeNode<ProductionItem>? {
-        didSet {
-            reloadFlattened()
-        }
-    }
-    func reloadFlattened() {
-        flattenedItems = productionItem?.flattened() ?? []
-    }
-    
+    private var recipe: Recipe?
+    var productionItem: TreeNode<ProductionItem>?
+
     var flattenedItems: [TreeNode<ProductionItem>] = []
     var itemsPerSecond: Double = 1
     var neededMachinesList: [MachinesSet] = []
@@ -56,14 +43,11 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        guard let recipe = model else { return }
-        productionItem = ProductionCalculator.getProductionItem(for: recipe, countPerSecond: 1, nestingLevel: 0)
-        self.neededMachinesList = ProductionCalculator.getMachinesCountSet(for: self.productionItem!)
+        presenter?.viewDidLoad(self)
     }
 
     private func setupView() {
         view.backgroundColor = Colors.commonBackgroundColor
-
         setupHeaderView()
         setupTimeSelectionView()
         setupTableView()
@@ -84,12 +68,12 @@ class RecipeViewController: UIViewController {
         }
 
         timeSelectionView.secondsTextFieldChanged = { [weak self] timeString in
+            guard let self = self else { return }
             guard let time = Double(timeString) else { return }
-            guard let recipe = self?.productionItem else { return }
-            self?.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: recipe, countPerSecond: time)
-            self?.itemsPerSecond = time
-            self?.neededMachinesList = ProductionCalculator.getMachinesCountSet(for: self!.productionItem!)
-            self?.productionTableView.reloadData()
+            guard let productionItem = self.productionItem else { return }
+            self.itemsPerSecond = time
+
+            self.presenter?.view(self, needUpdateProductionItemFor: productionItem, countPerSecond: time)
         }
     }
 
@@ -118,9 +102,31 @@ class RecipeViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
+
+    func reloadFlattened() {
+        flattenedItems = productionItem?.flattened() ?? []
+    }
 }
 
-extension RecipeViewController: UITableViewDelegate {
+extension ProductionViewController: ProductionViewControllerInput {
+    func update(recipe: Recipe) {
+        self.recipe = recipe
+        self.headerView.model = recipe
+    }
+
+    func update(productionItem item: TreeNode<ProductionItem>) {
+        self.productionItem = item
+        self.presenter?.view(self, needUpdateUsedMachinesFor: item)
+        reloadFlattened()
+        self.productionTableView.reloadData()
+    }
+
+    func update(usedMachinesList: [MachinesSet]) {
+        self.neededMachinesList = usedMachinesList
+    }
+}
+
+extension ProductionViewController: UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -145,47 +151,18 @@ extension RecipeViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? ProductionItemCell else { return }
         guard let isExpandingAction = cell.model?.value.collapsedDescendants else { return }
 
-        if !isExpandingAction {
-            cell.model?.value.collapsedDescendants = true
-            cell.model?.traverseTree(wtih: { child in
-                child.value.collapsed = true
-            }, proceed: { item in
-                guard item != cell.model else { return true }
-                if item.value.collapsedDescendants {
-                    return false
-                } else {
-                    return true
-                }
-            })
-            cell.model?.value.collapsed = false
-        } else {
-            cell.model?.value.collapsedDescendants = false
-            cell.model?.traverseTree(wtih: { child in
-                child.value.collapsed = false
-            }, proceed: { item in
-                guard item != cell.model else { return true }
-                if item.value.collapsedDescendants {
-                    return false
-                } else {
-                    return true
-                }
-            })
-            cell.model?.value.collapsed = false
-        }
-
-//        if collapsedDescendants {
-//            cell.model?.value.collapsedDescendants = false
-//            cell.model?.traverseTree(wtih: { child in
-//                child.value.collapsed = false
-//            })
-//            cell.model?.value.collapsed = false
-//        } else {
-//            cell.model?.value.collapsedDescendants = true
-//            cell.model?.traverseTree(wtih: { child in
-//                child.value.collapsed = true
-//            })
-//            cell.model?.value.collapsed = false
-//        }
+        cell.model?.value.collapsedDescendants = !isExpandingAction
+        cell.model?.traverseTree(wtih: { child in
+            child.value.collapsed = !isExpandingAction
+        }, proceed: { item in
+            guard item != cell.model else { return true }
+            if item.value.collapsedDescendants {
+                return false
+            } else {
+                return true
+            }
+        })
+        cell.model?.value.collapsed = false
 
         reloadFlattened()
         tableView.reloadData()
@@ -199,7 +176,7 @@ extension RecipeViewController: UITableViewDelegate {
     }
 }
 
-extension RecipeViewController: UITableViewDataSource {
+extension ProductionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -214,7 +191,7 @@ extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return neededMachinesList.count 
+            return neededMachinesList.count
         case 1:
             return flattenedItems.count
         default:
@@ -234,18 +211,13 @@ extension RecipeViewController: UITableViewDataSource {
             cell.model = flattenedItems[indexPath.row]
             cell.accessibilityIdentifier = flattenedItems[indexPath.row].value.name
             cell.didSelectMachine = {
-                guard let model = self.productionItem else { return }
-                self.productionItem = ProductionCalculator.getRecalculatedProductionItem(item: model, countPerSecond: self.itemsPerSecond)
-                self.neededMachinesList = ProductionCalculator.getMachinesCountSet(for: self.productionItem!)
-                self.productionTableView.reloadData()
+                guard let productionItem = self.productionItem else { return }
+                self.presenter?.view(self, needUpdateProductionItemFor: productionItem, countPerSecond: self.itemsPerSecond)
             }
             cell.isHidden = flattenedItems[indexPath.row].value.collapsed
-    //        print("reload cell. isCollapsed: \(model?.c)")
             return cell
         default:
             return UITableViewCell()
         }
     }
-
-
 }

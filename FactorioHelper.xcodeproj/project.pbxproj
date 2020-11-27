@@ -38,6 +38,12 @@
 		FA32C73225646B2F00C48396 /* CollapsingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */; };
 		FA32C755256827CF00C48396 /* MachinesCountingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C754256827CD00C48396 /* MachinesCountingTests.swift */; };
 		FA32C75A25682DC900C48396 /* SummaryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */; };
+		FA3AF9A6257042B600D9663A /* ProductionContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A0257042B600D9663A /* ProductionContract.swift */; };
+		FA3AF9A7257042B600D9663A /* ProductionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A1257042B600D9663A /* ProductionPresenter.swift */; };
+		FA3AF9A8257042B600D9663A /* ProductionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A2257042B600D9663A /* ProductionRouter.swift */; };
+		FA3AF9A9257042B600D9663A /* ProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A3257042B600D9663A /* ProductionViewController.swift */; };
+		FA3AF9AA257042B600D9663A /* ProductionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A4257042B600D9663A /* ProductionInteractor.swift */; };
+		FA3AF9AB257042B600D9663A /* ProductionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A5257042B600D9663A /* ProductionConfigurator.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -56,12 +62,16 @@
 		FAA6864E25421B66005568DB /* IconsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA6864D25421B66005568DB /* IconsProviderTests.swift */; };
 		FAAA13812557409B00571CA2 /* TimeSelectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */; };
 		FAAA13862557502500571CA2 /* RecipeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA13852557502500571CA2 /* RecipeParserTests.swift */; };
-		FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213EE2504106100CB8377 /* RecipeViewController.swift */; };
+		FAB0E4C1256DB542001E0C40 /* UIImage+scaledToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4C0256DB542001E0C40 /* UIImage+scaledToSize.swift */; };
+		FAB0E4D5256F0297001E0C40 /* MainContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4D4256F0297001E0C40 /* MainContract.swift */; };
+		FAB0E4DA256F0452001E0C40 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4D9256F0452001E0C40 /* MainViewController.swift */; };
+		FAB0E4DF256F045F001E0C40 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4DE256F045F001E0C40 /* MainPresenter.swift */; };
+		FAB0E4E4256F046F001E0C40 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4E3256F046F001E0C40 /* MainInteractor.swift */; };
+		FAB0E4E9256F047B001E0C40 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4E8256F047B001E0C40 /* MainRouter.swift */; };
+		FAB0E4EE256F048D001E0C40 /* MainConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB0E4ED256F048D001E0C40 /* MainConfigurator.swift */; };
 		FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB213F22504242400CB8377 /* RecipesProvider.swift */; };
 		FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC482825004AC700FDB962 /* AppDelegate.swift */; };
 		FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC482A25004AC700FDB962 /* SceneDelegate.swift */; };
-		FADC482D25004AC700FDB962 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC482C25004AC700FDB962 /* ViewController.swift */; };
-		FADC483025004AC700FDB962 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADC482E25004AC700FDB962 /* Main.storyboard */; };
 		FADC483225004AC900FDB962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC483125004AC900FDB962 /* Assets.xcassets */; };
 		FADC483525004AC900FDB962 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADC483325004AC900FDB962 /* LaunchScreen.storyboard */; };
 		FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */ = {isa = PBXBuildFile; fileRef = FADC483E25004B2900FDB962 /* inserterJSONED.json */; };
@@ -80,8 +90,6 @@
 		FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485925004D2500FDB962 /* RecipeParser.swift */; };
 		FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */; };
 		FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC485E2502B92C00FDB962 /* IconsCropper.swift */; };
-		FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */; };
-		FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */; };
 		FADF5076253C5DDF001A774C /* TreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF5075253C5DDF001A774C /* TreeNodeTests.swift */; };
 		FADF50A6253C9525001A774C /* FluidItemsGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50A5253C9525001A774C /* FluidItemsGeneratorTests.swift */; };
 		FADF50AA253C989B001A774C /* RecipesProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50A9253C989B001A774C /* RecipesProviderTests.swift */; };
@@ -113,7 +121,6 @@
 		8060CE757BF2A10D4DBD4B34 /* Pods-FactorioHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactorioHelper.debug.xcconfig"; path = "Target Support Files/Pods-FactorioHelper/Pods-FactorioHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		EB2ADE40372B6D302CB1BD6C /* Pods_FactorioHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactorioHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCalculator.swift; sourceTree = "<group>"; };
-		FA1CA2F825080ED300125B05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		FA1CA2F925080ED300125B05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA1CA2FD25080FB100125B05 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA1CA2FF25080FB600125B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -145,6 +152,12 @@
 		FA32C73125646B2F00C48396 /* CollapsingIndicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsingIndicatorTests.swift; sourceTree = "<group>"; };
 		FA32C754256827CD00C48396 /* MachinesCountingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachinesCountingTests.swift; sourceTree = "<group>"; };
 		FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCellTableViewCell.swift; sourceTree = "<group>"; };
+		FA3AF9A0257042B600D9663A /* ProductionContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionContract.swift; sourceTree = "<group>"; };
+		FA3AF9A1257042B600D9663A /* ProductionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionPresenter.swift; sourceTree = "<group>"; };
+		FA3AF9A2257042B600D9663A /* ProductionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionRouter.swift; sourceTree = "<group>"; };
+		FA3AF9A3257042B600D9663A /* ProductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionViewController.swift; sourceTree = "<group>"; };
+		FA3AF9A4257042B600D9663A /* ProductionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionInteractor.swift; sourceTree = "<group>"; };
+		FA3AF9A5257042B600D9663A /* ProductionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionConfigurator.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -165,13 +178,17 @@
 		FAA6864D25421B66005568DB /* IconsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsProviderTests.swift; sourceTree = "<group>"; };
 		FAAA13802557409A00571CA2 /* TimeSelectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionViewTests.swift; sourceTree = "<group>"; };
 		FAAA13852557502500571CA2 /* RecipeParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParserTests.swift; sourceTree = "<group>"; };
-		FAB213EE2504106100CB8377 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		FAB0E4C0256DB542001E0C40 /* UIImage+scaledToSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+scaledToSize.swift"; sourceTree = "<group>"; };
+		FAB0E4D4256F0297001E0C40 /* MainContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContract.swift; sourceTree = "<group>"; };
+		FAB0E4D9256F0452001E0C40 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FAB0E4DE256F045F001E0C40 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		FAB0E4E3256F046F001E0C40 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		FAB0E4E8256F047B001E0C40 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		FAB0E4ED256F048D001E0C40 /* MainConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigurator.swift; sourceTree = "<group>"; };
 		FAB213F22504242400CB8377 /* RecipesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProvider.swift; sourceTree = "<group>"; };
 		FADC482525004AC700FDB962 /* FactorioHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactorioHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADC482825004AC700FDB962 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADC482A25004AC700FDB962 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FADC482C25004AC700FDB962 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FADC482F25004AC700FDB962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FADC483125004AC900FDB962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADC483425004AC900FDB962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADC483625004AC900FDB962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,8 +208,6 @@
 		FADC485925004D2500FDB962 /* RecipeParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeParser.swift; sourceTree = "<group>"; };
 		FADC485B2502B36D00FDB962 /* SourceIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SourceIcons.xcassets; sourceTree = "<group>"; };
 		FADC485E2502B92C00FDB962 /* IconsCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsCropper.swift; sourceTree = "<group>"; };
-		FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeTableViewCell.swift; sourceTree = "<group>"; };
-		FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecipeCellModelGenerator.swift; sourceTree = "<group>"; };
 		FADF5075253C5DDF001A774C /* TreeNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNodeTests.swift; sourceTree = "<group>"; };
 		FADF50A5253C9525001A774C /* FluidItemsGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidItemsGeneratorTests.swift; sourceTree = "<group>"; };
 		FADF50A9253C989B001A774C /* RecipesProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesProviderTests.swift; sourceTree = "<group>"; };
@@ -273,6 +288,34 @@
 			path = Sorting;
 			sourceTree = "<group>";
 		};
+		FA3AF9B22570467600D9663A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA72C12D2506B487008DC59D /* TimeSelectionView.swift */,
+				FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA3AF9B3257046B300D9663A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF9B7257046D400D9663A /* Views */,
+				FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */,
+				FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA3AF9B7257046D400D9663A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */,
+				FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FA642977252D77D500D08346 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,15 +344,6 @@
 			path = Generators;
 			sourceTree = "<group>";
 		};
-		FA72C12C2506B434008DC59D /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				FADC482C25004AC700FDB962 /* ViewController.swift */,
-				FAB213EE2504106100CB8377 /* RecipeViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		FA81CDD8253C547B005EBA2E /* LubricantProductionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +360,61 @@
 				FA81CDDB253C547B005EBA2E /* Info.plist */,
 			);
 			path = LubricantProductionTests;
+			sourceTree = "<group>";
+		};
+		FA90AE892570406500CF4CF4 /* Production */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF9B3257046B300D9663A /* Cells */,
+				FA3AF9B22570467600D9663A /* Views */,
+				FA3AF9A0257042B600D9663A /* ProductionContract.swift */,
+				FA3AF9A1257042B600D9663A /* ProductionPresenter.swift */,
+				FA3AF9A2257042B600D9663A /* ProductionRouter.swift */,
+				FA3AF9A3257042B600D9663A /* ProductionViewController.swift */,
+				FA3AF9A4257042B600D9663A /* ProductionInteractor.swift */,
+				FA3AF9A5257042B600D9663A /* ProductionConfigurator.swift */,
+			);
+			path = Production;
+			sourceTree = "<group>";
+		};
+		FAB0E4BF256DB4CE001E0C40 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAB0E4C0256DB542001E0C40 /* UIImage+scaledToSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAB0E4D1256F0257001E0C40 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AE892570406500CF4CF4 /* Production */,
+				FAB0E4D2256F0279001E0C40 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FAB0E4D2256F0279001E0C40 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FAB0E4F5256F086D001E0C40 /* Cells */,
+				FAB0E4D4256F0297001E0C40 /* MainContract.swift */,
+				FAB0E4D9256F0452001E0C40 /* MainViewController.swift */,
+				FAB0E4DE256F045F001E0C40 /* MainPresenter.swift */,
+				FAB0E4E3256F046F001E0C40 /* MainInteractor.swift */,
+				FAB0E4E8256F047B001E0C40 /* MainRouter.swift */,
+				FAB0E4ED256F048D001E0C40 /* MainConfigurator.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FAB0E4F5256F086D001E0C40 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA20186B251A1DC0004D9124 /* RecipeListCell.swift */,
+				FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		FADC481C25004AC700FDB962 = {
@@ -353,14 +442,13 @@
 		FADC482725004AC700FDB962 /* FactorioHelper */ = {
 			isa = PBXGroup;
 			children = (
-				FA72C12C2506B434008DC59D /* ViewControllers */,
-				FADC48602502BCAC00FDB962 /* Views */,
+				FAB0E4D1256F0257001E0C40 /* Modules */,
+				FAB0E4BF256DB4CE001E0C40 /* Extensions */,
 				FADC485D2502B8F700FDB962 /* Helpers */,
 				FADC485625004CEE00FDB962 /* Models */,
 				FADC483C25004B0800FDB962 /* RecipesSources */,
 				FADC482825004AC700FDB962 /* AppDelegate.swift */,
 				FADC482A25004AC700FDB962 /* SceneDelegate.swift */,
-				FADC482E25004AC700FDB962 /* Main.storyboard */,
 				FADC483125004AC900FDB962 /* Assets.xcassets */,
 				FADC483325004AC900FDB962 /* LaunchScreen.storyboard */,
 				FADC483625004AC900FDB962 /* Info.plist */,
@@ -419,37 +507,12 @@
 				FA642999252E0F7200D08346 /* Generators */,
 				FA642977252D77D500D08346 /* Parsers */,
 				FADC485E2502B92C00FDB962 /* IconsCropper.swift */,
-				FADC48642502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift */,
 				FAB213F22504242400CB8377 /* RecipesProvider.swift */,
 				FA1CA2F62506BF5600125B05 /* ProductionCalculator.swift */,
 				FA64299D253782C000D08346 /* Colors.swift */,
 				FAA6864925421B3B005568DB /* IconsProvider.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		FADC48602502BCAC00FDB962 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FADC48612502BCB100FDB962 /* Cells */,
-				FA72C12D2506B487008DC59D /* TimeSelectionView.swift */,
-				FA79C4D0250CBF50001BC796 /* ProductionDescriptionView.swift */,
-				FA79C4D225128ACF001BC796 /* MachinePickerButton.swift */,
-				FA79C4D42512997B001BC796 /* RecipeDescriptionHeaderView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		FADC48612502BCB100FDB962 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				FADC48622502BCC900FDB962 /* SimpleRecipeTableViewCell.swift */,
-				FA79C4CE250ACE11001BC796 /* ProductionItemCell.swift */,
-				FA20186B251A1DC0004D9124 /* RecipeListCell.swift */,
-				FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */,
-				FA32C75925682DC800C48396 /* SummaryCellTableViewCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		FAE201022551FCEA00BF16EC /* FactorioHelperUITests */ = {
@@ -611,7 +674,6 @@
 				FA2018512516AD7F004D9124 /* demo-gun.json in Resources */,
 				FA2018532516AD7F004D9124 /* turret.json in Resources */,
 				FADC485C2502B36D00FDB962 /* SourceIcons.xcassets in Resources */,
-				FADC483025004AC700FDB962 /* Main.storyboard in Resources */,
 				FA20184C2516AD7F004D9124 /* demo-armor.json in Resources */,
 				FADC485225004B2A00FDB962 /* fluid-recipeJSONED.json in Resources */,
 				FA2018562516AD7F004D9124 /* demo-item.json in Resources */,
@@ -691,36 +753,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADC482D25004AC700FDB962 /* ViewController.swift in Sources */,
 				FA79C4D72512A8BB001BC796 /* MachineType.swift in Sources */,
+				FA3AF9A6257042B600D9663A /* ProductionContract.swift in Sources */,
 				FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */,
-				FADC48652502C0B800FDB962 /* SimpleRecipeCellModelGenerator.swift in Sources */,
 				FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */,
 				FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */,
 				FA2018692517F577004D9124 /* Item.swift in Sources */,
 				FA2018602516AFF3004D9124 /* Group.swift in Sources */,
+				FAB0E4DA256F0452001E0C40 /* MainViewController.swift in Sources */,
 				FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */,
 				FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */,
 				FA64299E253782C100D08346 /* Colors.swift in Sources */,
-				FADC48632502BCC900FDB962 /* SimpleRecipeTableViewCell.swift in Sources */,
+				FAB0E4DF256F045F001E0C40 /* MainPresenter.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
+				FAB0E4E4256F046F001E0C40 /* MainInteractor.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
+				FAB0E4C1256DB542001E0C40 /* UIImage+scaledToSize.swift in Sources */,
 				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
 				FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */,
 				FA642979252D77F700D08346 /* FluidParser.swift in Sources */,
 				FA98527D2514039A00BED57D /* TreeNode.swift in Sources */,
+				FA3AF9A8257042B600D9663A /* ProductionRouter.swift in Sources */,
 				FADC482B25004AC700FDB962 /* SceneDelegate.swift in Sources */,
 				FA79C4CF250ACE11001BC796 /* ProductionItemCell.swift in Sources */,
+				FA3AF9AB257042B600D9663A /* ProductionConfigurator.swift in Sources */,
 				FAA6864A25421B3B005568DB /* IconsProvider.swift in Sources */,
+				FAB0E4D5256F0297001E0C40 /* MainContract.swift in Sources */,
 				FA2018662517F54E004D9124 /* ItemParser.swift in Sources */,
+				FA3AF9AA257042B600D9663A /* ProductionInteractor.swift in Sources */,
+				FA3AF9A7257042B600D9663A /* ProductionPresenter.swift in Sources */,
+				FAB0E4E9256F047B001E0C40 /* MainRouter.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
 				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
+				FAB0E4EE256F048D001E0C40 /* MainConfigurator.swift in Sources */,
 				FA32C75A25682DC900C48396 /* SummaryCellTableViewCell.swift in Sources */,
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
-				FAB213EF2504106100CB8377 /* RecipeViewController.swift in Sources */,
 				FA64297D252D780600D08346 /* Fluid.swift in Sources */,
 				FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */,
+				FA3AF9A9257042B600D9663A /* ProductionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,15 +827,6 @@
 				FA1CA2FF25080FB600125B05 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		FADC482E25004AC700FDB962 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FADC482F25004AC700FDB962 /* Base */,
-				FA1CA2F825080ED300125B05 /* ru */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		FADC483325004AC900FDB962 /* LaunchScreen.storyboard */ = {

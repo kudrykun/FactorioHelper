@@ -107,15 +107,9 @@ public class ProductionCalculator {
         return item
     }
 
-
-
-
     static private func getTotalMachinesCount(for item: ProductionItem) -> Int {
         guard let machinesNeeded = item.machinesNeeded else { return 0 }
         var totalCount = Int(machinesNeeded.rounded(.up))
-//        item.ingredients.forEach { item in
-//            totalCount += getTotalMachinesCount(for: item)
-//        }
         return totalCount
     }
 

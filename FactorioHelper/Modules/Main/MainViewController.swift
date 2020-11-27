@@ -1,17 +1,39 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  FactorioHelper
 //
-//  Created by Sergey Vasilenko on 03.09.2020.
+//  Created by Sergey Vasilenko on 26.11.2020.
 //  Copyright © 2020 kudrykun. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController, MainViewControllerInput {
 
-    private var recipes = [Recipe]()
+    //TODO: отрефактори, грязно получилось
+    func setGroups(_ groups: [String : Group]) {
+        self.groups = groups
+
+        sortedGroups = groups.map{$0.value}
+        sortedGroups.sort{ $0.order < $1.order}
+        currentGroup = sortedGroups.first
+
+        segmentedControl?.removeFromSuperview()
+        setupSegmentedControl()
+        guard let segmentedControl = segmentedControl else { return }
+        view.addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(60)
+        }
+    }
+
+    var presenter: MainViewControllerOuput?
+    let configurator = MainConfigurator()
+
+
 
     private var groups = [String : Group]()
     private var sortedGroups: [Group] = []
@@ -22,14 +44,14 @@ class ViewController: UIViewController {
         layout.sectionInset = .init(top: 1.5, left: 0, bottom: 1.5, right: 0)
         layout.minimumInteritemSpacing = 2
         layout.minimumLineSpacing = 2
-        layout.itemSize = .init(width: ViewController.itemWidth, height: ViewController.itemWidth)
+        layout.itemSize = .init(width: MainViewController.itemWidth, height: MainViewController.itemWidth)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(RecipeListCell.self, forCellWithReuseIdentifier: "\(RecipeListCell.self)")
         collectionView.register(RecipeListEmptyCell.self, forCellWithReuseIdentifier: "\(RecipeListEmptyCell.self)")
         return collectionView
     }()
 
-    private var segmentedControl: UISegmentedControl!
+    private var segmentedControl: UISegmentedControl?
 
     static var itemWidth: CGFloat {
         get {
@@ -51,48 +73,49 @@ class ViewController: UIViewController {
         return Int(itemsInLine)
     }
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.commonBackgroundColor
+
+        setupNavigation()
+
+        view.addSubview(collectionView)
+
+        setupCollectionView()
+        setupConstraints()
+
+        presenter?.viewDidLoad(self)
+    }
+
+    func setupNavigation() {
         navigationController?.navigationBar.barTintColor = Colors.commonBackgroundColor
         navigationController?.navigationBar.tintColor = Colors.commonTextColor
         navigationController?.navigationBar.barStyle = .black
+    }
 
-        groups = GroupsParser.getGroups()
-
-        sortedGroups = groups.map{$0.value}
-        sortedGroups.sort{ $0.order < $1.order}
-        currentGroup = sortedGroups.first
-
+    func setupSegmentedControl() {
         let imagesForSegmentedControl = sortedGroups.compactMap { UIImage(named: $0.icon ?? "")?.withRenderingMode(.alwaysOriginal) }
 
-
         segmentedControl = UISegmentedControl(items: imagesForSegmentedControl)
+        guard let segmentedControl = segmentedControl else { return }
         for (index,image) in imagesForSegmentedControl.enumerated() {
-            segmentedControl.setImage(ViewController.image(from: image, scaledToSize: CGSize(width: 50, height: 50)), forSegmentAt: index)
+            let newSize = CGSize(width: 50, height: 50)
+            segmentedControl.setImage(image.scaledToSize(newSize), forSegmentAt: index)
         }
         segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(selectSegment(_:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(segmentSelected(_:)), for: .valueChanged)
         segmentedControl.contentMode = .scaleAspectFill
         segmentedControl.apportionsSegmentWidthsByContent = true
         segmentedControl.selectedSegmentTintColor = Colors.segmentedControlSelectedColor
+    }
 
-        view.addSubview(collectionView)
-        view.addSubview(segmentedControl)
+    @objc func segmentSelected(_ sender: Any) {
+        guard let segmentedControl = segmentedControl else { return }
+        currentGroup = sortedGroups[segmentedControl.selectedSegmentIndex]
+        collectionView.reloadData()
+    }
 
-        collectionView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-        }
-
-        segmentedControl.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(collectionView.snp.top).offset(-10)
-            make.height.equalTo(60)
-        }
-
+    func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
 
@@ -101,35 +124,29 @@ class ViewController: UIViewController {
         collectionView.backgroundView = blackView
     }
 
-    @objc func selectSegment(_ sender: Any) {
-        currentGroup = sortedGroups[segmentedControl.selectedSegmentIndex]
-        collectionView.reloadData()
-    }
-
-    static func image(from sourceImage: UIImage, scaledToSize newSize: CGSize) -> UIImage{
-        UIGraphicsBeginImageContext(newSize)
-        sourceImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image?.withRenderingMode(.alwaysOriginal) ?? UIImage()
-    }
-}
-
-extension ViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        guard let subgroup = currentGroup?.subgroups[indexPath.section] else { return }
-
-        let vc = RecipeViewController()
-        if indexPath.row < subgroup.items.count {
-            let recipeName = subgroup.items[indexPath.row].name
-            vc.model = RecipesProvider.recipes[recipeName]
-            self.navigationController?.pushViewController(vc, animated: true)
+    func setupConstraints() {
+        collectionView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(70)
         }
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let subgroup = currentGroup?.subgroups[indexPath.section] else { return }
+
+        guard indexPath.row < subgroup.items.count else { return }
+
+        let recipeName = subgroup.items[indexPath.row].name
+        guard let recipe = RecipesProvider.recipes[recipeName] else { return }
+
+        presenter?.view(self, didSelectCellWith: recipe)
+    }
+}
+
+extension MainViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         let count = currentGroup?.subgroups.count ?? 0
@@ -138,17 +155,14 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let count = currentGroup?.subgroups[section].items.count else { return 0 }
-        let neededRows = (Float(count) /  Float(ViewController.itemsInLine)).rounded(.up)
-
-        let totalCount = Int(neededRows) * ViewController.itemsInLine
-
+        let neededRows = (Float(count) /  Float(MainViewController.itemsInLine)).rounded(.up)
+        let totalCount = Int(neededRows) * MainViewController.itemsInLine
         return totalCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let subgroup = currentGroup?.subgroups[indexPath.section] else { return UICollectionViewCell() }
-
 
         if indexPath.row < subgroup.items.count {
             let item = subgroup.items[indexPath.row]
@@ -162,10 +176,5 @@ extension ViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(RecipeListEmptyCell.self)", for: indexPath) as? RecipeListEmptyCell else { return UICollectionViewCell() }
             return cell
         }
-
-
-        return UICollectionViewCell()
     }
 }
-
-

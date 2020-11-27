@@ -41,7 +41,6 @@ class MachinePickerButton: UIButton {
         true
     }
 
-    //TODO: разобраться
     override open var inputAccessoryView: UIView? {
         let toolbar = UIToolbar()
         toolbar.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 44)
@@ -80,11 +79,6 @@ class MachinePickerButton: UIButton {
     private func setupMachinePicker() {
             machinePicker.delegate = self
             machinePicker.dataSource = self
-    //        machinePicker.snp.makeConstraints { make in
-    //            make.left.right.bottom.equalToSuperview()
-    //            make.top.equalTo(view.snp.centerY)
-    //        }
-//            machineIcon.inputView = machinePicker
     }
 
     @objc func didTap() {
@@ -104,8 +98,6 @@ extension MachinePickerButton: UIPickerViewDelegate {
         setImage(machines[row].icon, for: .normal)
         didSelectMachine?(machines[row])
     }
-
-
 }
 
 extension MachinePickerButton: UIPickerViewDataSource {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-//не парсится, нужна проверка после обновления версии игры
+// NOTE не парсится, нужна проверка после обновления версии игры
 public enum MachineType: Int {
     case Machine1 = 3
     case Machine2 = 4

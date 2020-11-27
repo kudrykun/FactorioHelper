@@ -44,10 +44,6 @@ class RecipeListCell: UICollectionViewCell {
         addSubview(grayBackgroundView)
         addSubview(imageView)
 
-        //TODO: TEMP
-//        imageView.isHidden = true
-//        grayBackgroundView.isHidden = true
-
         grayBackgroundView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.width.height.equalToSuperview().multipliedBy(0.93)

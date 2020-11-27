@@ -16,5 +16,3 @@ public struct Fluid {
     var oder: String
     var autoBarrel: Bool
 }
-
-

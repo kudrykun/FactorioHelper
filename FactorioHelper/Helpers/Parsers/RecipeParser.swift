@@ -77,7 +77,6 @@ class RecipeParser {
             }
         }
 
-
         let fluidRecipes = generateBaseFluidRecipes()
         fluidRecipes.forEach { recipe in
             recipes[recipe.name] = recipe
@@ -92,16 +91,6 @@ class RecipeParser {
         uraniumRecipes.forEach { recipe in
             recipes[recipe.name] = recipe
         }
-
-//        let barrelFillRecipes = generateFillBarrelRecipes()
-//        barrelFillRecipes.forEach { recipe in
-//            recipes[recipe.name] = recipe
-//        }
-//
-//        let barrelEmptyRecipes = generateEmptyBarrelRecipes()
-//        barrelEmptyRecipes.forEach { recipe in
-//            recipes[recipe.name] = recipe
-//        }
 
         if let oilProcessingRecipe = recipes["advanced-oil-processing"] {
             let oilProcessingRecipes = generateOilProcessingLiquidRecipes(oilProcessingRecipe)
@@ -120,17 +109,6 @@ class RecipeParser {
         for result in results {
             recipes.append(Recipe(type: "recipe", name: result.name ?? "", category: .oilProcessing, ingredients: oilProcessingRecipe.baseIngredients, energyRequired: oilProcessingRecipe.baseProductionTime, result: nil, normal: nil, expensive: nil, resultCount: result.amount, icon: result.name, subgroup: "fluid-recipes", order: nil, results: nil))
         }
-
-        /*
-         struct Result: Codable {
-             var name: String?
-             var probability: Double?
-             var amount: Int?
-             var type: String?
-             var fluidbox_index: Int?
-         }
-         */
-
         return recipes
     }
 
@@ -257,7 +235,6 @@ class RecipeParser {
     }
 
     func parseResults(from array: [Any]) -> [Result]? {
-
         var results = [Result]()
         for resultJson in array {
             if let data = resultJson as? [String : Any] {
