@@ -21,7 +21,12 @@ class FactorioHelperNavigationController: UINavigationController {
 
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
-        guard (viewController as? MenuViewController) == nil else { return }
+
+        var isMenuControllerInStack = false
+        viewControllers.forEach { vc in
+            isMenuControllerInStack = isMenuControllerInStack || (vc as? MenuViewController) != nil
+        }
+        guard !isMenuControllerInStack else { return }
         addMenuItem(to: viewController)
     }
 

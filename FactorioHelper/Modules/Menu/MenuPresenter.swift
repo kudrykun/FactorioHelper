@@ -16,6 +16,9 @@ class MenuPresenter {
 }
 
 extension MenuPresenter: MenuViewControllerOuput {
+    func viewDidTapAboutCell(_ view: MenuViewControllerInput) {
+        router?.openAbout()
+    }
 
 }
 

@@ -13,7 +13,7 @@ protocol MenuConfiguratorProtocol: class {
 }
 
 protocol MenuViewControllerOuput: class {
-
+    func viewDidTapAboutCell(_ view: MenuViewControllerInput)
 }
 
 protocol MenuViewControllerInput: class {
@@ -29,5 +29,5 @@ protocol MenuInteractorOutput: class {
 }
 
 protocol MenuRouterProtocol: class {
-
+    func openAbout()
 }

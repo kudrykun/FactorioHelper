@@ -6,6 +6,7 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
+"about" = "About";
 "description" = "Description";
 "items/sec" = "items/s";
 "menu" = "Menu";

@@ -6,6 +6,7 @@
   Copyright © 2020 kudrykun. All rights reserved.
 */
 
+"about" = "О приложении";
 "description" = "Детали";
 "items/sec" = "шт/с";
 "menu" = "Меню";

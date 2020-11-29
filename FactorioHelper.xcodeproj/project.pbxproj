@@ -103,6 +103,12 @@
 		FADF50AE253C9D1E001A774C /* ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADF50AD253C9D1E001A774C /* ItemTests.swift */; };
 		FAE200C2254EF5E000BF16EC /* ProductionCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE200C1254EF5E000BF16EC /* ProductionCalculatorTests.swift */; };
 		FAE201042551FCEA00BF16EC /* FactorioHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */; };
+		FAE86DA125742A02003493ED /* AboutContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9B25742A01003493ED /* AboutContract.swift */; };
+		FAE86DA225742A02003493ED /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9C25742A01003493ED /* AboutPresenter.swift */; };
+		FAE86DA325742A02003493ED /* AboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9D25742A01003493ED /* AboutRouter.swift */; };
+		FAE86DA425742A02003493ED /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9E25742A01003493ED /* AboutViewController.swift */; };
+		FAE86DA525742A02003493ED /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9F25742A01003493ED /* AboutInteractor.swift */; };
+		FAE86DA625742A02003493ED /* AboutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DA025742A01003493ED /* AboutConfigurator.swift */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +236,12 @@
 		FAE201012551FCEA00BF16EC /* FactorioHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FactorioHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE201032551FCEA00BF16EC /* FactorioHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorioHelperUITests.swift; sourceTree = "<group>"; };
 		FAE201052551FCEA00BF16EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE86D9B25742A01003493ED /* AboutContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContract.swift; sourceTree = "<group>"; };
+		FAE86D9C25742A01003493ED /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
+		FAE86D9D25742A01003493ED /* AboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRouter.swift; sourceTree = "<group>"; };
+		FAE86D9E25742A01003493ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FAE86D9F25742A01003493ED /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
+		FAE86DA025742A01003493ED /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -415,6 +427,7 @@
 		FAB0E4D1256F0257001E0C40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FAE86D9A257429E8003493ED /* About */,
 				FA3AF9D52573D58000D9663A /* Menu */,
 				FA90AE892570406500CF4CF4 /* Production */,
 				FAB0E4D2256F0279001E0C40 /* Main */,
@@ -552,6 +565,19 @@
 				FAE201052551FCEA00BF16EC /* Info.plist */,
 			);
 			path = FactorioHelperUITests;
+			sourceTree = "<group>";
+		};
+		FAE86D9A257429E8003493ED /* About */ = {
+			isa = PBXGroup;
+			children = (
+				FAE86D9B25742A01003493ED /* AboutContract.swift */,
+				FAE86D9C25742A01003493ED /* AboutPresenter.swift */,
+				FAE86D9D25742A01003493ED /* AboutRouter.swift */,
+				FAE86D9E25742A01003493ED /* AboutViewController.swift */,
+				FAE86D9F25742A01003493ED /* AboutInteractor.swift */,
+				FAE86DA025742A01003493ED /* AboutConfigurator.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,13 +819,16 @@
 				FA79C4D1250CBF50001BC796 /* ProductionDescriptionView.swift in Sources */,
 				FA79C4D325128AD0001BC796 /* MachinePickerButton.swift in Sources */,
 				FA64299E253782C100D08346 /* Colors.swift in Sources */,
+				FAE86DA325742A02003493ED /* AboutRouter.swift in Sources */,
 				FAB0E4DF256F045F001E0C40 /* MainPresenter.swift in Sources */,
 				FADC482925004AC700FDB962 /* AppDelegate.swift in Sources */,
 				FAB0E4E4256F046F001E0C40 /* MainInteractor.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
 				FAB0E4C1256DB542001E0C40 /* UIImage+scaledToSize.swift in Sources */,
 				FA3AF9E62573DB1C00D9663A /* FactorioHelperNavigationController.swift in Sources */,
+				FAE86DA425742A02003493ED /* AboutViewController.swift in Sources */,
 				FA3AF9DC2573D5A100D9663A /* MenuContract.swift in Sources */,
+				FAE86DA225742A02003493ED /* AboutPresenter.swift in Sources */,
 				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
 				FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */,
 				FA642979252D77F700D08346 /* FluidParser.swift in Sources */,
@@ -810,10 +839,12 @@
 				FA3AF9AB257042B600D9663A /* ProductionConfigurator.swift in Sources */,
 				FAA6864A25421B3B005568DB /* IconsProvider.swift in Sources */,
 				FAB0E4D5256F0297001E0C40 /* MainContract.swift in Sources */,
+				FAE86DA125742A02003493ED /* AboutContract.swift in Sources */,
 				FA2018662517F54E004D9124 /* ItemParser.swift in Sources */,
 				FA3AF9AA257042B600D9663A /* ProductionInteractor.swift in Sources */,
 				FA3AF9E12573D5A100D9663A /* MenuConfigurator.swift in Sources */,
 				FA3AF9DF2573D5A100D9663A /* MenuViewController.swift in Sources */,
+				FAE86DA525742A02003493ED /* AboutInteractor.swift in Sources */,
 				FA3AF9DE2573D5A100D9663A /* MenuRouter.swift in Sources */,
 				FA3AF9E02573D5A100D9663A /* MenuInteractor.swift in Sources */,
 				FA3AF9A7257042B600D9663A /* ProductionPresenter.swift in Sources */,
@@ -821,6 +852,7 @@
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
 				FADC485825004CFD00FDB962 /* Recipe.swift in Sources */,
 				FAB0E4EE256F048D001E0C40 /* MainConfigurator.swift in Sources */,
+				FAE86DA625742A02003493ED /* AboutConfigurator.swift in Sources */,
 				FA32C75A25682DC900C48396 /* SummaryCellTableViewCell.swift in Sources */,
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,

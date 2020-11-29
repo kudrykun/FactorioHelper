@@ -11,4 +11,10 @@ import UIKit
 class MenuRouter: MenuRouterProtocol {
     weak var view: UIViewController?
 
+    func openAbout() {
+        let viewController = AboutViewController()
+        viewController.configurator.configure(with: viewController)
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }
