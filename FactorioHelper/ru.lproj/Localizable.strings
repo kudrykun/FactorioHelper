@@ -8,9 +8,13 @@
 
 "about" = "О приложении";
 "description" = "Детали";
+"feedback" = "Обратная связь";
 "items/sec" = "шт/с";
 "menu" = "Меню";
+"note" = "Примечание";
 "required-items" = "Требуется";
+"share app" = "Поделиться";
+"show other apps" = "Другие приложения разработчика";
 "summary" = "Итог";
 
 "automated-cleanup" = "Снесите 100 объектов строительными дронами.";

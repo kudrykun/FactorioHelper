@@ -8,9 +8,13 @@
 
 "about" = "About";
 "description" = "Description";
+"feedback" = "Feedback";
 "items/sec" = "items/s";
 "menu" = "Menu";
+"note" = "Note";
 "required-items" = "You need";
+"share app" = "Share app";
+"show other apps" = "Show other apps";
 "summary" = "Summary";
 
 "copper-ore" = "__ENTITY__copper-ore__";

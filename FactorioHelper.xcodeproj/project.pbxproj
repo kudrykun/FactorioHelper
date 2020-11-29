@@ -109,6 +109,8 @@
 		FAE86DA425742A02003493ED /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9E25742A01003493ED /* AboutViewController.swift */; };
 		FAE86DA525742A02003493ED /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86D9F25742A01003493ED /* AboutInteractor.swift */; };
 		FAE86DA625742A02003493ED /* AboutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DA025742A01003493ED /* AboutConfigurator.swift */; };
+		FAE86DAC25743A6F003493ED /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DAB25743A6F003493ED /* NoteCell.swift */; };
+		FAE86DB125743C5D003493ED /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DB025743C5D003493ED /* HeaderCell.swift */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +244,8 @@
 		FAE86D9E25742A01003493ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		FAE86D9F25742A01003493ED /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
 		FAE86DA025742A01003493ED /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
+		FAE86DAB25743A6F003493ED /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		FAE86DB025743C5D003493ED /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -570,6 +574,7 @@
 		FAE86D9A257429E8003493ED /* About */ = {
 			isa = PBXGroup;
 			children = (
+				FAE86DAA25743A52003493ED /* Cells */,
 				FAE86D9B25742A01003493ED /* AboutContract.swift */,
 				FAE86D9C25742A01003493ED /* AboutPresenter.swift */,
 				FAE86D9D25742A01003493ED /* AboutRouter.swift */,
@@ -578,6 +583,15 @@
 				FAE86DA025742A01003493ED /* AboutConfigurator.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		FAE86DAA25743A52003493ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAE86DAB25743A6F003493ED /* NoteCell.swift */,
+				FAE86DB025743C5D003493ED /* HeaderCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -813,6 +827,7 @@
 				FADC485F2502B92C00FDB962 /* IconsCropper.swift in Sources */,
 				FA1CA2F72506BF5600125B05 /* ProductionCalculator.swift in Sources */,
 				FA79C4D52512997B001BC796 /* RecipeDescriptionHeaderView.swift in Sources */,
+				FAE86DAC25743A6F003493ED /* NoteCell.swift in Sources */,
 				FA2018692517F577004D9124 /* Item.swift in Sources */,
 				FA2018602516AFF3004D9124 /* Group.swift in Sources */,
 				FAB0E4DA256F0452001E0C40 /* MainViewController.swift in Sources */,
@@ -847,6 +862,7 @@
 				FAE86DA525742A02003493ED /* AboutInteractor.swift in Sources */,
 				FA3AF9DE2573D5A100D9663A /* MenuRouter.swift in Sources */,
 				FA3AF9E02573D5A100D9663A /* MenuInteractor.swift in Sources */,
+				FAE86DB125743C5D003493ED /* HeaderCell.swift in Sources */,
 				FA3AF9A7257042B600D9663A /* ProductionPresenter.swift in Sources */,
 				FAB0E4E9256F047B001E0C40 /* MainRouter.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,

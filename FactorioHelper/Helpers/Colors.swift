@@ -21,4 +21,5 @@ class Colors {
     static let segmentedControlSelectedColor = UIColor.init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
 
     static let menuCellColor = UIColor(red: 64/255.0, green: 60/255.0, blue: 56/255.0, alpha: 1)
+    static let versionTextColor = UIColor.init(red: 255/255.0, green: 241/255.0, blue: 226/255.0, alpha: 1.0)
 }
