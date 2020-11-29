@@ -91,6 +91,14 @@ class MainViewController: UIViewController, MainViewControllerInput {
         navigationController?.navigationBar.barTintColor = Colors.commonBackgroundColor
         navigationController?.navigationBar.tintColor = Colors.commonTextColor
         navigationController?.navigationBar.barStyle = .black
+
+        let menuButtonTitle = NSLocalizedString("menu", comment: "")
+        let menuButton = UIBarButtonItem(title: menuButtonTitle, style: .plain, target: self, action: #selector(menuButtonTapped))
+        navigationItem.rightBarButtonItem = menuButton
+    }
+
+    @objc func menuButtonTapped() {
+        presenter?.viewDidPressMenuButton(self)
     }
 
     func setupSegmentedControl() {

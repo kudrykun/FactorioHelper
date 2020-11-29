@@ -24,6 +24,10 @@ extension MainPresenter: MainViewControllerOuput {
         router?.openProductionViewController(with: recipe)
     }
 
+    func viewDidPressMenuButton(_ view: MainViewControllerInput) {
+        router?.openMenu()
+    }
+
 }
 
 extension MainPresenter: MainInteractorOutput {

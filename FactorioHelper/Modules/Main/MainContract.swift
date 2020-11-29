@@ -15,6 +15,7 @@ protocol MainConfiguratorProtocol: class {
 protocol MainViewControllerOuput: class {
     func viewDidLoad( _ view: MainViewControllerInput)
     func view(_ view: MainViewControllerInput, didSelectCellWith recipe: Recipe)
+    func viewDidPressMenuButton(_ view: MainViewControllerInput)
 }
 
 protocol MainViewControllerInput: class {
@@ -31,4 +32,5 @@ protocol MainInteractorOutput: class {
 
 protocol MainRouterProtocol: class {
     func openProductionViewController(with recipe: Recipe)
+    func openMenu()
 }

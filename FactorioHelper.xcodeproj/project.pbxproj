@@ -44,6 +44,12 @@
 		FA3AF9A9257042B600D9663A /* ProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A3257042B600D9663A /* ProductionViewController.swift */; };
 		FA3AF9AA257042B600D9663A /* ProductionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A4257042B600D9663A /* ProductionInteractor.swift */; };
 		FA3AF9AB257042B600D9663A /* ProductionConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9A5257042B600D9663A /* ProductionConfigurator.swift */; };
+		FA3AF9DC2573D5A100D9663A /* MenuContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9D62573D5A100D9663A /* MenuContract.swift */; };
+		FA3AF9DD2573D5A100D9663A /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9D72573D5A100D9663A /* MenuPresenter.swift */; };
+		FA3AF9DE2573D5A100D9663A /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9D82573D5A100D9663A /* MenuRouter.swift */; };
+		FA3AF9DF2573D5A100D9663A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9D92573D5A100D9663A /* MenuViewController.swift */; };
+		FA3AF9E02573D5A100D9663A /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9DA2573D5A100D9663A /* MenuInteractor.swift */; };
+		FA3AF9E12573D5A100D9663A /* MenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9DB2573D5A100D9663A /* MenuConfigurator.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -158,6 +164,12 @@
 		FA3AF9A3257042B600D9663A /* ProductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionViewController.swift; sourceTree = "<group>"; };
 		FA3AF9A4257042B600D9663A /* ProductionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionInteractor.swift; sourceTree = "<group>"; };
 		FA3AF9A5257042B600D9663A /* ProductionConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionConfigurator.swift; sourceTree = "<group>"; };
+		FA3AF9D62573D5A100D9663A /* MenuContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContract.swift; sourceTree = "<group>"; };
+		FA3AF9D72573D5A100D9663A /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
+		FA3AF9D82573D5A100D9663A /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
+		FA3AF9D92573D5A100D9663A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		FA3AF9DA2573D5A100D9663A /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
+		FA3AF9DB2573D5A100D9663A /* MenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurator.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -316,6 +328,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FA3AF9D52573D58000D9663A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AF9D62573D5A100D9663A /* MenuContract.swift */,
+				FA3AF9D72573D5A100D9663A /* MenuPresenter.swift */,
+				FA3AF9D82573D5A100D9663A /* MenuRouter.swift */,
+				FA3AF9D92573D5A100D9663A /* MenuViewController.swift */,
+				FA3AF9DA2573D5A100D9663A /* MenuInteractor.swift */,
+				FA3AF9DB2573D5A100D9663A /* MenuConfigurator.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		FA642977252D77D500D08346 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +413,7 @@
 		FAB0E4D1256F0257001E0C40 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AF9D52573D58000D9663A /* Menu */,
 				FA90AE892570406500CF4CF4 /* Production */,
 				FAB0E4D2256F0279001E0C40 /* Main */,
 			);
@@ -769,6 +795,7 @@
 				FAB0E4E4256F046F001E0C40 /* MainInteractor.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
 				FAB0E4C1256DB542001E0C40 /* UIImage+scaledToSize.swift in Sources */,
+				FA3AF9DC2573D5A100D9663A /* MenuContract.swift in Sources */,
 				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
 				FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */,
 				FA642979252D77F700D08346 /* FluidParser.swift in Sources */,
@@ -781,6 +808,10 @@
 				FAB0E4D5256F0297001E0C40 /* MainContract.swift in Sources */,
 				FA2018662517F54E004D9124 /* ItemParser.swift in Sources */,
 				FA3AF9AA257042B600D9663A /* ProductionInteractor.swift in Sources */,
+				FA3AF9E12573D5A100D9663A /* MenuConfigurator.swift in Sources */,
+				FA3AF9DF2573D5A100D9663A /* MenuViewController.swift in Sources */,
+				FA3AF9DE2573D5A100D9663A /* MenuRouter.swift in Sources */,
+				FA3AF9E02573D5A100D9663A /* MenuInteractor.swift in Sources */,
 				FA3AF9A7257042B600D9663A /* ProductionPresenter.swift in Sources */,
 				FAB0E4E9256F047B001E0C40 /* MainRouter.swift in Sources */,
 				FADC485A25004D2500FDB962 /* RecipeParser.swift in Sources */,
@@ -790,6 +821,7 @@
 				FAB213F32504242400CB8377 /* RecipesProvider.swift in Sources */,
 				FA2018632516B05B004D9124 /* GroupsParser.swift in Sources */,
 				FA64297D252D780600D08346 /* Fluid.swift in Sources */,
+				FA3AF9DD2573D5A100D9663A /* MenuPresenter.swift in Sources */,
 				FA20186C251A1DC0004D9124 /* RecipeListCell.swift in Sources */,
 				FA3AF9A9257042B600D9663A /* ProductionViewController.swift in Sources */,
 			);

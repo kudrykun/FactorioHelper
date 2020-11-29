@@ -8,6 +8,7 @@
 
 "description" = "Description";
 "items/sec" = "items/s";
+"menu" = "Menu";
 "required-items" = "You need";
 "summary" = "Summary";
 

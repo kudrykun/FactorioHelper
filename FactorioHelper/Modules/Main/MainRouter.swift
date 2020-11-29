@@ -17,4 +17,10 @@ class MainRouter: MainRouterProtocol {
         view?.navigationController?.pushViewController(viewController, animated: true)
     }
 
+    func openMenu() {
+        let viewController = MenuViewController()
+        viewController.configurator.configure(with: viewController)
+        view?.navigationController?.pushViewController(viewController, animated: true)
+    }
+
 }

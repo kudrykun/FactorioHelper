@@ -8,6 +8,7 @@
 
 "description" = "Детали";
 "items/sec" = "шт/с";
+"menu" = "Меню";
 "required-items" = "Требуется";
 "summary" = "Итог";
 
