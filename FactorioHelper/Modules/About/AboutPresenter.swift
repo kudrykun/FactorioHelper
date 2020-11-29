@@ -16,9 +16,22 @@ class AboutPresenter {
 }
 
 extension AboutPresenter: AboutViewControllerOuput {
+    func viewDidLoad(_ view: AboutViewControllerInput) {
+        interactor?.getAppName()
+    }
 
 }
 
 extension AboutPresenter: AboutInteractorOutput {
+    func interactor(_ interactor: AboutInteractorInput, didLoadAppName appName: String) {
+        view?.setAppName(appName)
+        interactor.getAppVersion()
+    }
+
+    func interactor(_ interactor: AboutInteractorInput, didLoadAppVersion appVersion: String) {
+        view?.setAppVersionNumber(appVersion)
+        view?.reload()
+    }
+
 
 }

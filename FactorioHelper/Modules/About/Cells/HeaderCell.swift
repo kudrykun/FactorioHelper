@@ -10,6 +10,17 @@ import UIKit
 
 class HeaderCell: UITableViewCell {
 
+    var appName: String? {
+        didSet {
+            appNameLabel.text = appName
+        }
+    }
+
+    var appVersion: String? {
+        didSet {
+            appVersionLabel.text = appVersion
+        }
+    }
 
     private let appIcon: UIImageView = {
         let view = UIImageView()
@@ -18,9 +29,8 @@ class HeaderCell: UITableViewCell {
         return view
     }()
 
-    private let appName: UILabel = {
+    private let appNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Factorio Pruduction Calculator"
         label.textAlignment = .center
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -29,9 +39,8 @@ class HeaderCell: UITableViewCell {
         return label
     }()
 
-    private let appVersion: UILabel = {
+    private let appVersionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Version 0.8"
         label.textAlignment = .center
         label.numberOfLines = 1
         label.textColor = Colors.versionTextColor
@@ -49,8 +58,8 @@ class HeaderCell: UITableViewCell {
         selectionStyle = .none
 
         addSubview(appIcon)
-        addSubview(appName)
-        addSubview(appVersion)
+        addSubview(appNameLabel)
+        addSubview(appVersionLabel)
 
         makeConstraints()
     }
@@ -62,14 +71,14 @@ class HeaderCell: UITableViewCell {
             make.centerX.equalToSuperview()
         }
 
-        appName.snp.makeConstraints { make in
+        appNameLabel.snp.makeConstraints { make in
             make.top.equalTo(appIcon.snp.bottom).offset(15)
             make.width.equalToSuperview().inset(30)
             make.centerX.equalToSuperview()
         }
 
-        appVersion.snp.makeConstraints { make in
-            make.top.equalTo(appName.snp.bottom).offset(10)
+        appVersionLabel.snp.makeConstraints { make in
+            make.top.equalTo(appNameLabel.snp.bottom).offset(10)
             make.width.equalToSuperview().inset(30)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(30)

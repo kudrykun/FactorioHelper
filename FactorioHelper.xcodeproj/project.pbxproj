@@ -111,6 +111,7 @@
 		FAE86DA625742A02003493ED /* AboutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DA025742A01003493ED /* AboutConfigurator.swift */; };
 		FAE86DAC25743A6F003493ED /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DAB25743A6F003493ED /* NoteCell.swift */; };
 		FAE86DB125743C5D003493ED /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86DB025743C5D003493ED /* HeaderCell.swift */; };
+		FAE86DB62574416C003493ED /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAE86DB52574416C003493ED /* Config.plist */; };
 		FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +247,7 @@
 		FAE86DA025742A01003493ED /* AboutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutConfigurator.swift; sourceTree = "<group>"; };
 		FAE86DAB25743A6F003493ED /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		FAE86DB025743C5D003493ED /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		FAE86DB52574416C003493ED /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		FAFCE6832537A0E0005FF58C /* RecipeListEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -499,6 +501,7 @@
 				FADC483625004AC900FDB962 /* Info.plist */,
 				FA1CA2FE25080FB100125B05 /* Localizable.strings */,
 				FA3AF9E52573DB1C00D9663A /* FactorioHelperNavigationController.swift */,
+				FAE86DB52574416C003493ED /* Config.plist */,
 			);
 			path = FactorioHelper;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				FA20184F2516AD7F004D9124 /* armor.json in Resources */,
 				FA642994252D7A5200D08346 /* demo-fluidJSONED.json in Resources */,
 				FA2018552516AD7F004D9124 /* demo-ammo.json in Resources */,
+				FAE86DB62574416C003493ED /* Config.plist in Resources */,
 				FADC484A25004B2A00FDB962 /* inserterJSONED.json in Resources */,
 				FA2018542516AD7F004D9124 /* equipment.json in Resources */,
 				FA20185B2516AD7F004D9124 /* modulesLimitations.json in Resources */,

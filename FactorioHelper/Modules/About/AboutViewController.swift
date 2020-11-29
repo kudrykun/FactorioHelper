@@ -60,11 +60,15 @@ class AboutViewController: UIViewController {
         }
     }
 
+    private var appName: String?
+    private var appVersion: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
         setupTableView()
         makeConstraints()
+        presenter?.viewDidLoad(self)
     }
 
     func makeConstraints() {
@@ -86,6 +90,18 @@ class AboutViewController: UIViewController {
 }
 
 extension AboutViewController: AboutViewControllerInput {
+    func setAppVersionNumber(_ appVesrion: String) {
+        self.appVersion = appVesrion
+    }
+
+    func setAppName(_ appName: String) {
+        self.appName = appName
+    }
+
+    func reload() {
+        tableView.reloadData()
+    }
+
 
 }
 
@@ -118,7 +134,10 @@ extension AboutViewController: UITableViewDataSource {
         if let tableSection = TableSection(rawValue: indexPath.section) {
             switch tableSection {
             case .header:
-                return HeaderCell()
+                let cell = HeaderCell()
+                cell.appName = appName
+                cell.appVersion = appVersion
+                return cell
             case .menu:
                 if let menuCell = MenuCell(rawValue: indexPath.row) {
                     return setupCell(with: menuCell)
