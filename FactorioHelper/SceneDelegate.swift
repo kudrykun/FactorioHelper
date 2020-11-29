@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let mainViewController = MainViewController()
         mainViewController.configurator.configure(with: mainViewController)
-        let navigationViewController = UINavigationController(rootViewController: mainViewController)
+        let navigationViewController = FactorioHelperNavigationController(rootViewController: mainViewController)
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
     }

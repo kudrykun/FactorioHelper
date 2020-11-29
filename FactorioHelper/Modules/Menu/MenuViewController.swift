@@ -38,9 +38,6 @@ class MenuViewController: UIViewController {
 
     func setupNavigation() {
         navigationItem.title = NSLocalizedString("Menu", comment: "")
-
-        let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.commonTextColor]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 
     func makeConstraints() {

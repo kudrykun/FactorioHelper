@@ -77,28 +77,12 @@ class MainViewController: UIViewController, MainViewControllerInput {
         super.viewDidLoad()
         view.backgroundColor = Colors.commonBackgroundColor
 
-        setupNavigation()
-
         view.addSubview(collectionView)
 
         setupCollectionView()
         setupConstraints()
 
         presenter?.viewDidLoad(self)
-    }
-
-    func setupNavigation() {
-        navigationController?.navigationBar.barTintColor = Colors.commonBackgroundColor
-        navigationController?.navigationBar.tintColor = Colors.commonTextColor
-        navigationController?.navigationBar.barStyle = .black
-
-        let menuButtonTitle = NSLocalizedString("menu", comment: "")
-        let menuButton = UIBarButtonItem(title: menuButtonTitle, style: .plain, target: self, action: #selector(menuButtonTapped))
-        navigationItem.rightBarButtonItem = menuButton
-    }
-
-    @objc func menuButtonTapped() {
-        presenter?.viewDidPressMenuButton(self)
     }
 
     func setupSegmentedControl() {

@@ -50,6 +50,7 @@
 		FA3AF9DF2573D5A100D9663A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9D92573D5A100D9663A /* MenuViewController.swift */; };
 		FA3AF9E02573D5A100D9663A /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9DA2573D5A100D9663A /* MenuInteractor.swift */; };
 		FA3AF9E12573D5A100D9663A /* MenuConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9DB2573D5A100D9663A /* MenuConfigurator.swift */; };
+		FA3AF9E62573DB1C00D9663A /* FactorioHelperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AF9E52573DB1C00D9663A /* FactorioHelperNavigationController.swift */; };
 		FA642975251D30E500D08346 /* GroupIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA642974251D30E500D08346 /* GroupIcons.xcassets */; };
 		FA642979252D77F700D08346 /* FluidParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA642978252D77F700D08346 /* FluidParser.swift */; };
 		FA64297D252D780600D08346 /* Fluid.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64297C252D780600D08346 /* Fluid.swift */; };
@@ -170,6 +171,7 @@
 		FA3AF9D92573D5A100D9663A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FA3AF9DA2573D5A100D9663A /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		FA3AF9DB2573D5A100D9663A /* MenuConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurator.swift; sourceTree = "<group>"; };
+		FA3AF9E52573DB1C00D9663A /* FactorioHelperNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactorioHelperNavigationController.swift; sourceTree = "<group>"; };
 		FA642974251D30E500D08346 /* GroupIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GroupIcons.xcassets; sourceTree = "<group>"; };
 		FA642978252D77F700D08346 /* FluidParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidParser.swift; sourceTree = "<group>"; };
 		FA64297C252D780600D08346 /* Fluid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fluid.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 				FADC483325004AC900FDB962 /* LaunchScreen.storyboard */,
 				FADC483625004AC900FDB962 /* Info.plist */,
 				FA1CA2FE25080FB100125B05 /* Localizable.strings */,
+				FA3AF9E52573DB1C00D9663A /* FactorioHelperNavigationController.swift */,
 			);
 			path = FactorioHelper;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				FAB0E4E4256F046F001E0C40 /* MainInteractor.swift in Sources */,
 				FA72C12E2506B487008DC59D /* TimeSelectionView.swift in Sources */,
 				FAB0E4C1256DB542001E0C40 /* UIImage+scaledToSize.swift in Sources */,
+				FA3AF9E62573DB1C00D9663A /* FactorioHelperNavigationController.swift in Sources */,
 				FA3AF9DC2573D5A100D9663A /* MenuContract.swift in Sources */,
 				FA64299B252E0F8900D08346 /* FluidItemsGenerator.swift in Sources */,
 				FAFCE6842537A0E0005FF58C /* RecipeListEmptyCell.swift in Sources */,
