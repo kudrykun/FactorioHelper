@@ -118,7 +118,7 @@ extension AboutViewController: UITableViewDataSource {
             case .header:
                 return 1
             case .menu:
-                return MenuCell.allCases.count
+                return 1 //TODO: заменить на MenuCell.allCases.count, когда будет готово
             case .note:
                 return 1
             }
