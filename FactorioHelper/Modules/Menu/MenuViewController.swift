@@ -45,7 +45,7 @@ class MenuViewController: UIViewController {
     }
 
     func setupNavigation() {
-        navigationItem.title = NSLocalizedString("Menu", comment: "")
+        navigationItem.title = NSLocalizedString("menu", comment: "")
     }
 
     func makeConstraints() {

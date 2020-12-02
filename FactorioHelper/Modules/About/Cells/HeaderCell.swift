@@ -18,7 +18,7 @@ class HeaderCell: UITableViewCell {
 
     var appVersion: String? {
         didSet {
-            appVersionLabel.text = appVersion
+            appVersionLabel.text = NSLocalizedString("version", comment: "") + " " + (appVersion ?? "")
         }
     }
 
