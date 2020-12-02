@@ -101,8 +101,6 @@ extension AboutViewController: AboutViewControllerInput {
     func reload() {
         tableView.reloadData()
     }
-
-
 }
 
 extension AboutViewController: UITableViewDataSource {
@@ -173,5 +171,17 @@ extension AboutViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard section != 0 else { return 0 }
         return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 else { return }
+        if let menuCell = MenuCell(rawValue: indexPath.row) {
+            switch menuCell {
+            case .feedback:
+                presenter?.viewDidPressFeedback(self)
+            default:
+                return
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@
 "share app" = "Share app";
 "show other apps" = "Show other apps";
 "summary" = "Summary";
+"versionMessage" = "Application version";
 
 "copper-ore" = "__ENTITY__copper-ore__";
 "iron-ore" = "__ENTITY__iron-ore__";

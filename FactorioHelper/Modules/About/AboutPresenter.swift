@@ -20,6 +20,9 @@ extension AboutPresenter: AboutViewControllerOuput {
         interactor?.getAppName()
     }
 
+    func viewDidPressFeedback(_ view: AboutViewControllerInput) {
+        interactor?.getFeedbackInfo()
+    }
 }
 
 extension AboutPresenter: AboutInteractorOutput {
@@ -33,5 +36,15 @@ extension AboutPresenter: AboutInteractorOutput {
         view?.reload()
     }
 
+    func interactor(_ interactor: AboutInteractorInput, didLoadFeedbackInfo email: String, appName: String, appVersion: String, device: String, iosVersion: String) {
+
+        let message = """
+        \n\n\(NSLocalizedString("versionMessage", comment: "")) \(appVersion)
+        \(device)
+        \(iosVersion)
+        """
+
+        router?.openFeedbackMail(to: email, subject: appName, text: message)
+    }
 
 }

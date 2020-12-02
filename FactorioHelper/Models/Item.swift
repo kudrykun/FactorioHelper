@@ -29,7 +29,7 @@ public struct Item {
             let fluid = FluidParser.parseFluids().filter{$0.name == fluidName}
             return IconsProvider.getEmptyBarrelIcon(for: fluid[0])
         } else {
-            guard let iconNameSubstring = icon?.split(separator: "/").last ?? Substring(name) else { return nil }
+            let iconNameSubstring = icon?.split(separator: "/").last ?? Substring(name)
             let iconName = String(iconNameSubstring)
             guard let sourceImage = UIImage(named: iconName) ?? UIImage(named: name) else { return nil }
             guard let croppedImage = IconsCropper.crop(sourceImage) else { return nil }
